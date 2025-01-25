@@ -7,6 +7,8 @@ export function loader(){
 
     document.querySelector("#next").addEventListener("click",function(){
 
+     
+
         router.navigate("/register")
     })
 
