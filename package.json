@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "backend": "json-server-auth db.json --watch",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"

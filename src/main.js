@@ -1,12 +1,17 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+import "./style.css";
+import Navigo from "navigo";
+import { loader } from "./pagees/Loader";
+import { register } from "./pagees/Register";
 
-document.querySelector('#app').innerHTML = `
-  <div>
-   
-  </div>
-`
+export const App= document.querySelector("#app")
 
-setupCounter(document.querySelector('#counter'))
+export const router = new Navigo("/");
+
+router
+.on("/",loader)
+.on("/register",register)
+.resolve()
+
+
+
+
