@@ -17,7 +17,7 @@ export function loader() {
   setTimeout(function () {
     App.innerHTML = `
              <div class="wrapper w-full h-[100vh]">
-        <div class="pt-[320px] pl-[32px]"> 
+        <div class="pt-[300px] pl-[32px]"> 
           <p class="text-[40px] font-semibold text-white">Welcome to 👋</p>
           <p class=" text-7xl font-Sahand text-white">Shoea</p>
           <p class="text-[16] font-semibold text-white">The best sneakers & shoes e-commerse app of the century for your fashion needs!</p>
