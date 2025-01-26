@@ -9,3 +9,10 @@
       format("truetype");
   }
 }
+
+
+.wrapper{
+  background-image: url(../public/shoeimage/imges/back.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
