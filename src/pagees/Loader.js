@@ -30,7 +30,7 @@ export function loader() {
       </div>`;
 
     setTimeout(function () {
-      router.navigate("/register");
+      router.navigate("/onboarding");
     }, 4000);
   }, 4000);
 }
