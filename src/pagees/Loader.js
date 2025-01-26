@@ -14,9 +14,8 @@ export function loader() {
     
       </div>`;
 
-      setTimeout(function(){
-
-        App.innerHTML=`
+  setTimeout(function () {
+    App.innerHTML = `
              <div class="wrapper w-full h-[100vh]">
         <div class="pt-[320px] pl-[32px]"> 
           <p class="text-[40px] font-semibold text-white">Welcome to 👋</p>
@@ -28,12 +27,10 @@ export function loader() {
 
 
 
-      </div>`
+      </div>`;
 
-
-      },4000)
-
-  document.querySelector("#next").addEventListener("click", function () {
-    router.navigate("/register");
-  });
+    setTimeout(function () {
+      router.navigate("/register");
+    }, 4000);
+  }, 4000);
 }
