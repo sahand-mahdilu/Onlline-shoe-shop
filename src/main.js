@@ -8,11 +8,11 @@ export const App= document.querySelector("#app")
 
 export const router = new Navigo("/");
 
-// router
-// .on("/",loader)
-// .on("/onboarding",onBoarding)
-// .on("/register",register)
-// .resolve()
+router
+.on("/",loader)
+.on("/onboarding",onBoarding)
+.on("/register",register)
+.resolve()
 
 
 
