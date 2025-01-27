@@ -43,10 +43,13 @@ function showPassword(){
 
         if(flag){
             passwordInput.type="text"
+            eyeElem.src="./shoeimage/imges/invisible.png"
             flag=false
 
         }else{
             passwordInput.type="password"
+            eyeElem.src="./shoeimage/imges/eye.png"
+
             flag=true
         }
 
