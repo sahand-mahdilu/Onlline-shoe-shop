@@ -94,7 +94,7 @@ function enableButton(emailElem, passwordElem, singUpBtn) {
             email: emailElem.value,
             password:passwordElem.value
           }
-          console.log(userInfo);
+        
 
           try{
             let res = await fetch(`${baseURL}/register`,{
@@ -104,15 +104,49 @@ function enableButton(emailElem, passwordElem, singUpBtn) {
               },
               body:JSON.stringify(userInfo)
             })
-            let data= await res.json()
-            let accessToken=data.accessToken
-            router.navigate("/login")
+            if(res.ok){
+              let data= await res.json()
+              let accessToken=data.accessToken
 
-            console.log(accessToken);
+              console.log(res);
+              setCookie(accessToken)
+              router.navigate("/login")
+
+            }else{
+              console.log("errr");
+            }
+
+
+            // add to cookie
+
+
           }catch(err){
             console.log(err.message);
           }
 
         }
     })
+
+
   }
+
+
+
+  function setCookie(token){
+
+    let now = new Date()
+    console.log(now);
+
+    now.setTime(now.getTime()+1*24*60*60*1000)
+
+    console.log(now);
+
+
+
+
+    document.cookie=`accessToken=${token};path=/;expires=${now}`
+
+  }
+
+
+
