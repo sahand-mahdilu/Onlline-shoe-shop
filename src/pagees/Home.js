@@ -1,9 +1,8 @@
 import { App } from "../main";
 import { navigationBar } from "../NavigationBar/NavigationBar";
 
-function home(){
-
-    App.innerHTML=`
+function home() {
+  App.innerHTML = `
       <div class="home-container p-2">
         <div class="nav border-b-2 border-green-500 border-dotted fixed z-50 top-0 left-0 right-0 p-2 bg-green-200">
           <div class="flex items-center justify-between p-1">
@@ -64,7 +63,7 @@ function home(){
                 src="./shoeimage/imges/battery.webp"
                 alt="battery"
               />
-              <span class="battery">10%</span>
+              <span class="battery pl-[2px]">10%</span>
             </div>
           </div>
         </div>
@@ -164,48 +163,50 @@ function home(){
       </div>
       ${navigationBar()}
  
-      `
-
-      showBrowser()
+      `;
+    const batteryElem =document.querySelector(".battery")
+  showBrowser();
+  showBaterry(batteryElem)
 }
 
+function showBrowser() {
+  let userAgent = navigator.userAgent;
 
-function showBrowser(){
+  let userBrowser = null;
 
-    let userAgent = navigator.userAgent
+  if (userAgent.match(/edg/i)) {
+    userBrowser = "edge";
+  } else if (userAgent.match(/firefox/i)) {
+    userBrowser = "firefox";
+  } else if (userAgent.match(/opr/i)) {
+    userBrowser = "opera";
+  } else if (userAgent.match(/chrome/i)) {
+    userBrowser = "chrome";
+  } else if (userAgent.match(/safari/i)) {
+    userBrowser = "safari";
+  }
 
-    let userBrowser = null
+  console.log("Your Browser is:", userBrowser);
+  let userBrowserImageElem = document.querySelector(`.${userBrowser}`);
 
-    if (userAgent.match(/edg/i)) {
-        userBrowser = 'edge'
-    } else if (userAgent.match(/firefox/i)) {
-        userBrowser = 'firefox'
-    } else if (userAgent.match(/opr/i)) {
-        userBrowser = 'opera'
-    } else if (userAgent.match(/chrome/i)) {
-        userBrowser = 'chrome'
-    } else if (userAgent.match(/safari/i)) {
-        userBrowser = 'safari'
-    }
-
-    console.log('Your Browser is:', userBrowser);
-    let userBrowserImageElem = document.querySelector(`.${userBrowser}`)
-
-    if (userBrowserImageElem) {
-        userBrowserImageElem.style.opacity = '1'
-    }
-
-    
+  if (userBrowserImageElem) {
+    userBrowserImageElem.style.opacity = "1";
+  }
 }
 
+function showBaterry(battery){
+    if(navigator.getBattery){
+       window.navigator.getBattery()
+        .then(batteryInfo=>{
+            console.log(batteryInfo);
+             battery.innerHTML=`${batteryInfo.level*100}%`
 
+            batteryInfo.addEventListener("levelchange",function(){
 
+                battery.innerHTML=`${batteryInfo.level*100}%`
+            })
+        })
+    }
+}
 
-
-
-
-
-
-
-
-export{home}
+export { home };
