@@ -2,23 +2,8 @@
   "users": [
     {
       "email": "sahand@gmail.com",
-      "password": "$2a$10$SJNxsf4.V0xv1/q.DySmjOebYX9heU.z3GDWqYbcdzMsU6FnO3iKm",
+      "password": "$2a$10$vCgLWwC3hDhsVxp.tRkHcOffjy.90JvsJxeM6f9livQNlJ/i9Fug2",
       "id": 1
-    },
-    {
-      "email": "asdsad@gmail.com",
-      "password": "$2a$10$JKEBkIidk8hYHyewxfBVGOKndDRKpJ65XwF65P/ZTQdi86uctC86O",
-      "id": 2
-    },
-    {
-      "email": "aadfadsdaa@gmail.com",
-      "password": "$2a$10$46.YU/OfwS3jX5w0ADFzy.vTUoOmZ0I50WOsGDBGOuY4G6uJk3NOC",
-      "id": 3
-    },
-    {
-      "email": "asddafgadfgsad@gmail.com",
-      "password": "$2a$10$Z/Bu.OmmLlHvP3Pc/gKeq.yCSbdrob7e.ju0qpC.o2w4KUT2IzWnC",
-      "id": 4
     }
   ],
   "products": [

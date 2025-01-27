@@ -83,8 +83,8 @@ function enableButton(emailElem, passwordElem, singUpBtn) {
 
   function registering(emailElem,passwordElem,submitBtn){
 
-    submitBtn.addEventListener("click",function(e){
-      e.preventDefault()
+    submitBtn.addEventListener("click",function(){
+    
 
       addUser()
 
