@@ -1,6 +1,10 @@
 {
   "users": [
- 
+    {
+      "email": "sahand@gmail.com",
+      "password": "$2a$10$M31OJRjehXYwMa9ECUqeNe1GShHO1KHxrbPXrq0AAdfX6vuyK56dq",
+      "id": 1
+    }
   ],
   "products": [
     {

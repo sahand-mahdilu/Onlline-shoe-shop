@@ -24,6 +24,7 @@ export function register() {
           </div>
         </form>
       </div>`;
+      
   const eyeElem = document.querySelector("#eye");
   const passwordInput = document.querySelector("#password");
   const emailElem = document.querySelector("#email");
