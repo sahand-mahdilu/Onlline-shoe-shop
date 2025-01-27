@@ -1,4 +1,3 @@
-
 import { App, router } from "../main";
 
 export function register() {
@@ -10,7 +9,7 @@ export function register() {
         <form class="flex flex-col w-full h-screen" action="">
           <div class="flex flex-col w-full items-center mt-auto">
             <div class="relative  w-[85%] flex items-center justify-center">
-              <input placeholder="Enter Email" class="w-full px-7 p-2 bg-yellow-50 rounded-lg" type="email" name="user-email">
+              <input id="email" placeholder="Enter Email" class="w-full px-7 p-2 bg-yellow-50 rounded-lg" type="email" name="user-email">
               <img class="absolute left-0" src="./shoeimage/imges/Email icon.png" alt="email">
             </div>
             <div class="relative w-[85%] flex items-center justify-center">
@@ -20,40 +19,62 @@ export function register() {
             </div>
           </div>
           <div class="w-full flex justify-center mt-auto">
-            <input class=" mb-4 p-2 w-[85%] bg-black text-white rounded-[30px]" type="submit" value="Sign Up">
+            <input id="submit-btn" disabled  class=" mb-4 p-2 w-[85%] bg-gray-500 text-white rounded-[30px]" type="submit" value="Sign Up">
           </div>
         </form>
-      </div>`
+      </div>`;
+  const eyeElem = document.querySelector("#eye");
+  const passwordInput = document.querySelector("#password");
+  const emailElem = document.querySelector("#email");
+  const submitBtn = document.querySelector("#submit-btn");
 
-
-      
-
-showPassword()
+  showPassword(eyeElem, passwordInput);
+  enableButton(emailElem, passwordInput, submitBtn);
 }
 
+function showPassword(eyeElement, PasswordElem) {
+  let flag = true;
 
-function showPassword(){
+  eyeElement.addEventListener("click", function () {
+    if (flag) {
+      PasswordElem.type = "text";
+      eyeElement.src = "./shoeimage/imges/invisible.png";
+      flag = false;
+    } else {
+      PasswordElem.type = "password";
+      eyeElement.src = "./shoeimage/imges/eye.png";
 
-    const eyeElem= document.querySelector("#eye")
-    const passwordInput= document.querySelector("#password")
+      flag = true;
+    }
+  });
+}
 
-    let flag=true
+function enableButton(emailElem, passwordElem, singUpBtn) {
+  let passwordvalue;
+  let emailValue;
 
-    eyeElem.addEventListener("click",function(){
+  emailElem.addEventListener("keyup", function () {
+    emailValue = emailElem.value;
+    if (passwordvalue && emailValue) {
+      singUpBtn.removeAttribute("disabled");
+      singUpBtn.classList.remove("bg-gray-500");
+      singUpBtn.classList.add("bg-black");
+    }else{
+      singUpBtn.classList="mb-4 p-2 w-[85%] bg-gray-500 text-white rounded-[30px]"
+      singUpBtn.setAttribute("disabled","true")
+    }
+  });
 
-        if(flag){
-            passwordInput.type="text"
-            eyeElem.src="./shoeimage/imges/invisible.png"
-            flag=false
+  passwordElem.addEventListener("keyup", function () {
+    passwordvalue = passwordElem.value;
 
-        }else{
-            passwordInput.type="password"
-            eyeElem.src="./shoeimage/imges/eye.png"
-
-            flag=true
-        }
-
-
-       
-    })
+    if (passwordvalue && emailValue) {
+      singUpBtn.removeAttribute("disabled");
+      singUpBtn.classList.remove("bg-gray-500");
+      singUpBtn.classList.add("bg-black");
+    }else{
+      singUpBtn.classList="mb-4 p-2 w-[85%] bg-gray-500 text-white rounded-[30px]"
+      singUpBtn.setAttribute("disabled","true")
+    }
+  });
 }
