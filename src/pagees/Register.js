@@ -83,8 +83,8 @@ function enableButton(emailElem, passwordElem, singUpBtn) {
 
   function registering(emailElem,passwordElem,submitBtn){
 
-    submitBtn.addEventListener("click",function(){
-    
+    submitBtn.addEventListener("click",function(e){
+    e.preventDefault()
 
       addUser()
 
@@ -106,6 +106,7 @@ function enableButton(emailElem, passwordElem, singUpBtn) {
             })
             let data= await res.json()
             let accessToken=data.accessToken
+            router.navigate("/login")
 
             console.log(accessToken);
           }catch(err){
