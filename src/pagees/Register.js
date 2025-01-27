@@ -13,8 +13,8 @@ export function register() {
               <input id="email" placeholder="Enter Email" class="w-full px-7 p-2 bg-yellow-50 rounded-lg" type="email" name="user-email">
               <img class="absolute left-0" src="./shoeimage/imges/Email icon.png" alt="email">
             </div>
-            <div class="relative w-[85%] flex items-center justify-center">
-              <input id="password" placeholder="Enter password" class="px-7 p-2 mt-5 w-full bg-yellow-50 rounded-lg" type="password" name="user-password">
+            <div id="password-container" class="relative w-[85%] flex items-center justify-center">
+              <input min="4" id="password" placeholder="Enter password" class="px-7 p-2 mt-5 w-full bg-yellow-50 rounded-lg" type="password" name="user-password">
               <img class="absolute left-0 bottom-2" src="./shoeimage/imges/passLock icon.png" alt="lock">
               <img id="eye" class="absolute right-1 bottom-2 size-5" src="./shoeimage/imges/eye.png" alt="">
             </div>
@@ -28,10 +28,13 @@ export function register() {
   const passwordInput = document.querySelector("#password");
   const emailElem = document.querySelector("#email");
   const submitBtn = document.querySelector("#submit-btn");
+  const passwordContainer = document.querySelector("#password-container");
+ 
+  
 
   showPassword(eyeElem, passwordInput);
   enableButton(emailElem, passwordInput, submitBtn);
-  registering(emailElem,passwordInput,submitBtn)
+  registering(emailElem,passwordInput,submitBtn,passwordContainer)
 }
 
 function showPassword(eyeElement, PasswordElem) {
@@ -81,14 +84,14 @@ function enableButton(emailElem, passwordElem, singUpBtn) {
   });
 }
 
-  function registering(emailElem,passwordElem,submitBtn){
+  function registering(emailElem,passwordElem,submitBtn,passwordContainer){
 
     submitBtn.addEventListener("click",function(e){
     e.preventDefault()
 
-      addUser()
+      addUser(passwordElem)
 
-        async function addUser(){
+        async function addUser(passwordElem){
           
           let userInfo={
             email: emailElem.value,
@@ -109,15 +112,18 @@ function enableButton(emailElem, passwordElem, singUpBtn) {
               let accessToken=data.accessToken
 
               console.log(res);
+              // add to cookie
               setCookie(accessToken)
               router.navigate("/login")
 
             }else{
-              console.log("errr");
+              //error handling
+              showError(passwordContainer)
+              passwordElem.value=""
+
             }
 
 
-            // add to cookie
 
 
           }catch(err){
@@ -146,6 +152,12 @@ function enableButton(emailElem, passwordElem, singUpBtn) {
 
     document.cookie=`accessToken=${token};path=/;expires=${now}`
 
+  }
+
+
+  function showError(passwordElem){
+
+    passwordElem.insertAdjacentHTML("afterend","<p class='text-red-500 mt-2'>Password must be at least 4 charecters</p>")
   }
 
 
