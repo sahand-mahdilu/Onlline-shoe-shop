@@ -1,8 +1,11 @@
 import { baseURL } from "../API/API";
+import { getCookie } from "../checkCookie/CheckCookie";
 import { App, router } from "../main";
 
 
  function login(){
+
+    getCookie()
              App.innerHTML = `   <div class="register-container flex flex-col items-center justify-center max-h-screen">
                     <div class="mt-4 image-container">
                       <img src="./public/shoeimage/imges/logo.png" alt="logo">
