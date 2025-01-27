@@ -109,11 +109,11 @@ function registering(emailElem, passwordElem, submitBtn, passwordContainer) {
         });
         if (res.ok) {
           let data = await res.json();
-          let accessToken = data.accessToken;
+          // let accessToken = data.accessToken;
 
           console.log(res);
           // add to cookie
-          setCookie(accessToken);
+          // setCookie(accessToken);
           router.navigate("/login");
         } else {
           //error handling
@@ -131,16 +131,16 @@ function registering(emailElem, passwordElem, submitBtn, passwordContainer) {
   });
 }
 
-function setCookie(token) {
-  let now = new Date();
-  console.log(now);
+// function setCookie(token) {
+//   let now = new Date();
+//   console.log(now);
 
-  now.setTime(now.getTime() + 1 * 24 * 60 * 60 * 1000);
+//   now.setTime(now.getTime() + 1 * 24 * 60 * 60 * 1000);
 
-  console.log(now);
+//   console.log(now);
 
-  document.cookie = `accessToken=${token};path=/;expires=${now}`;
-}
+//   document.cookie = `accessToken=${token};path=/;expires=${now}`;
+// }
 
 function showError(passwordElem) {
   if (
