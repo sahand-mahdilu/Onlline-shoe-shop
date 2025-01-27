@@ -1,3 +1,4 @@
+import { baseURL } from "../API/API";
 import { App, router } from "../main";
 
 export function register() {
@@ -30,6 +31,7 @@ export function register() {
 
   showPassword(eyeElem, passwordInput);
   enableButton(emailElem, passwordInput, submitBtn);
+  registering(emailElem,passwordInput,submitBtn)
 }
 
 function showPassword(eyeElement, PasswordElem) {
@@ -78,3 +80,38 @@ function enableButton(emailElem, passwordElem, singUpBtn) {
     }
   });
 }
+
+  function registering(emailElem,passwordElem,submitBtn){
+
+    submitBtn.addEventListener("click",function(e){
+      e.preventDefault()
+
+      addUser()
+
+        async function addUser(){
+          
+          let userInfo={
+            email: emailElem.value,
+            password:passwordElem.value
+          }
+          console.log(userInfo);
+
+          try{
+            let res = await fetch(`${baseURL}/register`,{
+              method:"POST",
+              headers:{
+                "content-type":"application/json"
+              },
+              body:JSON.stringify(userInfo)
+            })
+            let data= await res.json()
+            let accessToken=data.accessToken
+
+            console.log(accessToken);
+          }catch(err){
+            console.log(err.message);
+          }
+
+        }
+    })
+  }
