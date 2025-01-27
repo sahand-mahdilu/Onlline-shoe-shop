@@ -4,3 +4,9 @@ function home(){
 
     App.innerHTML=`<p>home</p>`
 }
+
+
+
+
+
+export{home}
