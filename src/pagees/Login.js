@@ -108,17 +108,16 @@ import { App, router } from "../main";
                     });
                     console.log(res);
                     if (res.ok) {
-                    //   let data = await res.json();
+                  
                      
                         router.navigate("/home");
             
-                    //   console.log(data);
-                      // add to cookie
                      
                     } else {
                       //error handling
                       showError(passwordContainer);
                       passwordElem.value = "";
+                      emailElem.value=""
                     }
                   } catch (err) {
                     showAPIerror(passwordContainer, err);
@@ -131,16 +130,7 @@ import { App, router } from "../main";
               });
             }
             
-            // function setCookie(token) {
-            //   let now = new Date();
-            //   console.log(now);
-            
-            //   now.setTime(now.getTime() + 1 * 24 * 60 * 60 * 1000);
-            
-            //   console.log(now);
-            
-            //   document.cookie = `accessToken=${token};path=/;expires=${now}`;
-            // }
+          
             
             function showError(passwordElem) {
               if (
@@ -152,7 +142,7 @@ import { App, router } from "../main";
             
               passwordElem.insertAdjacentHTML(
                 "afterend",
-                "<p class='text-red-500 mt-2'>Password must be at least 4 charecters</p>"
+                "<p class='text-red-500 mt-2'>Password or email is not correct</p>"
               );
             }
             function showAPIerror(passwordElem, error) {
