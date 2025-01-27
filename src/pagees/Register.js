@@ -156,6 +156,9 @@ function enableButton(emailElem, passwordElem, singUpBtn) {
 
 
   function showError(passwordElem){
+    if (passwordElem.nextElementSibling && passwordElem.nextElementSibling.tagName === 'P') {
+      passwordElem.nextElementSibling.remove(); 
+  }
 
     passwordElem.insertAdjacentHTML("afterend","<p class='text-red-500 mt-2'>Password must be at least 4 charecters</p>")
   }
