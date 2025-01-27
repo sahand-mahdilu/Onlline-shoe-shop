@@ -1,11 +1,26 @@
 import { App, router } from "../main";
 
-export function register(){
-
-    App.innerHTML=`<p>register</p>  <button id="back">back</button>`
-
-    document.querySelector("#back").addEventListener("click",function(){
-
-        router.navigate("/")
-    })
+export function register() {
+  App.innerHTML = `   <div class="register-container flex flex-col items-center justify-center max-h-screen">
+        <div class="mt-4 image-container">
+          <img src="./public/shoeimage/imges/logo.png" alt="logo">
+        </div>
+        <p class="text-[32px] font-semibold text-center">Please register </p>
+        <form class="flex flex-col w-full h-screen" action="">
+          <div class="flex flex-col w-full items-center mt-auto">
+            <div class="relative  w-[85%] flex items-center justify-center">
+              <input placeholder="Enter Email" class="w-full px-7 p-2 bg-yellow-50 rounded-lg" type="email" name="user-email">
+              <img class="absolute left-0" src="./public/shoeimage/imges/Email icon.png" alt="email">
+            </div>
+            <div class="relative w-[85%] flex items-center justify-center">
+              <input placeholder="Enter password" class="px-7 p-2 mt-5 w-full bg-yellow-50 rounded-lg" type="password" name="user-password">
+              <img class="absolute left-0 bottom-2" src="./public/shoeimage/imges/passLock icon.png" alt="lock">
+              <img class="absolute right-1 bottom-2 size-5" src="./public/shoeimage/imges/eye.png" alt="">
+            </div>
+          </div>
+          <div class="w-full flex justify-center mt-auto">
+            <input class=" mb-4 p-2 w-[85%] bg-black text-white rounded-[30px]" type="submit" value="Sign Up">
+          </div>
+        </form>
+      </div>`
 }

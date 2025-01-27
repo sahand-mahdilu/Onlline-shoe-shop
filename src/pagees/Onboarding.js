@@ -95,8 +95,8 @@ export function onBoarding() {
         const nextButton = document.getElementById("navBtn");
         console.log();
 
-        if(swiper.activeIndex===3){
-            router.navigate("/register")
+        if (swiper.activeIndex === 3) {
+          router.navigate("/register");
         }
 
         switch (swiper.activeIndex) {
@@ -108,16 +108,12 @@ export function onBoarding() {
             break;
           case 2:
             nextButton.textContent = "Get Started";
-            
 
             break;
           default:
             nextButton.textContent = "Next";
         }
       },
-      
-
-      
     },
   });
 
