@@ -1,5 +1,5 @@
 import { baseURL } from "../API/API";
-import { App } from "../main";
+import { App, router } from "../main";
 
 
  function login(){
@@ -106,14 +106,15 @@ import { App } from "../main";
                       },
                       body: JSON.stringify(userInfo),
                     });
+                    console.log(res);
                     if (res.ok) {
-                      let data = await res.json();
-                      let accessToken = data.accessToken;
+                    //   let data = await res.json();
+                     
+                        router.navigate("/home");
             
-                      console.log(data);
+                    //   console.log(data);
                       // add to cookie
                      
-                    //   router.navigate("/login");
                     } else {
                       //error handling
                       showError(passwordContainer);
