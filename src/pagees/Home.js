@@ -1,4 +1,5 @@
 import { App } from "../main";
+import { navigationBar } from "../NavigationBar/NavigationBar";
 
 function home(){
 
@@ -153,6 +154,7 @@ function home(){
 
         </section>
       </div>
+      ${navigationBar()}
     `
 }
 
