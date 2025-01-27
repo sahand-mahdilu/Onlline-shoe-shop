@@ -4,6 +4,11 @@
       "email": "sahand@gmail.com",
       "password": "$2a$10$cCSZLVGoP.svwAI3gATVIOkjyMtlaV292COruEX1V0IoEev/yW2BK",
       "id": 1
+    },
+    {
+      "email": "rezafa@gmail.com",
+      "password": "$2a$10$b5OMRTb4VI54MAl2jhtVfeT89EilLcUq9227xh4TaTRrWBS7vUpea",
+      "id": 2
     }
   ],
   "products": [
