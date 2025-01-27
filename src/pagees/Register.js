@@ -29,12 +29,10 @@ export function register() {
   const emailElem = document.querySelector("#email");
   const submitBtn = document.querySelector("#submit-btn");
   const passwordContainer = document.querySelector("#password-container");
- 
-  
 
   showPassword(eyeElem, passwordInput);
   enableButton(emailElem, passwordInput, submitBtn);
-  registering(emailElem,passwordInput,submitBtn,passwordContainer)
+  registering(emailElem, passwordInput, submitBtn, passwordContainer);
 }
 
 function showPassword(eyeElement, PasswordElem) {
@@ -64,9 +62,10 @@ function enableButton(emailElem, passwordElem, singUpBtn) {
       singUpBtn.removeAttribute("disabled");
       singUpBtn.classList.remove("bg-gray-500");
       singUpBtn.classList.add("bg-black");
-    }else{
-      singUpBtn.classList="mb-4 p-2 w-[85%] bg-gray-500 text-white rounded-[30px]"
-      singUpBtn.setAttribute("disabled","true")
+    } else {
+      singUpBtn.classList =
+        "mb-4 p-2 w-[85%] bg-gray-500 text-white rounded-[30px]";
+      singUpBtn.setAttribute("disabled", "true");
     }
   });
 
@@ -77,91 +76,94 @@ function enableButton(emailElem, passwordElem, singUpBtn) {
       singUpBtn.removeAttribute("disabled");
       singUpBtn.classList.remove("bg-gray-500");
       singUpBtn.classList.add("bg-black");
-    }else{
-      singUpBtn.classList="mb-4 p-2 w-[85%] bg-gray-500 text-white rounded-[30px]"
-      singUpBtn.setAttribute("disabled","true")
+    } else {
+      singUpBtn.classList =
+        "mb-4 p-2 w-[85%] bg-gray-500 text-white rounded-[30px]";
+      singUpBtn.setAttribute("disabled", "true");
     }
   });
 }
 
-  function registering(emailElem,passwordElem,submitBtn,passwordContainer){
+function registering(emailElem, passwordElem, submitBtn, passwordContainer) {
+  submitBtn.addEventListener("click", function (e) {
+    e.preventDefault();
 
-    submitBtn.addEventListener("click",function(e){
-    e.preventDefault()
+    addUser(passwordElem);
 
-      addUser(passwordElem)
+    async function addUser(passwordElem) {
+      let userInfo = {
+        email: emailElem.value,
+        password: passwordElem.value,
+      };
 
-        async function addUser(passwordElem){
-          
-          let userInfo={
-            email: emailElem.value,
-            password:passwordElem.value
-          }
-        
+      try {
+        let res = await fetch(`${baseURL}/register`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(userInfo),
+        });
+        if (res.ok) {
+          let data = await res.json();
+          let accessToken = data.accessToken;
 
-          try{
-            let res = await fetch(`${baseURL}/register`,{
-              method:"POST",
-              headers:{
-                "content-type":"application/json"
-              },
-              body:JSON.stringify(userInfo)
-            })
-            if(res.ok){
-              let data= await res.json()
-              let accessToken=data.accessToken
-
-              console.log(res);
-              // add to cookie
-              setCookie(accessToken)
-              router.navigate("/login")
-
-            }else{
-              //error handling
-              showError(passwordContainer)
-              passwordElem.value=""
-
-            }
-
-
-
-
-          }catch(err){
-            console.log(err.message);
-          }
-
+          console.log(res);
+          // add to cookie
+          setCookie(accessToken);
+          router.navigate("/login");
+        } else {
+          //error handling
+          showError(passwordContainer);
+          passwordElem.value = "";
         }
-    })
+      } catch (err) {
+        showAPIerror(passwordContainer, err);
+        console.log(err.message);
+        emailElem.value=""
+        passwordElem.value=""
 
+      }
+    }
+  });
+}
 
+function setCookie(token) {
+  let now = new Date();
+  console.log(now);
+
+  now.setTime(now.getTime() + 1 * 24 * 60 * 60 * 1000);
+
+  console.log(now);
+
+  document.cookie = `accessToken=${token};path=/;expires=${now}`;
+}
+
+function showError(passwordElem) {
+  if (
+    passwordElem.nextElementSibling &&
+    passwordElem.nextElementSibling.tagName === "P"
+  ) {
+    passwordElem.nextElementSibling.remove();
   }
 
-
-
-  function setCookie(token){
-
-    let now = new Date()
-    console.log(now);
-
-    now.setTime(now.getTime()+1*24*60*60*1000)
-
-    console.log(now);
-
-
-
-
-    document.cookie=`accessToken=${token};path=/;expires=${now}`
-
+  passwordElem.insertAdjacentHTML(
+    "afterend",
+    "<p class='text-red-500 mt-2'>Password must be at least 4 charecters</p>"
+  );
+}
+function showAPIerror(passwordElem, error) {
+  if (
+    passwordElem.nextElementSibling &&
+    passwordElem.nextElementSibling.tagName === "P"
+  ) {
+    passwordElem.nextElementSibling.remove();
   }
 
-
-  function showError(passwordElem){
-    if (passwordElem.nextElementSibling && passwordElem.nextElementSibling.tagName === 'P') {
-      passwordElem.nextElementSibling.remove(); 
-  }
-
-    passwordElem.insertAdjacentHTML("afterend","<p class='text-red-500 mt-2'>Password must be at least 4 charecters</p>")
-  }
-
-
-
+  passwordElem.insertAdjacentHTML(
+    "afterend",
+    `<P class="text-red-500 mt-2">${error.message}</P> <p class='text-red-500 '>  some thing went wrong! try again</p>
+      `
+  );
+  
+}
