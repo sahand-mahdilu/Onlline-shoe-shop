@@ -28,31 +28,31 @@ function home(){
             <div class="logos flex gap-1">
               <span class="text-[12px] font-bold"> your browser:</span>
               <img
-                class="chrome size-5"
+                class="chrome size-5 opacity-30"
                 src="./shoeimage/imges/chrome.png"
                 alt="chrome"
                 title="Google Chrome"
               />
               <img
-                class="firefox size-5"
+                class="firefox size-5 opacity-30"
                 src="./shoeimage/imges/firefox.png"
                 alt="firefox"
                 title="Mozilla Firefox"
               />
               <img
-                class="edge size-5"
+                class="edge size-5 opacity-30"
                 src="./shoeimage/imges/edge.png"
                 alt="edge"
                 title="Microsoft Edge"
               />
               <img
-                class="opera size-5"
+                class="opera size-5 opacity-30"
                 src="./shoeimage/imges/opera.png"
                 alt="opera"
                 title="Opera"
               />
               <img
-                class="safari size-5"
+                class="safari size-5 opacity-30"
                 src="./shoeimage/imges/safari.png"
                 alt="safari"
                 title="Apple Safari"
@@ -72,12 +72,12 @@ function home(){
         <section class="brands-section">
           <div class="relative mt-28">
             <input
-              class="bg-gray-100 px-7 p-2 w-full"
+              class="bg-gray-100 pr-8 p-2 w-full"
               placeholder="search"
               type="text"
             />
             <img
-              class="absolute bottom-2"
+              class="absolute bottom-2 right-2"
               src="./shoeimage/imges/icons8-search-24.png"
               alt="search"
             />
@@ -131,7 +131,7 @@ function home(){
             <div class="border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Newbalance</div>
             <div class="border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Reebok</div>
           </div>
-          <div class="w-full product_container mt-4 gap-4 grid grid-cols-2 justify-center items-center">
+          <div class="w-full product_container mb-14 mt-4 gap-4 grid grid-cols-2 justify-center items-center">
 
             <div class="">
               <div class="img-container rounded-3xl overflow-hidden">
@@ -142,6 +142,14 @@ function home(){
             </div>
 
             <div class="">
+              <div class="img-container rounded-3xl overflow-hidden">
+                <img class="w-full h-full object-cover" src="./shoeimage/imges/nike/nike-1.jpg" alt="">
+              </div>
+              <h2 class="name text-[18px] font-bold">Nike-samba</h2>
+              <span class="price">$85</span>
+            </div>
+
+                <div class="">
               <div class="img-container rounded-3xl overflow-hidden">
                 <img class="w-full h-full object-cover" src="./shoeimage/imges/nike/nike-1.jpg" alt="">
               </div>
@@ -155,8 +163,42 @@ function home(){
         </section>
       </div>
       ${navigationBar()}
-    `
+ 
+      `
+
+      showBrowser()
 }
+
+
+function showBrowser(){
+
+    let userAgent = navigator.userAgent
+
+    let userBrowser = null
+
+    if (userAgent.match(/edg/i)) {
+        userBrowser = 'edge'
+    } else if (userAgent.match(/firefox/i)) {
+        userBrowser = 'firefox'
+    } else if (userAgent.match(/opr/i)) {
+        userBrowser = 'opera'
+    } else if (userAgent.match(/chrome/i)) {
+        userBrowser = 'chrome'
+    } else if (userAgent.match(/safari/i)) {
+        userBrowser = 'safari'
+    }
+
+    console.log('Your Browser is:', userBrowser);
+    let userBrowserImageElem = document.querySelector(`.${userBrowser}`)
+
+    if (userBrowserImageElem) {
+        userBrowserImageElem.style.opacity = '1'
+    }
+
+    
+}
+
+
 
 
 
