@@ -2,8 +2,6 @@ import { baseURL } from "../API/API";
 import { App } from "../main";
 import { navigationBar } from "../NavigationBar/NavigationBar";
 
-
-
 function home() {
   App.innerHTML = `
       <div class="home-container p-2">
@@ -125,14 +123,14 @@ function home() {
             <p class="font-bold">See All</p>
           </div>
           <div class="flex gap-2 overflow-x-scroll mt-2">
-          <div class="scrollBar border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 bg-black text-white ">All</div>
-            <div class="scrollBar  border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Nike</div>
-            <div class="scrollBar  border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Adidas</div>
-            <div class="scrollBar  border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Asics</div>
-            <div class="scrollBar  border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Puma</div>
-            <div class="scrollBar  border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Converse</div>
-            <div class="scrollBar  border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Newbalance</div>
-            <div class="scrollBar  border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Reebok</div>
+          <div id="all" class="scrollBar border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 bg-black text-white ">All</div>
+            <div id="Nike" class="scrollBar  border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Nike</div>
+            <div id="Adidas" class="scrollBar  border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Adidas</div>
+            <div id="Asics" class="scrollBar  border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Asics</div>
+            <div id="Puma" class="scrollBar  border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Puma</div>
+            <div id="Converse" class="scrollBar  border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Converse</div>
+            <div id="NewBalance" class="scrollBar  border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Newbalance</div>
+            <div id="Reebok" class="scrollBar  border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Reebok</div>
           </div>
           <div class="w-full product_container mb-14 mt-4 gap-4 grid grid-cols-2 justify-center items-center">
 
@@ -147,13 +145,13 @@ function home() {
  
       `;
   const batteryElem = document.querySelector(".battery");
-  const productContainer=document.querySelector(".product_container")
-  const scrollBarbuttons =document.querySelectorAll(".scrollBar")
-  
+  const productContainer = document.querySelector(".product_container");
+  const scrollBarbuttons = document.querySelectorAll(".scrollBar");
+
   showBrowser();
   showBaterry(batteryElem);
   getProduct(productContainer);
-  scrollBarChangeColor(scrollBarbuttons)
+  scrollBarChangeColor(scrollBarbuttons,productContainer);
 }
 
 function showBrowser() {
@@ -193,7 +191,7 @@ function showBaterry(battery) {
   }
 }
 
-// get product
+// get random product product
 
 async function getProduct(container) {
   try {
@@ -203,62 +201,77 @@ async function getProduct(container) {
     let data = await res.json(); //array
     let shuffledArray = data.sort(() => 0.5 - Math.random());
 
-
     let randomProducts = shuffledArray.slice(0, 8); //8 random products to show
 
-    showRandomProduct(randomProducts,container)
+    showRandomProduct(randomProducts, container);
   } catch (err) {
     console.log(err);
   }
 }
-//show random product 
+//show random product
 
-function showRandomProduct(productArray,container){
+function showRandomProduct(productArray, container) {
+  container.innerHTML=""
+  productArray.forEach((p) => {
 
-  productArray.forEach((p)=>{
 
-    container.insertAdjacentHTML("afterbegin",`  <div class="">
+    container.insertAdjacentHTML(
+      "afterbegin",
+      `  <div class="">
               <div class="img-container min-h-36 min-w-36  rounded-3xl overflow-hidden">
                 <img class="w-full h-full object-cover" src=${p.images} alt="image">
               </div>
               <h2 class="name text-[18px] font-bold">${p.name}</h2>
               <span class="price">${p.price}$</span>
-            </div>`)
-
-
-  })
+            </div>`
+    );
+  });
 }
 
 // scrool bar
 
-function scrollBarChangeColor(scrollBarElems){
+function scrollBarChangeColor(scrollBarElems,container) {
+  for (let value of scrollBarElems) {
+    value.addEventListener("click", function (e) {
+      for (let value of scrollBarElems) {
+        value.style.backgroundColor = "white";
+        value.style.color = "black";
+      }
+      console.log(e.target.id);
 
- for (let value of scrollBarElems){
+      e.target.style.backgroundColor = "black";
+      e.target.style.color = "white";
 
-  value.addEventListener("click",function(e){
+      if(e.target.id==="all"){
+         getProduct(container)
+      }else{
 
-    for(let value of scrollBarElems){
-      value.style.backgroundColor="white"
-      value.style.color="black"
-    }
-    
-    e.target.style.backgroundColor="black"
-    e.target.style.color="white"
+        fetchData(e.target.id,container)
+      }
      
-    
-   
+    });
+  }
+}
+/////////////////////////////
 
+async function fetchData(id,container){
 
-    
-  })
+  try{
+    let res = await fetch(`${baseURL}/products`)
+    let data= await res.json() //array
+    console.log(data);
+    let uniqueProducts= data.filter((p)=>{
 
- }
+       return p.brand===id
+       
+      })
 
+      showRandomProduct(uniqueProducts,container)
+      console.log(uniqueProducts);
+  }catch(err){
+    console.log(err);
+  }
 
 }
-
-
-
-
 
 export { home };
