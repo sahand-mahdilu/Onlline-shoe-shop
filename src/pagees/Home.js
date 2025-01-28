@@ -125,13 +125,14 @@ function home() {
             <p class="font-bold">See All</p>
           </div>
           <div class="flex gap-2 overflow-x-scroll mt-2">
-            <div class="border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Nike</div>
-            <div class="border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Adidas</div>
-            <div class="border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Asics</div>
-            <div class="border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Puma</div>
-            <div class="border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Converse</div>
-            <div class="border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Newbalance</div>
-            <div class="border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Reebok</div>
+          <div class="scrollBar border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 bg-black text-white ">All</div>
+            <div class="scrollBar  border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Nike</div>
+            <div class="scrollBar  border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Adidas</div>
+            <div class="scrollBar  border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Asics</div>
+            <div class="scrollBar  border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Puma</div>
+            <div class="scrollBar  border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Converse</div>
+            <div class="scrollBar  border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Newbalance</div>
+            <div class="scrollBar  border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Reebok</div>
           </div>
           <div class="w-full product_container mb-14 mt-4 gap-4 grid grid-cols-2 justify-center items-center">
 
@@ -147,11 +148,12 @@ function home() {
       `;
   const batteryElem = document.querySelector(".battery");
   const productContainer=document.querySelector(".product_container")
+  const scrollBarbuttons =document.querySelectorAll(".scrollBar")
   
-  console.log(productContainer);
   showBrowser();
   showBaterry(batteryElem);
   getProduct(productContainer);
+  scrollBarChangeColor(scrollBarbuttons)
 }
 
 function showBrowser() {
@@ -182,7 +184,6 @@ function showBrowser() {
 function showBaterry(battery) {
   if (navigator.getBattery) {
     window.navigator.getBattery().then((batteryInfo) => {
-      console.log(batteryInfo);
       battery.innerHTML = `${batteryInfo.level * 100}%`;
 
       batteryInfo.addEventListener("levelchange", function () {
@@ -192,7 +193,7 @@ function showBaterry(battery) {
   }
 }
 
-// show random product
+// get product
 
 async function getProduct(container) {
   try {
@@ -200,24 +201,21 @@ async function getProduct(container) {
       method: "GET",
     });
     let data = await res.json(); //array
-    console.log(data);
     let shuffledArray = data.sort(() => 0.5 - Math.random());
 
-    console.log(shuffledArray);
 
     let randomProducts = shuffledArray.slice(0, 8); //8 random products to show
 
     showRandomProduct(randomProducts,container)
-    console.log(randomProducts);
   } catch (err) {
     console.log(err);
   }
 }
+//show random product 
 
 function showRandomProduct(productArray,container){
 
   productArray.forEach((p)=>{
-    console.log(p);
 
     container.insertAdjacentHTML("afterbegin",`  <div class="">
               <div class="img-container min-h-36 min-w-36  rounded-3xl overflow-hidden">
@@ -230,5 +228,37 @@ function showRandomProduct(productArray,container){
 
   })
 }
+
+// scrool bar
+
+function scrollBarChangeColor(scrollBarElems){
+
+ for (let value of scrollBarElems){
+
+  value.addEventListener("click",function(e){
+
+    for(let value of scrollBarElems){
+      value.style.backgroundColor="white"
+      value.style.color="black"
+    }
+    
+    e.target.style.backgroundColor="black"
+    e.target.style.color="white"
+     
+    
+   
+
+
+    
+  })
+
+ }
+
+
+}
+
+
+
+
 
 export { home };
