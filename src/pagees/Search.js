@@ -1,8 +1,9 @@
+import { baseURL } from "../API/API";
 import { App } from "../main";
 
-function search(){
-    App.innerHTML=`
-         <div class="all_products_container p-2">
+function search(match) {
+  App.innerHTML = `
+            <div class="all_products_container p-2">
         
         <div class="flex items-center gap-2 mb-4">
           <svg id="backIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
@@ -18,13 +19,13 @@ function search(){
           />
           <img
             class="absolute bottom-2 right-2"
-            src="./shoeimage/imges/icons8-search-24.png"
+            src="../shoeimage/imges/icons8-search-24.png"
             alt="search"
           />
         </div>
         
         <div class="flex items-center justify-between mt-2">
-          <p class="search_text text-xl font-Sahand">results for ""</p>
+          <p class="search_text text-xl font-Sahand">results for "${match.data.id}"</p>
           <span class="count text-xl font-Sahand">0 found</span>
 
         </div>
@@ -32,37 +33,56 @@ function search(){
 
     
         <div class="w-full product_container mb-4 mt-6 gap-4 grid grid-cols-2 justify-center items-center">
+            </div>
+            </div>
+    
+    `;
 
-           <div class="">
+  const productContainer = document.querySelector(".product_container");
+  let searchValue = match.data.id;
+  console.log(searchValue);
+  getSearchData(searchValue, productContainer);
+}
+
+async function getSearchData(searchValue, container) {
+  try {
+    let res = await fetch(`${baseURL}/products?q=${searchValue}`);
+    let data = await res.json(); //array
+    console.log(data);
+   
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+function showProducts(productArray, container) {
+  productArray.forEach((product) => {
+    console.log(product);
+
+    container.insertAdjacentHTML(
+      "afterbegin",
+      ` <div class="">
               <div class="relative img-container min-h-36 min-w-36  rounded-3xl overflow-hidden">
-                <img class="w-full h-full object-cover" src="./public/shoeimage/imges/adidas/1.png" alt="image">
+                <img class="w-full h-full object-cover" src=.${product.images} alt="image">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4 absolute right-2 top-2">
                   <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
                 </svg>
                 
               </div>
-              <h2 class="name text-[18px] font-bold">samba</h2>
-              <div class="flex gap-3 items-center">
+              <h2 class="name text-[18px] font-bold">${product.name}</h2>
+              <div class="flex gap-2 items-center">
                 <div class="img_container size-6">
-                  <img class="w-full h-full object-cover" src="./public/shoeimage/imges/star.png" alt="">
+                  <img class="w-full h-full object-cover" src="../public/shoeimage/imges/star.png" alt="">
                 </div >
-                <span class="rate">4.5</span>
+                <span class="rate">${product.rate}</span>
                 <div class="h-4 w-px bg-gray-500"></div>
-                <div class="bg-gray-300 w-max px-2 pt-[2px] rounded-md text-[12px]">125 sold</div>
+                <div class="bg-gray-300 w-max px-2 pt-[2px] rounded-md text-[12px]"> ${product.sold} sold</div>
               </div>
               <span class="price text-lg font-bold">$40</span>
             </div>
-
-
-          </div>
-
-
-          </div>
-    
-    `
+`
+    );
+  });
 }
 
-
-
-
-export{search}
+export { search };

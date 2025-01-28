@@ -72,12 +72,12 @@ function home() {
 
         <section class="brands-section">
           <div class="relative mt-28">
-            <input
+            <input id="search"
               class="bg-gray-100 pr-8 p-2 w-full"
               placeholder="search"
               type="text"
             />
-            <img
+            <img id="searchBtn"
               class="absolute bottom-2 right-2"
               src="./shoeimage/imges/icons8-search-24.png"
               alt="search"
@@ -150,6 +150,8 @@ function home() {
   const scrollBarbuttons = document.querySelectorAll(".scrollBar");
   const seeAllElem = document.querySelector("#seeAll");
   const brandButtons=document.querySelectorAll(".brandBTN")
+  const searchElem=document.querySelector("#search")
+  const searchBtn=document.querySelector("#searchBtn")
 
   goToSeeAll(seeAllElem);
   showBrowser();
@@ -157,6 +159,7 @@ function home() {
   getProduct(productContainer);
   scrollBarChangeColor(scrollBarbuttons, productContainer);
   goTobrandPge(brandButtons)
+  searchProduct(searchElem,searchBtn)
 }
 function goToSeeAll(button) {
   button.addEventListener("click", function () {
@@ -291,6 +294,17 @@ function goTobrandPge(buttons){
     })
 
   }
+
+}
+
+
+function searchProduct(serchInput,searchBtn){
+  searchBtn.addEventListener("click",function(){
+    let searchInputValue= serchInput.value
+
+    router.navigate(`/search/${searchInputValue}`)
+    console.log(searchInputValue);
+  })
 
 }
 
