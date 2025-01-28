@@ -2,6 +2,8 @@ import { baseURL } from "../API/API";
 import { App } from "../main";
 import { navigationBar } from "../NavigationBar/NavigationBar";
 
+
+
 function home() {
   App.innerHTML = `
       <div class="home-container p-2">
@@ -133,29 +135,7 @@ function home() {
           </div>
           <div class="w-full product_container mb-14 mt-4 gap-4 grid grid-cols-2 justify-center items-center">
 
-            <div class="">
-              <div class="img-container rounded-3xl overflow-hidden">
-                <img class="w-full h-full object-cover" src="./shoeimage/imges/nike/nike-1.jpg" alt="">
-              </div>
-              <h2 class="name text-[18px] font-bold">Nike-samba</h2>
-              <span class="price">$85</span>
-            </div>
-
-            <div class="">
-              <div class="img-container rounded-3xl overflow-hidden">
-                <img class="w-full h-full object-cover" src="./shoeimage/imges/nike/nike-1.jpg" alt="">
-              </div>
-              <h2 class="name text-[18px] font-bold">Nike-samba</h2>
-              <span class="price">$85</span>
-            </div>
-
-                <div class="">
-              <div class="img-container rounded-3xl overflow-hidden">
-                <img class="w-full h-full object-cover" src="./shoeimage/imges/nike/nike-1.jpg" alt="">
-              </div>
-              <h2 class="name text-[18px] font-bold">Nike-samba</h2>
-              <span class="price">$85</span>
-            </div>
+          
 
 
           </div>
@@ -166,9 +146,12 @@ function home() {
  
       `;
   const batteryElem = document.querySelector(".battery");
+  const productContainer=document.querySelector(".product_container")
+  
+  console.log(productContainer);
   showBrowser();
   showBaterry(batteryElem);
-  getProduct()
+  getProduct(productContainer);
 }
 
 function showBrowser() {
@@ -209,35 +192,43 @@ function showBaterry(battery) {
   }
 }
 
+// show random product
 
-
-// show random product 
-
-async function getProduct (){
-
-  try{
-
-    let res =await fetch(`${baseURL}/products`,{
-      method:"GET"
-    })
-    let data= await res.json() //array
+async function getProduct(container) {
+  try {
+    let res = await fetch(`${baseURL}/products`, {
+      method: "GET",
+    });
+    let data = await res.json(); //array
     console.log(data);
-    let shuffledArray= data.sort(()=>0.5-Math.random())
+    let shuffledArray = data.sort(() => 0.5 - Math.random());
 
     console.log(shuffledArray);
 
-    let randomProducts=shuffledArray.slice(0,8) //8random products to show
+    let randomProducts = shuffledArray.slice(0, 8); //8 random products to show
+
+    showRandomProduct(randomProducts,container)
     console.log(randomProducts);
-
-
-
-  }catch(err){
+  } catch (err) {
     console.log(err);
   }
-
-  
-  
 }
 
+function showRandomProduct(productArray,container){
+
+  productArray.forEach((p)=>{
+    console.log(p);
+
+    container.insertAdjacentHTML("afterbegin",`  <div class="">
+              <div class="img-container min-h-36 min-w-36  rounded-3xl overflow-hidden">
+                <img class="w-full h-full object-cover" src=${p.images} alt="image">
+              </div>
+              <h2 class="name text-[18px] font-bold">${p.name}</h2>
+              <span class="price">${p.price}$</span>
+            </div>`)
+
+
+  })
+}
 
 export { home };

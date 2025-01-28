@@ -33,7 +33,7 @@
         42
       ],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/adidas/1.png"
+      "images": "./public/shoeimage/imges/adidas/1.png"
     },
     {
       "id": 2,
@@ -56,7 +56,7 @@
         42
       ],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/adidas/2.png"
+      "images": "./public/shoeimage/imges/adidas/2.png"
     },
     {
       "id": 3,
@@ -79,7 +79,7 @@
         42
       ],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/adidas/3.png"
+      "images": "./public/shoeimage/imges/adidas/3.png"
     },
     {
       "id": 4,
@@ -102,7 +102,7 @@
         42
       ],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/adidas/4.png"
+      "images": "./public/shoeimage/imges/adidas/4.png"
     },
     {
       "id": 5,
@@ -125,7 +125,7 @@
         42
       ],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/adidas/5.png"
+      "images": "./public/shoeimage/imges/adidas/5.png"
     },
     {
       "id": 6,
@@ -148,7 +148,7 @@
         42
       ],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/Asics/1.jpg"
+      "images": "./public/shoeimage/imges/Asics/1.jpg"
     },
     {
       "id": 7,
@@ -171,7 +171,7 @@
         42
       ],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/Asics/2.jpg"
+      "images": "./public/shoeimage/imges/Asics/2.jpg"
     },
     {
       "id": 8,
@@ -194,7 +194,7 @@
         42
       ],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/Asics/3.jpg"
+      "images": "./public/shoeimage/imges/Asics/3.jpg"
     },
     {
       "id": 9,
@@ -217,7 +217,7 @@
         42
       ],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/Asics/4.jpg"
+      "images": "./public/shoeimage/imges/Asics/4.jpg"
     },
     {
       "id": 10,
@@ -240,7 +240,7 @@
         42
       ],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/convers/c.png"
+      "images": "./public/shoeimage/imges/convers/c.png"
     },
     {
       "id": 11,
@@ -263,7 +263,7 @@
         42
       ],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/convers/1.jpg"
+      "images": "./public/shoeimage/imges/convers/1.jpg"
     },
     {
       "id": 12,
@@ -286,7 +286,7 @@
         42
       ],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/convers/3.jpg"
+      "images": "./public/shoeimage/imges/convers/3.jpg"
     },
     {
       "id": 13,
@@ -309,7 +309,7 @@
         42
       ],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/convers/4.jpg"
+      "images": "./public/shoeimage/imges/convers/4.jpg"
     },
     {
       "id": 14,
@@ -332,7 +332,7 @@
         42
       ],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/convers/5.jpg"
+      "images": "./public/shoeimage/imges/convers/5.jpg"
     },
     {
       "id": 15,
@@ -355,7 +355,7 @@
         42
       ],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/convers/6.jpg"
+      "images": "./public/shoeimage/imges/convers/6.jpg"
     },
                   
     {
@@ -517,7 +517,7 @@
         42
       ],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/nike/nike-1.jpg"
+      "images": "./public/shoeimage/imges/nike/nike-1.jpg"
     },
     {
       "id": 23,
@@ -540,7 +540,7 @@
         42
       ],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/nike/nike-2.jpg"
+      "images": "./public/shoeimage/imges/nike/nike-2.jpg"
     },
     {
       "id": 24,
@@ -563,7 +563,7 @@
         42
       ],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/nike/nike-3.jpg"
+      "images": "./public/shoeimage/imges/nike/nike-3.jpg"
     },
     {
       "id": 25,
@@ -586,7 +586,7 @@
         42
       ],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/nike/nike-4.jpg"
+      "images": "./public/shoeimage/imges/nike/nike-4.jpg"
     },
     {
       "id": 26,
@@ -609,7 +609,7 @@
         42
       ],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/nike/nike-5.jpg"
+      "images": "./public/shoeimage/imges/nike/nike-5.jpg"
     },
     {
       "id": 27,
@@ -632,7 +632,7 @@
         42
       ],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/nike/nike-6.jpg"
+      "images": "./public/shoeimage/imges/nike/nike-6.jpg"
     },
     {
       "id": 28,
@@ -655,7 +655,7 @@
         42
       ],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/puma/1.webp"
+      "images": "./public/shoeimage/imges/puma/1.webp"
     },
     {
       "id": 29,
@@ -678,7 +678,7 @@
         42
       ],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/puma/2.webp"
+      "images": "./public/shoeimage/imges/puma/2.webp"
     },
     {
       "id": 30,
@@ -701,7 +701,7 @@
         42
       ],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/puma/3.webp"
+      "images": "./public/shoeimage/imges/puma/3.webp"
     },
     {
       "id": 31,
@@ -724,7 +724,7 @@
         42
       ],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/reebok/1.png"
+      "images": "./public/shoeimage/imges/reebok/1.png"
     },
     {
       "id": 32,
@@ -747,7 +747,7 @@
         42
       ],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/reebok/2.jpg"
+      "images": "./public/shoeimage/imges/reebok/2.jpg"
     },
     {
       "id": 33,
@@ -770,7 +770,7 @@
         42
       ],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/reebok/3.jpg"
+      "images": "./public/shoeimage/imges/reebok/3.jpg"
     },
     {
       "id": 34,
@@ -793,7 +793,7 @@
         42
       ],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/reebok/4.png"
+      "images": "./public/shoeimage/imges/reebok/4.png"
     },
     {
       "id": 35,
@@ -816,7 +816,7 @@
         42
       ],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/reebok/5.jpg"
+      "images": "./public/shoeimage/imges/reebok/5.jpg"
     },
     {
       "id": 36,
@@ -839,7 +839,7 @@
         42
       ],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/reebok/6.jpg"
+      "images": "./public/shoeimage/imges/reebok/6.jpg"
     }
   ],
   "wishList": [
