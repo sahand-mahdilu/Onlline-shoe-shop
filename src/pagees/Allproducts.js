@@ -61,4 +61,4 @@ async function getAllProducts(container) {
   }
 }
 
-export { allProducts, getAllProducts };
+export { allProducts, getAllProducts, goBack };

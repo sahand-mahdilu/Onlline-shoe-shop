@@ -222,12 +222,14 @@ async function getProduct(container) {
 
 function showRandomProduct(productArray, container) {
   container.innerHTML = "";
+  
+  console.log(container);
   productArray.forEach((p) => {
     container.insertAdjacentHTML(
       "afterbegin",
       `  <div class="">
               <div class="img-container min-h-36 min-w-36  rounded-3xl overflow-hidden">
-                <img class="w-full h-full object-cover" src=${p.images} alt="image">
+                <img class="w-full h-full object-cover" src=.${p.images} alt="image">
               </div>
               <h2 class="name text-[18px] font-bold">${p.name}</h2>
               <span class="price">${p.price}$</span>
@@ -268,6 +270,7 @@ async function fetchData(id, container) {
     let uniqueProducts = data.filter((p) => {
       return p.brand === id;
     });
+    console.log(uniqueProducts);
 
     showRandomProduct(uniqueProducts, container);
     console.log(uniqueProducts);
@@ -292,4 +295,4 @@ function goTobrandPge(buttons){
 }
 
 
-export { home, showRandomProduct, scrollBarChangeColor };
+export { home, showRandomProduct, scrollBarChangeColor,fetchData };
