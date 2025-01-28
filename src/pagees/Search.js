@@ -1,7 +1,15 @@
 import { baseURL } from "../API/API";
 import { App } from "../main";
 
-function search(match) {
+async function search(match) {
+  let searchValue = match.data.id;
+
+
+  let products=await  getSearchData(searchValue);//array
+
+
+
+
   App.innerHTML = `
             <div class="all_products_container p-2">
         
@@ -26,7 +34,7 @@ function search(match) {
         
         <div class="flex items-center justify-between mt-2">
           <p class="search_text text-xl font-Sahand">results for "${match.data.id}"</p>
-          <span class="count text-xl font-Sahand">0 found</span>
+          <span class="count text-xl font-Sahand">${products.length} found</span>
 
         </div>
 
@@ -39,21 +47,21 @@ function search(match) {
     `;
 
   const productContainer = document.querySelector(".product_container");
-  let searchValue = match.data.id;
-  console.log(searchValue);
-  getSearchData(searchValue, productContainer);
+  
 }
 
-async function getSearchData(searchValue, container) {
+async function getSearchData(searchValue) {
   try {
     let res = await fetch(`${baseURL}/products?q=${searchValue}`);
-    let data = await res.json(); //array
-    console.log(data);
-   
+    let item = await res.json(); //array
+    console.log(item);
+    return item
   } catch (err) {
     console.log(err);
   }
 }
+
+
 
 function showProducts(productArray, container) {
   productArray.forEach((product) => {
