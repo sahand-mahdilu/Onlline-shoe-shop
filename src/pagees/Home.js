@@ -1,6 +1,7 @@
 import { baseURL } from "../API/API";
-import { App } from "../main";
+import { App, router } from "../main";
 import { navigationBar } from "../NavigationBar/NavigationBar";
+import { getAllProducts } from "./Allproducts";
 
 function home() {
   App.innerHTML = `
@@ -120,10 +121,10 @@ function home() {
         <section class="products-section mt-3">
           <div class="flex justify-between">
             <p class="font-bold">Most popular</p>
-            <p class="font-bold">See All</p>
+            <button id="seeAll" class="font-bold">See All</button>
           </div>
           <div class="flex gap-2 overflow-x-scroll mt-2">
-          <div id="all" class="scrollBar border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 bg-black text-white ">All</div>
+          
             <div id="Nike" class="scrollBar  border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Nike</div>
             <div id="Adidas" class="scrollBar  border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Adidas</div>
             <div id="Asics" class="scrollBar  border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Asics</div>
@@ -147,11 +148,18 @@ function home() {
   const batteryElem = document.querySelector(".battery");
   const productContainer = document.querySelector(".product_container");
   const scrollBarbuttons = document.querySelectorAll(".scrollBar");
+  const seeAllElem= document.querySelector("#seeAll")
 
+  goToSeeAll(seeAllElem)
   showBrowser();
   showBaterry(batteryElem);
   getProduct(productContainer);
   scrollBarChangeColor(scrollBarbuttons, productContainer);
+}
+function goToSeeAll(button){
+  button.addEventListener("click",function(){
+    router.navigate("/allProducts")
+  })
 }
 
 function showBrowser() {
@@ -241,7 +249,7 @@ function scrollBarChangeColor(scrollBarElems, container) {
       e.target.style.color = "white";
 
       if (e.target.id === "all") {
-        getProduct(container);
+        getAllProducts(container);
       } else {
         fetchData(e.target.id, container);
       }
@@ -266,4 +274,4 @@ async function fetchData(id, container) {
   }
 }
 
-export { home };
+export { home,showRandomProduct,scrollBarChangeColor };
