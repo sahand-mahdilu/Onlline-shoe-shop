@@ -151,7 +151,7 @@ function home() {
   showBrowser();
   showBaterry(batteryElem);
   getProduct(productContainer);
-  scrollBarChangeColor(scrollBarbuttons,productContainer);
+  scrollBarChangeColor(scrollBarbuttons, productContainer);
 }
 
 function showBrowser() {
@@ -211,10 +211,8 @@ async function getProduct(container) {
 //show random product
 
 function showRandomProduct(productArray, container) {
-  container.innerHTML=""
+  container.innerHTML = "";
   productArray.forEach((p) => {
-
-
     container.insertAdjacentHTML(
       "afterbegin",
       `  <div class="">
@@ -230,7 +228,7 @@ function showRandomProduct(productArray, container) {
 
 // scrool bar
 
-function scrollBarChangeColor(scrollBarElems,container) {
+function scrollBarChangeColor(scrollBarElems, container) {
   for (let value of scrollBarElems) {
     value.addEventListener("click", function (e) {
       for (let value of scrollBarElems) {
@@ -242,36 +240,30 @@ function scrollBarChangeColor(scrollBarElems,container) {
       e.target.style.backgroundColor = "black";
       e.target.style.color = "white";
 
-      if(e.target.id==="all"){
-         getProduct(container)
-      }else{
-
-        fetchData(e.target.id,container)
+      if (e.target.id === "all") {
+        getProduct(container);
+      } else {
+        fetchData(e.target.id, container);
       }
-     
     });
   }
 }
 /////////////////////////////
 
-async function fetchData(id,container){
-
-  try{
-    let res = await fetch(`${baseURL}/products`)
-    let data= await res.json() //array
+async function fetchData(id, container) {
+  try {
+    let res = await fetch(`${baseURL}/products`);
+    let data = await res.json(); //array
     console.log(data);
-    let uniqueProducts= data.filter((p)=>{
+    let uniqueProducts = data.filter((p) => {
+      return p.brand === id;
+    });
 
-       return p.brand===id
-       
-      })
-
-      showRandomProduct(uniqueProducts,container)
-      console.log(uniqueProducts);
-  }catch(err){
+    showRandomProduct(uniqueProducts, container);
+    console.log(uniqueProducts);
+  } catch (err) {
     console.log(err);
   }
-
 }
 
 export { home };
