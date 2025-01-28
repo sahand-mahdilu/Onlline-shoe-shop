@@ -34,14 +34,12 @@ function allProducts() {
           </div>`;
 
   const backIconElem = document.querySelector("#backIcon");
-  const productContainer = document.querySelector(".product_container")
-  const scrollBarElements =document.querySelectorAll(".scrollBar")
+  const productContainer = document.querySelector(".product_container");
+  const scrollBarElements = document.querySelectorAll(".scrollBar");
 
-
-
-  goBack(backIconElem)
-  getAllProducts(productContainer)
-  scrollBarChangeColor(scrollBarElements,productContainer)
+  goBack(backIconElem);
+  getAllProducts(productContainer);
+  scrollBarChangeColor(scrollBarElements, productContainer);
 }
 //  go back
 function goBack(button) {
@@ -50,18 +48,17 @@ function goBack(button) {
   });
 }
 // get all Products
-async function getAllProducts(container){
-    try{
-        let res = await fetch(`${baseURL}/products`,{
-            method:"GET"
-        })
-        let products= await res.json()// all products
-        showRandomProduct(products,container)
-        console.log(products);
-    }catch(err){
-        console.log(err);
-    }
-    
+async function getAllProducts(container) {
+  try {
+    let res = await fetch(`${baseURL}/products`, {
+      method: "GET",
+    });
+    let products = await res.json(); // all products
+    showRandomProduct(products, container);
+    console.log(products);
+  } catch (err) {
+    console.log(err);
+  }
 }
 
-export { allProducts ,getAllProducts };
+export { allProducts, getAllProducts };

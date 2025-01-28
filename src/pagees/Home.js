@@ -84,31 +84,31 @@ function home() {
             />
           </div>
           <div class="brands-container grid grid-cols-4 mt-3 gap-3">
-            <div class="flex flex-col justify-center items-center">
+            <div class="brandBTN flex flex-col justify-center items-center">
               <img src="./shoeimage/imges/nikelikepic.png" alt="nike" />
               <span class="text-[12px] font-semibold">Nike</span>
             </div>
-            <div class="flex flex-col justify-center items-center">
+            <div class="brandBTN flex flex-col justify-center items-center">
               <img src="./shoeimage/imges/adidaspic.png" alt="adidas" />
               <span class="text-[12px] font-semibold">Adidas</span>
             </div>
-            <div class="flex flex-col justify-center items-center">
+            <div class="brandBTN flex flex-col justify-center items-center">
               <img src="./shoeimage/imges/Asicspic.png" alt="asics" />
               <span class="text-[12px] font-semibold">Asics</span>
             </div>
-            <div class="flex flex-col justify-center items-center">
+            <div class="brandBTN flex flex-col justify-center items-center">
               <img src="./shoeimage/imges/converspic.png" alt="converse" />
               <span class="text-[12px] font-semibold">Converse</span>
             </div>
-            <div class="flex flex-col justify-center items-center">
+            <div class="brandBTN flex flex-col justify-center items-center">
               <img src="./shoeimage/imges/newbalpic.png" alt="newBal" />
               <span class="text-[12px] font-semibold">Newbalance</span>
             </div>
-            <div class="flex flex-col justify-center items-center">
+            <div class="brandBTN flex flex-col justify-center items-center">
               <img src="./shoeimage/imges/pumapic.png" alt="puma" />
               <span class="text-[12px] font-semibold">Puma</span>
             </div>
-            <div class="flex flex-col justify-center items-center">
+            <div class="brandBTN flex flex-col justify-center items-center">
               <img src="./shoeimage/imges/reebokpic.png" alt="reeebok" />
               <span class="text-[12px] font-semibold">Reebok</span>
             </div>
@@ -148,18 +148,20 @@ function home() {
   const batteryElem = document.querySelector(".battery");
   const productContainer = document.querySelector(".product_container");
   const scrollBarbuttons = document.querySelectorAll(".scrollBar");
-  const seeAllElem= document.querySelector("#seeAll")
+  const seeAllElem = document.querySelector("#seeAll");
+  const brandButtons=document.querySelectorAll(".brandBTN")
 
-  goToSeeAll(seeAllElem)
+  goToSeeAll(seeAllElem);
   showBrowser();
   showBaterry(batteryElem);
   getProduct(productContainer);
   scrollBarChangeColor(scrollBarbuttons, productContainer);
+  goTobrandPge(brandButtons)
 }
-function goToSeeAll(button){
-  button.addEventListener("click",function(){
-    router.navigate("/allProducts")
-  })
+function goToSeeAll(button) {
+  button.addEventListener("click", function () {
+    router.navigate("/allProducts");
+  });
 }
 
 function showBrowser() {
@@ -274,4 +276,20 @@ async function fetchData(id, container) {
   }
 }
 
-export { home,showRandomProduct,scrollBarChangeColor };
+
+function goTobrandPge(buttons){
+
+  for(let btn of buttons){
+    btn.addEventListener("click",function(){
+     console.log(btn);
+     let spanElem= btn.querySelector("span").textContent
+     console.log(spanElem);
+     
+    })
+
+  }
+
+}
+
+
+export { home, showRandomProduct, scrollBarChangeColor };
