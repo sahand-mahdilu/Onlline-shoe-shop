@@ -12,12 +12,12 @@ export const App = document.querySelector("#app");
 
 export const router = new Navigo("/");
 
-router
-  .on("/", loader)
-  .on("/onboarding", onBoarding)
-  .on("/register", register)
-  .on("/login", login)
-  .on("/home", home)
-  .on("/allProducts", allProducts)
-  .on("/brands/:id", (math)=>brands(math))
-  .resolve();
+// router
+//   .on("/", loader)
+//   .on("/onboarding", onBoarding)
+//   .on("/register", register)
+//   .on("/login", login)
+//   .on("/home", home)
+//   .on("/allProducts", allProducts)
+//   .on("/brands/:id", (math)=>brands(math))
+//   .resolve();
