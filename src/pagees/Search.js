@@ -1,5 +1,6 @@
 import { baseURL } from "../API/API";
 import { App } from "../main";
+import { goBack } from "./Allproducts";
 
 async function search(match) {
   let searchValue = match.data.id;
@@ -101,7 +102,9 @@ async function search(match) {
 
 
   const productContainer = document.querySelector(".product_container");
+  const backBtn= document.querySelector("#backIcon")
   showProducts(products,productContainer)
+  goBack(backBtn)
 }
 
 async function getSearchData(searchValue) {
