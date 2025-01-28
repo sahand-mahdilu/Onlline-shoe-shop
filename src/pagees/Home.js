@@ -283,8 +283,8 @@ function goTobrandPge(buttons){
     btn.addEventListener("click",function(){
      console.log(btn);
      let spanElem= btn.querySelector("span").textContent
-     console.log(spanElem);
-     
+     router.navigate(`/brands/${spanElem}`)
+
     })
 
   }

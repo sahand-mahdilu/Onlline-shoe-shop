@@ -6,6 +6,7 @@ import { onBoarding } from "./pagees/Onboarding";
 import { login } from "./pagees/Login";
 import { home } from "./pagees/Home";
 import { allProducts } from "./pagees/Allproducts";
+import { brands } from "./pagees/Brands";
 
 export const App = document.querySelector("#app");
 
@@ -18,4 +19,5 @@ router
   .on("/login", login)
   .on("/home", home)
   .on("/allProducts", allProducts)
+  .on("/brands/:id", (math)=>brands(math))
   .resolve();
