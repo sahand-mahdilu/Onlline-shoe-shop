@@ -195,10 +195,10 @@ function showBrowser() {
 function showBaterry(battery) {
   if (navigator.getBattery) {
     window.navigator.getBattery().then((batteryInfo) => {
-      battery.innerHTML = `${batteryInfo.level * 100}%`;
+      battery.innerHTML = `${Math.trunc(batteryInfo.level * 100)}%`;
 
       batteryInfo.addEventListener("levelchange", function () {
-        battery.innerHTML = `${batteryInfo.level * 100}%`;
+        battery.innerHTML = `${Math.trunc(batteryInfo.level * 100)}%`;
       });
     });
   }
