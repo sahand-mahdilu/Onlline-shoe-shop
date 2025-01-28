@@ -13,7 +13,7 @@ function allProducts() {
 
         </div>
      
-      <div class="flex gap-2 overflow-x-scroll mt-2">
+      <div class="sticky top-0 p-2 bg-white flex gap-2 overflow-x-scroll mt-2">
         <div id="all" class="scrollBar border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 bg-black text-white ">All</div>
           <div id="Nike" class="scrollBar  border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Nike</div>
           <div id="Adidas" class="scrollBar  border-2 border-black rounded-[20px] text-[14px] font-semibold p-1 px-2 ">Adidas</div>
