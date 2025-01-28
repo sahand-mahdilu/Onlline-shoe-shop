@@ -5,49 +5,103 @@ async function search(match) {
   let searchValue = match.data.id;
 
 
-  let products=await  getSearchData(searchValue);//array
+  let products= await  getSearchData(searchValue);//array
 
+  
+    if(products.length>0){
 
-
-
+        
   App.innerHTML = `
-            <div class="all_products_container p-2">
-        
-        <div class="flex items-center gap-2 mb-4">
-          <svg id="backIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-            <path fill-rule="evenodd" d="M11.03 3.97a.75.75 0 0 1 0 1.06l-6.22 6.22H21a.75.75 0 0 1 0 1.5H4.81l6.22 6.22a.75.75 0 1 1-1.06 1.06l-7.5-7.5a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd" />
-          </svg>
+  <div class="all_products_container p-2">
 
-        </div>
-        <div class="relative ">
-          <input
-            class="bg-gray-100 pr-8 p-2 w-full"
-            placeholder="search"
-            type="text"
-          />
-          <img
-            class="absolute bottom-2 right-2"
-            src="../shoeimage/imges/icons8-search-24.png"
-            alt="search"
-          />
-        </div>
-        
-        <div class="flex items-center justify-between mt-2">
-          <p class="search_text text-xl font-Sahand">results for "${match.data.id}"</p>
-          <span class="count text-xl font-Sahand">${products.length} found</span>
+<div class="flex items-center gap-2 mb-4">
+<svg id="backIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+  <path fill-rule="evenodd" d="M11.03 3.97a.75.75 0 0 1 0 1.06l-6.22 6.22H21a.75.75 0 0 1 0 1.5H4.81l6.22 6.22a.75.75 0 1 1-1.06 1.06l-7.5-7.5a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd" />
+</svg>
 
-        </div>
+</div>
+<div class="relative ">
+<input
+  class="bg-gray-100 pr-8 p-2 w-full"
+  placeholder="search"
+  type="text"
+/>
+<img
+  class="absolute bottom-2 right-2"
+  src="../shoeimage/imges/icons8-search-24.png"
+  alt="search"
+/>
+</div>
+
+<div class="flex items-center justify-between mt-2">
+<p class="search_text text-[16px] font-Sahand">results for "${match.data.id}"</p>
+<span class="count text-xl font-Sahand">${products.length} found</span>
+
+</div>
 
 
-    
-        <div class="w-full product_container mb-4 mt-6 gap-4 grid grid-cols-2 justify-center items-center">
-            </div>
-            </div>
-    
-    `;
+
+<div class="w-full product_container mb-4 mt-6 gap-4 grid grid-cols-2 justify-center items-center">
+  </div>
+  </div>
+
+`;
+
+    }else{
+
+        App.innerHTML = `
+  <div class="all_products_container p-2">
+
+<div class="flex items-center gap-2 mb-4">
+<svg id="backIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+  <path fill-rule="evenodd" d="M11.03 3.97a.75.75 0 0 1 0 1.06l-6.22 6.22H21a.75.75 0 0 1 0 1.5H4.81l6.22 6.22a.75.75 0 1 1-1.06 1.06l-7.5-7.5a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd" />
+</svg>
+
+</div>
+<div class="relative ">
+<input
+  class="bg-gray-100 pr-8 p-2 w-full"
+  placeholder="search"
+  type="text"
+/>
+<img
+  class="absolute bottom-2 right-2"
+  src="../shoeimage/imges/icons8-search-24.png"
+  alt="search"
+/>
+</div>
+
+<div class="flex items-center justify-between mt-2">
+<p class="search_text text-[16px] font-Sahand">results for "${match.data.id}"</p>
+<span class="count text-xl font-Sahand">${products.length} found</span>
+
+</div>
+
+
+
+<div class="w-full product_container mb-4 mt-6 gap-4 flex flex-col justify-center items-center">
+
+  <div class="img_container size-40 ">
+    <img class="w-full h-full object-cover" src="../public/shoeimage/imges/notfound.png" alt="notfound">
+
+  </div>
+  <p class="text-xl font-semibold">Not Found</p>
+  <p class="text-[12px] text-center">sorry, the key word you entered cannot be found, please check again or search with another keyword</p>
+  </div>
+  </div>
+
+`;
+
+
+
+
+    }
+
+
+
 
   const productContainer = document.querySelector(".product_container");
-  
+  showProducts(products,productContainer)
 }
 
 async function getSearchData(searchValue) {
@@ -64,6 +118,9 @@ async function getSearchData(searchValue) {
 
 
 function showProducts(productArray, container) {
+
+
+
   productArray.forEach((product) => {
     console.log(product);
 
