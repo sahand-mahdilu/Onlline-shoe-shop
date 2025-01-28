@@ -1,3 +1,4 @@
+import { baseURL } from "../API/API";
 import { App } from "../main";
 import { navigationBar } from "../NavigationBar/NavigationBar";
 
@@ -164,9 +165,10 @@ function home() {
       ${navigationBar()}
  
       `;
-    const batteryElem =document.querySelector(".battery")
+  const batteryElem = document.querySelector(".battery");
   showBrowser();
-  showBaterry(batteryElem)
+  showBaterry(batteryElem);
+  getProduct()
 }
 
 function showBrowser() {
@@ -194,19 +196,48 @@ function showBrowser() {
   }
 }
 
-function showBaterry(battery){
-    if(navigator.getBattery){
-       window.navigator.getBattery()
-        .then(batteryInfo=>{
-            console.log(batteryInfo);
-             battery.innerHTML=`${batteryInfo.level*100}%`
+function showBaterry(battery) {
+  if (navigator.getBattery) {
+    window.navigator.getBattery().then((batteryInfo) => {
+      console.log(batteryInfo);
+      battery.innerHTML = `${batteryInfo.level * 100}%`;
 
-            batteryInfo.addEventListener("levelchange",function(){
-
-                battery.innerHTML=`${batteryInfo.level*100}%`
-            })
-        })
-    }
+      batteryInfo.addEventListener("levelchange", function () {
+        battery.innerHTML = `${batteryInfo.level * 100}%`;
+      });
+    });
+  }
 }
+
+
+
+// show random product 
+
+async function getProduct (){
+
+  try{
+
+    let res =await fetch(`${baseURL}/products`,{
+      method:"GET"
+    })
+    let data= await res.json() //array
+    console.log(data);
+    let shuffledArray= data.sort(()=>0.5-Math.random())
+
+    console.log(shuffledArray);
+
+    let randomProducts=shuffledArray.slice(0,8) //8random products to show
+    console.log(randomProducts);
+
+
+
+  }catch(err){
+    console.log(err);
+  }
+
+  
+  
+}
+
 
 export { home };

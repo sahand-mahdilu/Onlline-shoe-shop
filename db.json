@@ -357,123 +357,9 @@
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "../public/shoeimage/imges/convers/6.jpg"
     },
+                  
     {
       "id": 16,
-      "name": "Chabok",
-      "brand": "IranKafsh",
-      "price": 438,
-      "rate": 2.5,
-      "sold": 1200,
-      "in-stock": 2000,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
-      "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/irankafsh/1.jpg"
-    },
-    {
-      "id": 17,
-      "name": "narm ara",
-      "brand": "IranKafsh",
-      "price": 438,
-      "rate": 2.5,
-      "sold": 1200,
-      "in-stock": 2000,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
-      "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/irankafsh/2.jpg"
-    },
-    {
-      "id": 18,
-      "name": "azita",
-      "brand": "IranKafsh",
-      "price": 538,
-      "rate": 2.5,
-      "sold": 1200,
-      "in-stock": 2000,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
-      "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/irankafsh/3.jpg"
-    },
-    {
-      "id": 19,
-      "name": " narges",
-      "brand": "IranKafsh",
-      "price": 138,
-      "rate": 2.5,
-      "sold": 1200,
-      "in-stock": 2000,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
-      "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/irankafsh/4.jpg"
-    },
-    {
-      "id": 20,
-      "name": "tantak",
-      "brand": "IranKafsh",
-      "price": 438,
-      "rate": 2.5,
-      "sold": 1200,
-      "in-stock": 2000,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
-      "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "../public/shoeimage/imges/irankafsh/5.jpg"
-    },
-    {
-      "id": 21,
       "name": "ac55",
       "brand": "NewBalance",
       "price": 149,
@@ -496,7 +382,7 @@
       "images": "./public/shoeimage/imges/neawba/1.jpg"
     },
     {
-      "id": 22,
+      "id": 17,
       "name": "ac60",
       "brand": "NewBalance",
       "price": 145,
@@ -519,7 +405,7 @@
       "images": "./public/shoeimage/imges/neawba/2.jpg"
     },
     {
-      "id": 23,
+      "id": 18,
       "name": "c180",
       "brand": "NewBalance",
       "price": 200,
@@ -542,7 +428,7 @@
       "images": "./public/shoeimage/imges/neawba/3.jpg"
     },
     {
-      "id": 24,
+      "id": 19,
       "name": "LC",
       "brand": "NewBalance",
       "price": 500,
@@ -565,7 +451,7 @@
       "images": "./public/shoeimage/imges/neawba/4.jpg"
     },
     {
-      "id": 25,
+      "id": 20,
       "name": "kmg",
       "brand": "NewBalance",
       "price": 149,
@@ -588,7 +474,7 @@
       "images": "./public/shoeimage/imges/neawba/5.jpg"
     },
     {
-      "id": 26,
+      "id": 21,
       "name": "lc walk",
       "brand": "NewBalance",
       "price": 149,
@@ -611,7 +497,7 @@
       "images": "./public/shoeimage/imges/neawba/6.jpg"
     },
     {
-      "id": 27,
+      "id": 22,
       "name": "Initiator",
       "brand": "Nike",
       "price": 75,
@@ -634,7 +520,7 @@
       "images": "../public/shoeimage/imges/nike/nike-1.jpg"
     },
     {
-      "id": 28,
+      "id": 23,
       "name": "trainer",
       "brand": "Nike",
       "price": 175,
@@ -657,7 +543,7 @@
       "images": "../public/shoeimage/imges/nike/nike-2.jpg"
     },
     {
-      "id": 29,
+      "id": 24,
       "name": "jordan",
       "brand": "Nike",
       "price": 375,
@@ -680,7 +566,7 @@
       "images": "../public/shoeimage/imges/nike/nike-3.jpg"
     },
     {
-      "id": 30,
+      "id": 25,
       "name": "barows",
       "brand": "Nike",
       "price": 75,
@@ -703,7 +589,7 @@
       "images": "../public/shoeimage/imges/nike/nike-4.jpg"
     },
     {
-      "id": 31,
+      "id": 26,
       "name": "J500",
       "brand": "Nike",
       "price": 75,
@@ -726,7 +612,7 @@
       "images": "../public/shoeimage/imges/nike/nike-5.jpg"
     },
     {
-      "id": 32,
+      "id": 27,
       "name": "nike c800",
       "brand": "Nike",
       "price": 175,
@@ -749,7 +635,7 @@
       "images": "../public/shoeimage/imges/nike/nike-6.jpg"
     },
     {
-      "id": 33,
+      "id": 28,
       "name": "w 2000",
       "brand": "Puma",
       "price": 49,
@@ -772,7 +658,7 @@
       "images": "../public/shoeimage/imges/puma/1.webp"
     },
     {
-      "id": 34,
+      "id": 29,
       "name": "fazio",
       "brand": "Puma",
       "price": 149,
@@ -795,7 +681,7 @@
       "images": "../public/shoeimage/imges/puma/2.webp"
     },
     {
-      "id": 35,
+      "id": 30,
       "name": "air walk",
       "brand": "Puma",
       "price": 149,
@@ -818,7 +704,7 @@
       "images": "../public/shoeimage/imges/puma/3.webp"
     },
     {
-      "id": 36,
+      "id": 31,
       "name": "Royal Glide",
       "brand": "Reebok",
       "price": 43,
@@ -841,7 +727,7 @@
       "images": "../public/shoeimage/imges/reebok/1.png"
     },
     {
-      "id": 37,
+      "id": 32,
       "name": "Royal ",
       "brand": "Reebok",
       "price": 43,
@@ -864,7 +750,7 @@
       "images": "../public/shoeimage/imges/reebok/2.jpg"
     },
     {
-      "id": 38,
+      "id": 33,
       "name": "Royal air ",
       "brand": "Reebok",
       "price": 43,
@@ -887,7 +773,7 @@
       "images": "../public/shoeimage/imges/reebok/3.jpg"
     },
     {
-      "id": 39,
+      "id": 34,
       "name": "Royal walk ",
       "brand": "Reebok",
       "price": 343,
@@ -910,7 +796,7 @@
       "images": "../public/shoeimage/imges/reebok/4.png"
     },
     {
-      "id": 40,
+      "id": 35,
       "name": "Royal v20 ",
       "brand": "Reebok",
       "price": 240,
@@ -933,7 +819,7 @@
       "images": "../public/shoeimage/imges/reebok/5.jpg"
     },
     {
-      "id": 41,
+      "id": 36,
       "name": "colone ",
       "brand": "Reebok",
       "price": 200,

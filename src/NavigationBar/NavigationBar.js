@@ -1,12 +1,5 @@
-
-export function navigationBar(){
-
-   
-    
-     
-   
-    
-    return document.innerHTML=`
+export function navigationBar() {
+  return (document.innerHTML = `
 
     <div class="fixed bg-green-200 bottom-0 left-0 right-0  z-50 border-t-2 border-green-500 border-dotted">
 
@@ -58,6 +51,6 @@ export function navigationBar(){
 
         </div>
     
-    `
-
+    `);
 }
+
