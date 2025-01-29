@@ -339,4 +339,4 @@ function goToSingleProduct(container) {
   });
 }
 
-export { home, showRandomProduct, scrollBarChangeColor, fetchData };
+export { home, showRandomProduct, scrollBarChangeColor, fetchData, goToSingleProduct };
