@@ -41,9 +41,9 @@ async function singleProduct(match){
             <div>
               <span class=" font-semibold text-[17px]">size</span>
             <div class="size flex gap-1">
-              <div class="flex items-center justify-center size-6 border border-black rounded-full text-[12px] text-white bg-black ">${product.sizes[0]}</div>
-              <div class="flex items-center justify-center size-6 border border-black rounded-full text-[12px] ">${product.sizes[1]}</div>
-              <div class="flex items-center justify-center size-6 border border-black rounded-full text-[12px] ">${product.sizes[2]}</div>
+              <div class="sizeBtn flex items-center justify-center size-6 border border-black rounded-full text-[12px] text-white bg-black ">${product.sizes[0]}</div>
+              <div class="sizeBtn flex items-center justify-center size-6 border border-black rounded-full text-[12px] ">${product.sizes[1]}</div>
+              <div class="sizeBtn flex items-center justify-center size-6 border border-black rounded-full text-[12px] ">${product.sizes[2]}</div>
             </div>
           </div>
 
@@ -111,8 +111,12 @@ async function singleProduct(match){
       </div>
 
 `
-const backBtn= document.querySelector("#backIcon")
-goBack(backBtn)
+    const backBtn= document.querySelector("#backIcon")
+    const sizeButtons= document.querySelectorAll(".sizeBtn")
+    console.log(sizeButtons);
+
+    goBack(backBtn)
+    sizeButtonColor(sizeButtons)
 
 }
 
@@ -127,12 +131,32 @@ async function getData(id){
         console.log(err);
     }
 }
+// go previous page
 
 function goBack(elem){
     elem.addEventListener("click",function(){
        window.history.back()
     })
 } 
+
+// size buttons background color
+
+function sizeButtonColor(buttons){
+    for(let button of buttons){
+
+        button.addEventListener("click",function(){
+
+            for(let button of buttons){
+                button.style.backgroundColor="white"
+                button.style.color="black"
+            }
+            button.style.backgroundColor="black"
+            button.style.color="white"
+        })
+
+    }
+}
+
 
 
 export{singleProduct}
