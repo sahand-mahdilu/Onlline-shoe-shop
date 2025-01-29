@@ -1,5 +1,5 @@
 import { baseURL } from "../API/API";
-import { App } from "../main";
+import { App, } from "../main";
 
 async function singleProduct(match){
 
@@ -111,6 +111,9 @@ async function singleProduct(match){
       </div>
 
 `
+const backBtn= document.querySelector("#backIcon")
+goBack(backBtn)
+
 }
 
 async function getData(id){
@@ -125,6 +128,11 @@ async function getData(id){
     }
 }
 
+function goBack(elem){
+    elem.addEventListener("click",function(){
+       window.history.back()
+    })
+} 
 
 
 export{singleProduct}
