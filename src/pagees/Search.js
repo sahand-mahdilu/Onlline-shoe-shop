@@ -1,6 +1,7 @@
 import { baseURL } from "../API/API";
 import { App } from "../main";
 import { goBack } from "./Allproducts";
+import { goToSingleProduct } from "./Home";
 
 async function search(match) {
   let searchValue = match.data.id;
@@ -105,6 +106,7 @@ async function search(match) {
   const backBtn= document.querySelector("#backIcon")
   showProducts(products,productContainer)
   goBack(backBtn)
+  goToSingleProduct(productContainer)
 }
 
 async function getSearchData(searchValue) {
@@ -129,15 +131,15 @@ function showProducts(productArray, container) {
 
     container.insertAdjacentHTML(
       "afterbegin",
-      ` <div class="">
-              <div class="relative img-container min-h-36 min-w-36  rounded-3xl overflow-hidden">
-                <img class="w-full h-full object-cover" src=.${product.images} alt="image">
+      ` <div id=${product.id} class="">
+              <div id=${product.id} class="relative img-container min-h-36 min-w-36  rounded-3xl overflow-hidden">
+                <img id=${product.id} class="w-full h-full object-cover" src=.${product.images} alt="image">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4 absolute right-2 top-2">
                   <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
                 </svg>
                 
               </div>
-              <h2 class="name text-[18px] font-bold">${product.name}</h2>
+              <h2 id=${product.id} class="name text-[18px] font-bold">${product.name}</h2>
               <div class="flex gap-2 items-center">
                 <div class="img_container size-6">
                   <img class="w-full h-full object-cover" src="../public/shoeimage/imges/star.png" alt="">
