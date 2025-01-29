@@ -305,7 +305,7 @@ function searchProduct(serchInput, searchBtn) {
 
 function navBar(buttons) {
   let defaultSrc = [
-    "./public/shoeimage/imges/white-home.png",
+    "./shoeimage/imges/white-home.png",
     "./shoeimage/imges/cart.png",
     "./shoeimage/imges/shoppi.png",
     "./shoeimage/imges/wallet.png",
@@ -313,10 +313,10 @@ function navBar(buttons) {
   ];
   let activeSrc = [
     "./shoeimage/imges/home.png",
-    "./public/shoeimage/imges/cart-2.png",
-    "./public/shoeimage/imges/shoppi1.png",
-    "./public/shoeimage/imges/blackwallet.png",
-    "./public/shoeimage/imges/blackprofile.png",
+    "./shoeimage/imges/cart-2.png",
+    "./shoeimage/imges/shoppi1.png",
+    "./shoeimage/imges/blackwallet.png",
+    "./shoeimage/imges/blackprofile.png",
   ];
 
   buttons.forEach((button, index) => {
@@ -324,15 +324,11 @@ function navBar(buttons) {
       buttons.forEach((btn, idx) => {
         const img = btn.querySelector("img");
         img.src = defaultSrc[idx];
-       
       });
       const clickedImg = button.querySelector("img");
       clickedImg.src = activeSrc[index];
-
-      
     });
   });
-
 }
 
 export { home, showRandomProduct, scrollBarChangeColor, fetchData };

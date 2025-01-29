@@ -107,7 +107,7 @@
         42
       ],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
-      "images": "./public/shoeimage/imges/adidas/4.png"
+      "images": "./shoeimage/imges/adidas/4.png"
     },
     {
       "id": 5,
