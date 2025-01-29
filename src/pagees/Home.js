@@ -149,17 +149,19 @@ function home() {
   const productContainer = document.querySelector(".product_container");
   const scrollBarbuttons = document.querySelectorAll(".scrollBar");
   const seeAllElem = document.querySelector("#seeAll");
-  const brandButtons=document.querySelectorAll(".brandBTN")
-  const searchElem=document.querySelector("#search")
-  const searchBtn=document.querySelector("#searchBtn")
+  const brandButtons = document.querySelectorAll(".brandBTN");
+  const searchElem = document.querySelector("#search");
+  const searchBtn = document.querySelector("#searchBtn");
+  const navButtons = document.querySelectorAll(".navigation");
 
   goToSeeAll(seeAllElem);
   showBrowser();
   showBaterry(batteryElem);
   getProduct(productContainer);
   scrollBarChangeColor(scrollBarbuttons, productContainer);
-  goTobrandPge(brandButtons)
-  searchProduct(searchElem,searchBtn)
+  goTobrandPge(brandButtons);
+  searchProduct(searchElem, searchBtn);
+  navBar(navButtons);
 }
 function goToSeeAll(button) {
   button.addEventListener("click", function () {
@@ -225,7 +227,7 @@ async function getProduct(container) {
 
 function showRandomProduct(productArray, container) {
   container.innerHTML = "";
-  
+
   console.log(container);
   productArray.forEach((p) => {
     container.insertAdjacentHTML(
@@ -282,31 +284,55 @@ async function fetchData(id, container) {
   }
 }
 
-
-function goTobrandPge(buttons){
-
-  for(let btn of buttons){
-    btn.addEventListener("click",function(){
-     console.log(btn);
-     let spanElem= btn.querySelector("span").textContent
-     router.navigate(`/brands/${spanElem}`)
-
-    })
-
+function goTobrandPge(buttons) {
+  for (let btn of buttons) {
+    btn.addEventListener("click", function () {
+      console.log(btn);
+      let spanElem = btn.querySelector("span").textContent;
+      router.navigate(`/brands/${spanElem}`);
+    });
   }
-
 }
 
+function searchProduct(serchInput, searchBtn) {
+  searchBtn.addEventListener("click", function () {
+    let searchInputValue = serchInput.value;
 
-function searchProduct(serchInput,searchBtn){
-  searchBtn.addEventListener("click",function(){
-    let searchInputValue= serchInput.value
-
-    router.navigate(`/search/${searchInputValue}`)
+    router.navigate(`/search/${searchInputValue}`);
     console.log(searchInputValue);
-  })
+  });
+}
+
+function navBar(buttons) {
+  let defaultSrc = [
+    "./public/shoeimage/imges/white-home.png",
+    "./shoeimage/imges/cart.png",
+    "./shoeimage/imges/shoppi.png",
+    "./shoeimage/imges/wallet.png",
+    "./shoeimage/imges/profile.png",
+  ];
+  let activeSrc = [
+    "./shoeimage/imges/home.png",
+    "./public/shoeimage/imges/cart-2.png",
+    "./public/shoeimage/imges/shoppi1.png",
+    "./public/shoeimage/imges/blackwallet.png",
+    "./public/shoeimage/imges/blackprofile.png",
+  ];
+
+  buttons.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      buttons.forEach((btn, idx) => {
+        const img = btn.querySelector("img");
+        img.src = defaultSrc[idx];
+       
+      });
+      const clickedImg = button.querySelector("img");
+      clickedImg.src = activeSrc[index];
+
+      
+    });
+  });
 
 }
 
-
-export { home, showRandomProduct, scrollBarChangeColor,fetchData };
+export { home, showRandomProduct, scrollBarChangeColor, fetchData };

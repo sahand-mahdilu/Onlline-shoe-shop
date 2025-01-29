@@ -1,5 +1,5 @@
 export function navigationBar() {
-  return (document.innerHTML = `
+   let content=  `
 
     <div class="fixed bg-green-200 bottom-0 left-0 right-0  z-50 border-t-2 border-green-500 border-dotted">
 
@@ -7,14 +7,14 @@ export function navigationBar() {
 
        <div class="flex justify-between px-4 py-1">
 
-          <div class="flex flex-col items-center justify-center">
+          <div class="navigation flex flex-col items-center justify-center">
             <div class="img_container size-6">
               <img class="w-full h-full object-cover" src="./shoeimage/imges/home.png" alt="home">
             </div>
             <span class="text-center text-[12px] font-bold">home</span>
           </div>
 
-          <div class="flex flex-col items-center justify-center">
+          <div class="navigation flex flex-col items-center justify-center">
             <div class="img_container size-6">
               <img class="w-full h-full object-cover" src="./shoeimage/imges/cart.png" alt="cart">
             </div>
@@ -22,7 +22,7 @@ export function navigationBar() {
           </div>
 
 
-          <div class="flex flex-col items-center justify-center">
+          <div class="navigation flex flex-col items-center justify-center">
             <div class="img_container size-6">
               <img class="w-full h-full object-cover" src="./shoeimage/imges/shoppi.png" alt="orders">
             </div>
@@ -30,7 +30,7 @@ export function navigationBar() {
           </div>
 
 
-          <div class="flex flex-col items-center justify-center">
+          <div class="navigation flex flex-col items-center justify-center">
             <div class="img_container size-6">
               <img class="w-full h-full object-cover" src="./shoeimage/imges/wallet.png" alt="wallet">
             </div>
@@ -38,7 +38,7 @@ export function navigationBar() {
           </div>
 
 
-          <div class="flex flex-col items-center justify-center">
+          <div class="navigation flex flex-col items-center justify-center">
             <div class="img_container size-6">
               <img class="w-full h-full object-cover" src="./shoeimage/imges/profile.png" alt="profile">
             </div>
@@ -51,6 +51,8 @@ export function navigationBar() {
 
         </div>
     
-    `);
+    `
+
+    return content
 }
 
