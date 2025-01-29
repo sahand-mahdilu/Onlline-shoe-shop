@@ -4,10 +4,8 @@ import { App, } from "../main";
 async function singleProduct(match){
 
     let productId=match.data.id
-    console.log(productId);
  let  item= await getData(productId)//array
  let product=item[0]
- console.log(product);
 
 
     App.innerHTML=`
@@ -82,9 +80,9 @@ async function singleProduct(match){
           <div class="px-2 flex items-center gap-4 mt-3">
             <span class="text-lg font-semibold">Quantity</span>
             <div class="bg-slate-200 w-20 flex justify-between items-center  px-2 rounded-md text-[15px]">
-              <button class="text-[18px] font-semibold">-</button>
+              <button class="text-[20px] font-semibold minus">-</button>
               <span class="quantity text-[14px]">1</span>
-              <button class="text-[18px] font-semibold">+</button>
+              <button class="text-[18px] font-semibold plus">+</button>
             </div>
           </div>
 
@@ -115,12 +113,15 @@ async function singleProduct(match){
     const sizeButtons= document.querySelectorAll(".sizeBtn")
     const colorButtons = document.querySelectorAll(".colorBtn")
     const svgElems= document.querySelectorAll("svg")
-    console.log(svgElems);
+    const plusBtn = document.querySelector(".plus")
+    const minusBtn = document.querySelector(".minus")
+    const quantityElem = document.querySelector(".quantity")
     
 
     goBack(backBtn)
     sizeButtonColor(sizeButtons)
     colorChech(colorButtons,svgElems)
+    quantityHandler(plusBtn,minusBtn,quantityElem)
 
 }
 
@@ -182,6 +183,24 @@ function colorChech(buttons,svgs){
     }
 
 }
+
+function quantityHandler(plusBtn,minusBtn,quantity){
+
+    
+
+    plusBtn.addEventListener("click",function(){
+        console.log(quantity.textContent);
+        quantity.textContent ++
+    })
+    minusBtn.addEventListener("click",function(){
+        if(quantity.textContent>1){
+            quantity.textContent --
+
+        }
+        
+    })
+}
+
 
 
 
