@@ -1,6 +1,6 @@
 import { App } from "../main";
 import { goBack } from "./Allproducts";
-import { fetchData } from "./Home";
+import { fetchData, goToSingleProduct } from "./Home";
 
 function brands(match) {
   let productBrand = match.data.id;
@@ -35,6 +35,7 @@ function brands(match) {
   const containerElem = document.querySelector(".product_container");
   fetchData(productBrand, containerElem);
   goBack(goBackElem);
+  goToSingleProduct(containerElem)
 }
 
 export { brands };

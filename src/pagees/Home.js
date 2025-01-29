@@ -102,7 +102,7 @@ function home() {
             </div>
             <div class="brandBTN flex flex-col justify-center items-center">
               <img src="./shoeimage/imges/newbalpic.png" alt="newBal" />
-              <span class="text-[12px] font-semibold">Newbalance</span>
+              <span class="text-[12px] font-semibold">NewBalance</span>
             </div>
             <div class="brandBTN flex flex-col justify-center items-center">
               <img src="./shoeimage/imges/pumapic.png" alt="puma" />
