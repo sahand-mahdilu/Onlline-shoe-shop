@@ -162,6 +162,7 @@ function home() {
   goTobrandPge(brandButtons);
   searchProduct(searchElem, searchBtn);
   navBar(navButtons);
+  goToSingleProduct(productContainer);
 }
 function goToSeeAll(button) {
   button.addEventListener("click", function () {
@@ -232,12 +233,12 @@ function showRandomProduct(productArray, container) {
   productArray.forEach((p) => {
     container.insertAdjacentHTML(
       "afterbegin",
-      `  <div class="">
-              <div class="img-container min-h-36 min-w-36  rounded-3xl overflow-hidden">
-                <img class="w-full h-full object-cover" src=.${p.images} alt="image">
+      `  <div id=${p.id} class="" >
+              <div id=${p.id}  class="img-container min-h-36 min-w-36  rounded-3xl overflow-hidden">
+                <img id=${p.id}  class="w-full h-full object-cover" src=.${p.images} alt="image">
               </div>
-              <h2 class="name text-[18px] font-bold">${p.name}</h2>
-              <span class="price">${p.price}$</span>
+              <h2 id=${p.id}  class="name text-[18px] font-bold">${p.name}</h2>
+              <span id=${p.id}  class="price">${p.price}$</span>
             </div>`
     );
   });
@@ -328,6 +329,13 @@ function navBar(buttons) {
       const clickedImg = button.querySelector("img");
       clickedImg.src = activeSrc[index];
     });
+  });
+}
+
+function goToSingleProduct(container) {
+  container.addEventListener("click", function (e) {
+    router.navigate(`singleProduct/${e.target.id}`);
+    console.log(e.target.id);
   });
 }
 
