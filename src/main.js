@@ -8,18 +8,20 @@ import { home } from "./pagees/Home";
 import { allProducts } from "./pagees/Allproducts";
 import { brands } from "./pagees/Brands";
 import { search } from "./pagees/Search";
+import { singleProduct } from "./pagees/SingleProduct";
 
 export const App = document.querySelector("#app");
 
 export const router = new Navigo("/");
 
-// router
-//   .on("/", loader)
-//   .on("/onboarding", onBoarding)
-//   .on("/register", register)
-//   .on("/login", login)
-//   .on("/home", home)
-//   .on("/allProducts", allProducts)
-//   .on("/brands/:id", (math)=>brands(math))
-//   .on("/search/:id", (math)=>search(math))
-//   .resolve();
+router
+  .on("/", loader)
+  .on("/onboarding", onBoarding)
+  .on("/register", register)
+  .on("/login", login)
+  .on("/home", home)
+  .on("/allProducts", allProducts)
+  .on("/brands/:id", (math)=>brands(math))
+  .on("/search/:id", (math)=>search(math))
+  .on("/singleProduct/:id", (math)=>singleProduct(math))
+  .resolve();

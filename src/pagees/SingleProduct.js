@@ -104,3 +104,7 @@ function singleProduct(){
 
 `
 }
+
+
+
+export{singleProduct}
