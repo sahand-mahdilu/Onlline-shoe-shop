@@ -89,7 +89,7 @@ async function singleProduct(match){
             <div class="px-2 w-full pt-1 border-t-2 border-black mt-3  flex items-center justify-between">
               <div >
                 <p class="text-[12px] text-gray-500">Total price</p>
-                <span class="totalPrice font-Sahand text-[18px] ">$250</span>
+                <span class="totalPrice font-Sahand text-[18px] ">$${product.price}</span>
               </div>
               <div>
                 <button class="flex items-center justify-center   bg-black text-white p-[6px] min-w-48 rounded-2xl text-[14px]">
@@ -116,12 +116,13 @@ async function singleProduct(match){
     const plusBtn = document.querySelector(".plus")
     const minusBtn = document.querySelector(".minus")
     const quantityElem = document.querySelector(".quantity")
+    const totalPriceElem = document.querySelector(".totalPrice")
     
 
     goBack(backBtn)
     sizeButtonColor(sizeButtons)
     colorChech(colorButtons,svgElems)
-    quantityHandler(plusBtn,minusBtn,quantityElem)
+    quantityHandler(plusBtn,minusBtn,quantityElem,totalPriceElem)
 
 }
 
@@ -130,7 +131,6 @@ async function getData(id){
     try{
         let res =  await fetch(`${baseURL}/products?id=${id}`)
         let  data=await res.json()
-        console.log(data);
         return data
     }catch(err){
         console.log(err);
@@ -179,23 +179,32 @@ function colorChech(buttons,svgs){
             console.log(button.querySelector("svg"));
 
         })
-        console.log("hello");
     }
 
 }
 
-function quantityHandler(plusBtn,minusBtn,quantity){
+function quantityHandler(plusBtn,minusBtn,quantity,totalPice){
 
-    
+        let totolPriceContent= totalPice.textContent
+        let price = Number(totolPriceContent.slice(1)) 
+       
+        let sum=price
+       
 
     plusBtn.addEventListener("click",function(){
         console.log(quantity.textContent);
         quantity.textContent ++
+        sum+=price
+
+        totalPice.textContent=`$${sum}`
     })
+
     minusBtn.addEventListener("click",function(){
         if(quantity.textContent>1){
             quantity.textContent --
-
+            
+            sum-=price
+            totalPice.textContent=`$${sum}`
         }
         
     })
