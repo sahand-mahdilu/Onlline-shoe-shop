@@ -50,23 +50,23 @@ async function singleProduct(match){
             <div>
               <span class="font-semibold text-[17px]">color</span>
               <div class="colors flex gap-1">
-                <div style=background-color:${product.colors[0]} class="flex items-center justify-center size-6 border border-black rounded-full"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4 text-white">
+                <div style=background-color:${product.colors[0]} class="colorBtn flex items-center justify-center size-6 border border-black rounded-full"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4 text-white">
                   <path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd" />
                 </svg>
                 </div>
-                <div style=background-color:${product.colors[1]}  class="flex items-center justify-center size-6 border border-black rounded-full"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4 text-white">
+                <div style=background-color:${product.colors[1]}  class="colorBtn flex items-center justify-center size-6 border border-black rounded-full"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4 opacity-0 text-white">
                   <path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd" />
                 </svg>
                 </div>
-                <div style=background-color:${product.colors[2]} class="flex items-center justify-center size-6 border border-black rounded-full"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4 text-white">
+                <div style=background-color:${product.colors[2]} class="colorBtn flex items-center justify-center size-6 border border-black rounded-full"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4 opacity-0 text-white">
                   <path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd" />
                 </svg>
                 </div>
-                <div style=background-color:${product.colors[3]} class="flex items-center justify-center size-6 border border-black rounded-full"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4 text-white">
+                <div style=background-color:${product.colors[3]} class="colorBtn flex items-center justify-center size-6 border border-black rounded-full"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4 opacity-0 text-white">
                   <path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd" />
                 </svg>
                 </div>
-                <div style=background-color:${product.colors[4]}  class="flex items-center justify-center size-6 border border-black rounded-full"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4 text-white">
+                <div style=background-color:${product.colors[4]}  class="colorBtn flex items-center justify-center size-6 border border-black rounded-full"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4 opacity-0 text-white">
                   <path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd" />
                 </svg>
                 </div>
@@ -113,10 +113,14 @@ async function singleProduct(match){
 `
     const backBtn= document.querySelector("#backIcon")
     const sizeButtons= document.querySelectorAll(".sizeBtn")
-    console.log(sizeButtons);
+    const colorButtons = document.querySelectorAll(".colorBtn")
+    const svgElems= document.querySelectorAll("svg")
+    console.log(svgElems);
+    
 
     goBack(backBtn)
     sizeButtonColor(sizeButtons)
+    colorChech(colorButtons,svgElems)
 
 }
 
@@ -155,6 +159,28 @@ function sizeButtonColor(buttons){
         })
 
     }
+}
+// color chech
+
+function colorChech(buttons,svgs){
+
+    for(let button of buttons){
+      
+        
+        button.addEventListener("click",function(){
+            for(let svg of svgs){
+                svg.style.opacity="0"
+                
+            }
+
+       
+            button.querySelector("svg").style.opacity="1"
+            console.log(button.querySelector("svg"));
+
+        })
+        console.log("hello");
+    }
+
 }
 
 
