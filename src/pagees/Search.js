@@ -148,7 +148,7 @@ function showProducts(productArray, container) {
                 <div class="h-4 w-px bg-gray-500"></div>
                 <div class="bg-gray-300 w-max px-2 pt-[2px] rounded-md text-[12px]"> ${product.sold} sold</div>
               </div>
-              <span class="price text-lg font-bold">$40</span>
+              <span class="price text-lg font-bold">$${product.price}</span>
             </div>
 `
     );
