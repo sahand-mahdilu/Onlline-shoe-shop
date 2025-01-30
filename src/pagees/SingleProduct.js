@@ -115,16 +115,23 @@ async function singleProduct(match) {
   const minusBtn = document.querySelector(".minus");
   const quantityElem = document.querySelector(".quantity");
   const totalPriceElem = document.querySelector(".totalPrice");
-  const addToCartButton = document.querySelector(".addToCart")
-  const productImg= document.querySelector(".product_img")
-  const productName= document.querySelector(".product_name")
-  
+  const addToCartButton = document.querySelector(".addToCart");
+  const productImg = document.querySelector(".product_img");
+  const productName = document.querySelector(".product_name");
 
   goBack(backBtn);
   sizeButtonColor(sizeButtons);
   colorChech(colorButtons, svgElems);
   quantityHandler(plusBtn, minusBtn, quantityElem, totalPriceElem);
-  ProductInfo(addToCartButton,totalPriceElem,quantityElem,productImg,sizeButtons,productName)
+  ProductInfo(
+    addToCartButton,
+    totalPriceElem,
+    quantityElem,
+    productImg,
+    sizeButtons,
+    productName,
+    colorButtons
+  );
 }
 
 async function getData(id) {
@@ -169,7 +176,6 @@ function colorChech(buttons, svgs) {
       }
 
       button.querySelector("svg").style.opacity = "1";
-      console.log(button.querySelector("svg"));
     });
   }
 }
@@ -198,57 +204,73 @@ function quantityHandler(plusBtn, minusBtn, quantity, totalPice) {
   });
 }
 
-function ProductInfo(postBtn,priceElem,quantity,img,sizebuttons,itemName){
+function ProductInfo(
+  postBtn,
+  priceElem,
+  quantity,
+  img,
+  sizebuttons,
+  itemName,
+  colorbtns
+) {
+  postBtn.addEventListener("click", function () {
+    let colorbtnArray = [...colorbtns];
 
-  postBtn.addEventListener("click",function(){
-    
-    
+    let colorElem = colorbtnArray.find((item) => {
+      let svg = item.querySelector("svg");
+      return svg.style.opacity === "1";
+    });
 
-    console.log(quantity.textContent);
-    console.log(img.src);
-    // console.log(sizebuttons);
-    
-    let sizeBtnArray = Array.of(sizebuttons[0],sizebuttons[1],sizebuttons[2])
+    //makes real array
+    let sizeBtnArray = Array.of(sizebuttons[0], sizebuttons[1], sizebuttons[2]);
 
-   
-    let sizeBtn= sizeBtnArray.find(item=>{
-      return (item.style.backgroundColor==="black")
-      
-    })
-    
+    let sizeElem = sizeBtnArray.find((item) => {
+      return item.style.backgroundColor === "black";
+    });
 
-    if(sizeBtn===undefined){
-     
-      let productInfo={
-        price:priceElem.textContent,
-        count:quantity.textContent,
-        image:img.src,
-        size:40,
-        name:itemName.textContent
-      }
+    if (sizeElem === undefined && colorElem === undefined) {
+      let productInfo = {
+        price: priceElem.textContent,
+        count: quantity.textContent,
+        image: img.src,
+        size: 40,
+        name: itemName.textContent,
+        color: "blue",
+      };
       console.log(productInfo);
-
-    }else{
-    
-      let size= sizeBtn.textContent
-      let productInfo={
-        price:priceElem.textContent,
-        count:quantity.textContent,
-        image:img.src,
-        size:size,
-        name:itemName.textContent
-      }
+    } else if (sizeElem && colorElem === undefined) {
+      let productInfo = {
+        price: priceElem.textContent,
+        count: quantity.textContent,
+        image: img.src,
+        size: sizeElem.textContent,
+        name: itemName.textContent,
+        color: "blue",
+      };
+      console.log(productInfo);
+    } else if (sizeElem === undefined && colorElem) {
+      let productInfo = {
+        price: priceElem.textContent,
+        count: quantity.textContent,
+        image: img.src,
+        size: 40,
+        name: itemName.textContent,
+        color: colorElem.style.backgroundColor,
+      };
+      console.log(productInfo);
+    } else {
+      let productInfo = {
+        price: priceElem.textContent,
+        count: quantity.textContent,
+        image: img.src,
+        size: sizeElem.textContent,
+        name: itemName.textContent,
+        color: colorElem.style.backgroundColor,
+      };
 
       console.log(productInfo);
     }
-    
-
-
-
-  })
+  });
 }
-
-
-
 
 export { singleProduct };
