@@ -124,7 +124,7 @@ async function singleProduct(match) {
   sizeButtonColor(sizeButtons);
   colorChech(colorButtons, svgElems);
   quantityHandler(plusBtn, minusBtn, quantityElem, totalPriceElem);
-  postProduct(addToCartButton,totalPriceElem,quantityElem,productImg,sizeButtons,productName)
+  ProductInfo(addToCartButton,totalPriceElem,quantityElem,productImg,sizeButtons,productName)
 }
 
 async function getData(id) {
@@ -198,7 +198,7 @@ function quantityHandler(plusBtn, minusBtn, quantity, totalPice) {
   });
 }
 
-function postProduct(postBtn,priceElem,quantity,img,sizebuttons,itemName){
+function ProductInfo(postBtn,priceElem,quantity,img,sizebuttons,itemName){
 
   postBtn.addEventListener("click",function(){
     
