@@ -229,7 +229,6 @@ async function getProduct(container) {
 function showRandomProduct(productArray, container) {
   container.innerHTML = "";
 
-  console.log(container);
   productArray.forEach((p) => {
     container.insertAdjacentHTML(
       "afterbegin",
@@ -326,12 +325,17 @@ function navBar(buttons) {
     button.addEventListener("click", () => {
       buttons.forEach((btn, idx) => {
         const img = btn.querySelector("img");
-        console.log(img);
         img.src = defaultSrc[idx];
        
       });
       const clickedImg = button.querySelector("img");
       clickedImg.src = activeSrc[index];
+
+       if(index===0){
+        router.navigate("/home")
+       }else if(index===1){
+        router.navigate("/cart")
+       }
     });
   });
 }
