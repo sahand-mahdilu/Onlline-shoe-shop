@@ -1,25 +1,23 @@
 import { baseURL } from "../API/API";
-import { App, } from "../main";
+import { App } from "../main";
 
-async function singleProduct(match){
+async function singleProduct(match) {
+  let productId = match.data.id;
+  let item = await getData(productId); //array
+  let product = item[0];
 
-    let productId=match.data.id
- let  item= await getData(productId)//array
- let product=item[0]
-
-
-    App.innerHTML=`
+  App.innerHTML = `
         
       <div class="single_product_container ">
         <div class="img-container max-w-[340px]   relative h-[220px]">
-          <img class="w-full h-full " src=.${product.images} alt="img">
+          <img class="product_img w-full h-full " src=.${product.images} alt="img">
           <svg id="backIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 absolute top-1 left-1">
             <path fill-rule="evenodd" d="M11.03 3.97a.75.75 0 0 1 0 1.06l-6.22 6.22H21a.75.75 0 0 1 0 1.5H4.81l6.22 6.22a.75.75 0 1 1-1.06 1.06l-7.5-7.5a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd" />
           </svg>
         </div>
         <div>
           <div class="flex justify-between px-2">
-            <p class="text-lg font-Sahand">${product.name}</p>
+            <p class="product_name text-lg font-Sahand">${product.name}</p>
             <div class="img_container size-6">
               <img class="w-full h-full object-cover" src="../shoeimage/imges/like.png" alt="like">
             </div>
@@ -92,7 +90,7 @@ async function singleProduct(match){
                 <span class="totalPrice font-Sahand text-[18px] ">$${product.price}</span>
               </div>
               <div>
-                <button class="flex items-center justify-center   bg-black text-white p-[6px] min-w-48 rounded-2xl text-[14px]">
+                <button class="addToCart flex items-center justify-center   bg-black text-white p-[6px] min-w-48 rounded-2xl text-[14px]">
                  <div class="flex items-center gap-1 mr-2">
                   <img  src="../public/shoeimage/imges/carticon.png" alt=""> <span>
                     Add to cart
@@ -108,109 +106,149 @@ async function singleProduct(match){
 
       </div>
 
-`
-    const backBtn= document.querySelector("#backIcon")
-    const sizeButtons= document.querySelectorAll(".sizeBtn")
-    const colorButtons = document.querySelectorAll(".colorBtn")
-    const svgElems= document.querySelectorAll("svg")
-    const plusBtn = document.querySelector(".plus")
-    const minusBtn = document.querySelector(".minus")
-    const quantityElem = document.querySelector(".quantity")
-    const totalPriceElem = document.querySelector(".totalPrice")
-    
+`;
+  const backBtn = document.querySelector("#backIcon");
+  const sizeButtons = document.querySelectorAll(".sizeBtn");
+  const colorButtons = document.querySelectorAll(".colorBtn");
+  const svgElems = document.querySelectorAll("svg");
+  const plusBtn = document.querySelector(".plus");
+  const minusBtn = document.querySelector(".minus");
+  const quantityElem = document.querySelector(".quantity");
+  const totalPriceElem = document.querySelector(".totalPrice");
+  const addToCartButton = document.querySelector(".addToCart")
+  const productImg= document.querySelector(".product_img")
+  const productName= document.querySelector(".product_name")
+  
 
-    goBack(backBtn)
-    sizeButtonColor(sizeButtons)
-    colorChech(colorButtons,svgElems)
-    quantityHandler(plusBtn,minusBtn,quantityElem,totalPriceElem)
-
+  goBack(backBtn);
+  sizeButtonColor(sizeButtons);
+  colorChech(colorButtons, svgElems);
+  quantityHandler(plusBtn, minusBtn, quantityElem, totalPriceElem);
+  postProduct(addToCartButton,totalPriceElem,quantityElem,productImg,sizeButtons,productName)
 }
 
-async function getData(id){
-
-    try{
-        let res =  await fetch(`${baseURL}/products?id=${id}`)
-        let  data=await res.json()
-        return data
-    }catch(err){
-        console.log(err);
-    }
+async function getData(id) {
+  try {
+    let res = await fetch(`${baseURL}/products?id=${id}`);
+    let data = await res.json();
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
 }
 // go previous page
 
-function goBack(elem){
-    elem.addEventListener("click",function(){
-       window.history.back()
-    })
-} 
+function goBack(elem) {
+  elem.addEventListener("click", function () {
+    window.history.back();
+  });
+}
 
 // size buttons background color
 
-function sizeButtonColor(buttons){
-    for(let button of buttons){
-
-        button.addEventListener("click",function(){
-
-            for(let button of buttons){
-                button.style.backgroundColor="white"
-                button.style.color="black"
-            }
-            button.style.backgroundColor="black"
-            button.style.color="white"
-        })
-
-    }
+function sizeButtonColor(buttons) {
+  for (let button of buttons) {
+    button.addEventListener("click", function () {
+      for (let button of buttons) {
+        button.style.backgroundColor = "white";
+        button.style.color = "black";
+      }
+      button.style.backgroundColor = "black";
+      button.style.color = "white";
+      console.log(button.textContent);
+    });
+  }
 }
 // color chech
 
-function colorChech(buttons,svgs){
+function colorChech(buttons, svgs) {
+  for (let button of buttons) {
+    button.addEventListener("click", function () {
+      for (let svg of svgs) {
+        svg.style.opacity = "0";
+      }
 
-    for(let button of buttons){
-      
-        
-        button.addEventListener("click",function(){
-            for(let svg of svgs){
-                svg.style.opacity="0"
-                
-            }
+      button.querySelector("svg").style.opacity = "1";
+      console.log(button.querySelector("svg"));
+    });
+  }
+}
 
-       
-            button.querySelector("svg").style.opacity="1"
-            console.log(button.querySelector("svg"));
+function quantityHandler(plusBtn, minusBtn, quantity, totalPice) {
+  let totolPriceContent = totalPice.textContent;
+  let price = Number(totolPriceContent.slice(1));
 
-        })
+  let sum = price;
+
+  plusBtn.addEventListener("click", function () {
+    console.log(quantity.textContent);
+    quantity.textContent++;
+    sum += price;
+
+    totalPice.textContent = `$${sum}`;
+  });
+
+  minusBtn.addEventListener("click", function () {
+    if (quantity.textContent > 1) {
+      quantity.textContent--;
+
+      sum -= price;
+      totalPice.textContent = `$${sum}`;
     }
-
+  });
 }
 
-function quantityHandler(plusBtn,minusBtn,quantity,totalPice){
+function postProduct(postBtn,priceElem,quantity,img,sizebuttons,itemName){
 
-        let totolPriceContent= totalPice.textContent
-        let price = Number(totolPriceContent.slice(1)) 
-       
-        let sum=price
-       
+  postBtn.addEventListener("click",function(){
+    
+    
 
-    plusBtn.addEventListener("click",function(){
-        console.log(quantity.textContent);
-        quantity.textContent ++
-        sum+=price
+    console.log(quantity.textContent);
+    console.log(img.src);
+    // console.log(sizebuttons);
+    
+    let sizeBtnArray = Array.of(sizebuttons[0],sizebuttons[1],sizebuttons[2])
 
-        totalPice.textContent=`$${sum}`
+   
+    let sizeBtn= sizeBtnArray.find(item=>{
+      return (item.style.backgroundColor==="black")
+      
     })
+    
 
-    minusBtn.addEventListener("click",function(){
-        if(quantity.textContent>1){
-            quantity.textContent --
-            
-            sum-=price
-            totalPice.textContent=`$${sum}`
-        }
-        
-    })
+    if(sizeBtn===undefined){
+     
+      let productInfo={
+        price:priceElem.textContent,
+        count:quantity.textContent,
+        image:img.src,
+        size:40,
+        name:itemName.textContent
+      }
+      console.log(productInfo);
+
+    }else{
+    
+      let size= sizeBtn.textContent
+      let productInfo={
+        price:priceElem.textContent,
+        count:quantity.textContent,
+        image:img.src,
+        size:size,
+        name:itemName.textContent
+      }
+
+      console.log(productInfo);
+    }
+    
+
+
+
+  })
 }
 
 
 
 
-export{singleProduct}
+export { singleProduct };

@@ -1,6 +1,10 @@
 import { baseURL } from "../API/API";
 import { App, router } from "../main";
-import { goToSingleProduct, scrollBarChangeColor, showRandomProduct } from "./Home";
+import {
+  goToSingleProduct,
+  scrollBarChangeColor,
+  showRandomProduct,
+} from "./Home";
 
 function allProducts() {
   App.innerHTML = `<div class="all_products_container p-2">
@@ -40,7 +44,7 @@ function allProducts() {
   goBack(backIconElem);
   getAllProducts(productContainer);
   scrollBarChangeColor(scrollBarElements, productContainer);
-  goToSingleProduct(productContainer)
+  goToSingleProduct(productContainer);
 }
 //  go back
 function goBack(button) {

@@ -25,18 +25,8 @@
       "rate": 3.7,
       "sold": 3758,
       "in-stock": 1000,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/adidas/1.png"
     },
@@ -48,18 +38,8 @@
       "rate": 3.7,
       "sold": 3758,
       "in-stock": 1000,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/adidas/2.png"
     },
@@ -71,18 +51,8 @@
       "rate": 3.7,
       "sold": 3758,
       "in-stock": 1000,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/adidas/3.png"
     },
@@ -94,18 +64,8 @@
       "rate": 3.7,
       "sold": 3758,
       "in-stock": 1000,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./shoeimage/imges/adidas/4.png"
     },
@@ -117,18 +77,8 @@
       "rate": 3.7,
       "sold": 3758,
       "in-stock": 1000,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/adidas/5.png"
     },
@@ -140,18 +90,8 @@
       "rate": 4.1,
       "sold": 1200,
       "in-stock": 5032,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/Asics/1.jpg"
     },
@@ -163,18 +103,8 @@
       "rate": 4.1,
       "sold": 1200,
       "in-stock": 5032,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/Asics/2.jpg"
     },
@@ -186,18 +116,8 @@
       "rate": 4.1,
       "sold": 1200,
       "in-stock": 5032,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/Asics/3.jpg"
     },
@@ -209,18 +129,8 @@
       "rate": 4.1,
       "sold": 1200,
       "in-stock": 5032,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/Asics/4.jpg"
     },
@@ -232,18 +142,8 @@
       "rate": 8.3,
       "sold": 3215,
       "in-stock": 2800,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/convers/c.png"
     },
@@ -255,18 +155,8 @@
       "rate": 8.3,
       "sold": 3215,
       "in-stock": 2800,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/convers/1.jpg"
     },
@@ -278,18 +168,8 @@
       "rate": 8.3,
       "sold": 3215,
       "in-stock": 2800,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/convers/3.jpg"
     },
@@ -301,18 +181,8 @@
       "rate": 8.3,
       "sold": 3215,
       "in-stock": 2800,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/convers/4.jpg"
     },
@@ -324,18 +194,8 @@
       "rate": 8.3,
       "sold": 3215,
       "in-stock": 2800,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/convers/5.jpg"
     },
@@ -347,18 +207,8 @@
       "rate": 8.3,
       "sold": 3215,
       "in-stock": 2800,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/convers/6.jpg"
     },
@@ -370,18 +220,8 @@
       "rate": 5.6,
       "sold": 4325,
       "in-stock": 1002,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/neawba/1.jpg"
     },
@@ -393,18 +233,8 @@
       "rate": 5.6,
       "sold": 4325,
       "in-stock": 1002,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/neawba/2.jpg"
     },
@@ -416,18 +246,8 @@
       "rate": 5.6,
       "sold": 4325,
       "in-stock": 1002,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/neawba/3.jpg"
     },
@@ -439,18 +259,8 @@
       "rate": 5.6,
       "sold": 4325,
       "in-stock": 1002,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/neawba/4.jpg"
     },
@@ -462,18 +272,8 @@
       "rate": 5.6,
       "sold": 4325,
       "in-stock": 1002,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/neawba/5.jpg"
     },
@@ -485,18 +285,8 @@
       "rate": 5.6,
       "sold": 4325,
       "in-stock": 1002,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/neawba/6.jpg"
     },
@@ -508,18 +298,8 @@
       "rate": 6.4,
       "sold": 5000,
       "in-stock": 960,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/nike/nike-1.jpg"
     },
@@ -531,18 +311,8 @@
       "rate": 6.4,
       "sold": 5000,
       "in-stock": 960,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/nike/nike-2.jpg"
     },
@@ -554,18 +324,8 @@
       "rate": 6.4,
       "sold": 5000,
       "in-stock": 960,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/nike/nike-3.jpg"
     },
@@ -577,18 +337,8 @@
       "rate": 6.4,
       "sold": 5000,
       "in-stock": 960,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/nike/nike-4.jpg"
     },
@@ -600,18 +350,8 @@
       "rate": 6.4,
       "sold": 5000,
       "in-stock": 960,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/nike/nike-5.jpg"
     },
@@ -623,18 +363,8 @@
       "rate": 6.4,
       "sold": 5000,
       "in-stock": 960,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/nike/nike-6.jpg"
     },
@@ -646,18 +376,8 @@
       "rate": 7.5,
       "sold": 5490,
       "in-stock": 2310,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/puma/1.webp"
     },
@@ -669,18 +389,8 @@
       "rate": 7.5,
       "sold": 5490,
       "in-stock": 2310,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/puma/2.webp"
     },
@@ -692,18 +402,8 @@
       "rate": 7.5,
       "sold": 5490,
       "in-stock": 2310,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/puma/3.webp"
     },
@@ -715,18 +415,8 @@
       "rate": 6.6,
       "sold": 3265,
       "in-stock": 3000,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/reebok/1.png"
     },
@@ -738,18 +428,8 @@
       "rate": 6.6,
       "sold": 3265,
       "in-stock": 3000,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/reebok/2.jpg"
     },
@@ -761,18 +441,8 @@
       "rate": 6.6,
       "sold": 3265,
       "in-stock": 3000,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/reebok/3.jpg"
     },
@@ -784,18 +454,8 @@
       "rate": 6.6,
       "sold": 3265,
       "in-stock": 3000,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/reebok/4.png"
     },
@@ -807,18 +467,8 @@
       "rate": 6.6,
       "sold": 3265,
       "in-stock": 3000,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/reebok/5.jpg"
     },
@@ -830,18 +480,8 @@
       "rate": 6.6,
       "sold": 3265,
       "in-stock": 3000,
-      "colors": [
-        "Blue",
-        "Green",
-        "Red",
-        "gray",
-        "Black"
-      ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "colors": ["Blue", "Green", "Red", "gray", "Black"],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": "./public/shoeimage/imges/reebok/6.jpg"
     }
@@ -877,11 +517,7 @@
           "color-code": "#000000"
         }
       ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": [
         "./public/shoeimage/imges/adidas/2.png",
@@ -919,11 +555,7 @@
           "color-code": "#000000"
         }
       ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": [
         "./public/shoeimage/imges/convers/4.jpg",
@@ -963,11 +595,7 @@
           "color-code": "#000000"
         }
       ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": [
         "./public/shoeimage/imges/irankafsh/5.jpg",
@@ -1005,11 +633,7 @@
           "color-code": "#000000"
         }
       ],
-      "sizes": [
-        40,
-        41,
-        42
-      ],
+      "sizes": [40, 41, 42],
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam perferendis quasi consectetur totam reprehenderit!",
       "images": [
         "./public/shoeimage/imges/neawba/6.jpg",

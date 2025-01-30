@@ -21,7 +21,7 @@ router
   .on("/login", login)
   .on("/home", home)
   .on("/allProducts", allProducts)
-  .on("/brands/:id", (math)=>brands(math))
-  .on("/search/:id", (math)=>search(math))
-  .on("/singleProduct/:id", (math)=>singleProduct(math))
+  .on("/brands/:id", (math) => brands(math))
+  .on("/search/:id", (math) => search(math))
+  .on("/singleProduct/:id", (math) => singleProduct(math))
   .resolve();
