@@ -106,6 +106,15 @@ async function singleProduct(match) {
 
       </div>
 
+        <div class=" opacity-0 invisible transition-all modal min-h-screen w-[100vw] fixed inset-0 bg-black/50 z-50 flex items-center justify-center  ">
+
+        <div class="rounded-2xl flex flex-col justify-center items-center text-[20px] font-bold text-center h-32 bg-white p-2 w-[80%]">
+          <p>Dear user product added to you cart</p>
+          <span>😊</span>
+        </div>
+
+      </div>
+
 `;
   const backBtn = document.querySelector("#backIcon");
   const sizeButtons = document.querySelectorAll(".sizeBtn");
