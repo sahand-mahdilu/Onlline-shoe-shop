@@ -74,8 +74,20 @@ function cart(){
     ${navigationBar()}
     `
     const navButtons = document.querySelectorAll(".navigation");
+    const cartBtn=document.querySelector("#cart")
+    const homeBtn=document.querySelector("#home")
+
+
 
     navBar(navButtons)
+    activeButton(cartBtn,homeBtn)
+}
+
+function activeButton (cartElem,homeElem){
+    console.log(homeElem);
+
+    cartElem.src="./shoeimage/imges/cart-2.png"
+    homeElem.src="./shoeimage/imges/white-home.png"
 }
 
 

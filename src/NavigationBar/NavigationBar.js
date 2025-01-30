@@ -8,15 +8,15 @@ export function navigationBar() {
        <div class="flex justify-between px-4 py-1">
 
           <div class="navigation flex flex-col items-center justify-center">
-            <div class="img_container size-6">
-              <img class="w-full h-full object-cover" src="./shoeimage/imges/home.png" alt="home">
+            <div  class="img_container size-6">
+              <img id="home" class="w-full h-full object-cover" src="./shoeimage/imges/home.png" alt="home">
             </div>
             <span class="text-center text-[12px] font-bold">home</span>
           </div>
 
-          <div class="navigation flex flex-col items-center justify-center">
+          <div  class="navigation flex flex-col items-center justify-center">
             <div class="img_container size-6">
-              <img class="w-full h-full object-cover" src="./shoeimage/imges/cart.png" alt="cart">
+              <img id="cart" class="w-full h-full object-cover" src="./shoeimage/imges/cart.png" alt="cart">
             </div>
             <span class="text-center text-[12px] font-bold">Cart</span>
           </div>
