@@ -5,7 +5,9 @@ import { navBar } from "./Home";
 
 function cart(){
     App.innerHTML=`
-        <div class="cart_container p-3">
+  
+          
+      <div class="cart_container p-3">
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-3">
             <div class="img_container size-7">
@@ -32,9 +34,9 @@ function cart(){
             </svg>
           </div>
         </div>
-        <div class="product_container">
+        <div class="product_container mb-16">
 
-          <div class="product_cart flex items-center mt-5 rounded-3xl bg-green-200">
+          <div class="product_cart flex items-center mt-5 rounded-3xl bg-green-100">
             <div class="img_container w-[150px] rounded-3xl overflow-hidden">
               <img class="w-full h-full" src="./public/shoeimage/imges/nike/nike-10.jpg" alt="">
             </div>
@@ -66,12 +68,59 @@ function cart(){
               </div>
             </div>
           </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         </div>
 
-      </div>
+
+        <div class=" pb-2 px-2 z-50 bg-green-200 fixed bottom-12 left-0 right-0 w-full pt-1 border-t-2 border-black mt-3  flex items-center justify-between">
+          <div >
+            <p class="text-[12px] text-gray-500">Total price</p>
+            <span class="totalPrice font-Sahand text-[18px] ">$100</span>
+          </div>
+          <div>
+            <button class="addToCart flex items-center justify-center   bg-black text-white p-[6px] min-w-48 rounded-2xl text-[14px]">
+             <div class="flex items-center gap-1 ml-2">
+               Check Out
+               <img  src="../public/shoeimage/imges/gocheckout.png" alt=""> <span>
+              </span>
+             </div> </button>
+          </div>
+  
+  
+          </div>
+
+         </div>
+ 
 
 
-    ${navigationBar()}
+      
+
+
+         
+
+        
+         </div>
+     
+
+
+      
+   ${navigationBar()}
+
+
     `
     const navButtons = document.querySelectorAll(".navigation");
     const cartBtn=document.querySelector("#cart")
@@ -89,6 +138,7 @@ function activeButton (cartElem,homeElem){
     cartElem.src="./shoeimage/imges/cart-2.png"
     homeElem.src="./shoeimage/imges/white-home.png"
 }
+
 
 
 

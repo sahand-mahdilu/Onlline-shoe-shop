@@ -1026,7 +1026,15 @@
     }
   ],
   "cart": [
-    
+    {
+      "price": "50",
+      "count": "1",
+      "image": "http://localhost:5173/public/shoeimage/imges/convers/3.jpg",
+      "size": 40,
+      "name": "easy walk",
+      "color": "blue",
+      "id": 1
+    }
   ],
   "checkout": [
     {
