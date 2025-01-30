@@ -203,7 +203,7 @@ function quantityHandler(plusBtn, minusBtn, quantity, totalPice) {
     }
   });
 }
-
+  // gets product info
 function ProductInfo(
   postBtn,
   priceElem,
@@ -237,6 +237,8 @@ function ProductInfo(
         name: itemName.textContent,
         color: "blue",
       };
+      postProduct(productInfo)
+
       console.log(productInfo);
     } else if (sizeElem && colorElem === undefined) {
       let productInfo = {
@@ -247,6 +249,8 @@ function ProductInfo(
         name: itemName.textContent,
         color: "blue",
       };
+      postProduct(productInfo)
+
       console.log(productInfo);
     } else if (sizeElem === undefined && colorElem) {
       let productInfo = {
@@ -257,6 +261,8 @@ function ProductInfo(
         name: itemName.textContent,
         color: colorElem.style.backgroundColor,
       };
+      postProduct(productInfo)
+
       console.log(productInfo);
     } else {
       let productInfo = {
@@ -267,10 +273,35 @@ function ProductInfo(
         name: itemName.textContent,
         color: colorElem.style.backgroundColor,
       };
+      postProduct(productInfo)
 
       console.log(productInfo);
     }
   });
+}
+
+
+async function postProduct(product){
+
+  try{
+    let res = await fetch(`${baseURL}/cart`,{
+      method: "POST",
+      headers:{
+        "content-type":"application/json"
+      },
+      body:JSON.stringify(product)
+    })
+    console.log(res);
+
+
+  }catch(err){
+    console.log(err);
+  }
+  
+
+  
+
+
 }
 
 export { singleProduct };
