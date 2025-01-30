@@ -166,13 +166,13 @@ async function getCartData(container){
                 <span class="text-gray-500 text-[13px]">size = ${product.size}</span>
               </div>
               <div class="flex items-center justify-between mt-4 px-2">
-                <span class="totalPrice font-bold">
+                <span class="productPrice font-bold">
                   $${product.price}
                 </span>
                 <div class="bg-gray-200 w-16 rounded-md px-2 flex items-center justify-between ">
-                  <button>-</button>
+                  <button class="minus" >-</button>
                   <span class="Quantity">${product.count}</span>
-                  <button>+</button>
+                  <button class="plus" >+</button>
                 </div>
               </div>
             </div>
@@ -183,8 +183,14 @@ async function getCartData(container){
     })
 
     const trashbtn= document.querySelectorAll(".trash")
-    console.log(trashbtn);
+    const plusBtn=document.querySelectorAll(".plus")
+    const minusBtn=document.querySelectorAll(".minus")
+    const productPrice=document.querySelectorAll(".productPrice")
+    const quantityElemm=document.querySelectorAll(".Quantity")
+
+    
     removeProduct(trashbtn,container)
+    PriceCalculater(plusBtn,minusBtn,quantityElemm,productPrice)
 }
 
   function removeProduct(deleteButtons,container){
@@ -222,13 +228,31 @@ async function getCartData(container){
 }
 
 
-async function deleteProduct(id){
+function PriceCalculater(plusbtns,minusbtns,quantities,prices){
 
-    
+    for(let plusButton of plusbtns){
+
+        plusButton.addEventListener("click",function(){
+            plusButton.previousElementSibling.textContent++
+
+        
+        })
+        for(let minusButton of minusbtns){
+
+            minusButton.addEventListener("click",function(){
+
+                let content= minusButton.nextElementSibling.textContent
+                if(content>1){
+                    minusButton.nextElementSibling.textContent--
+                }
+
+                console.log();
+            })
+        }
+    }
+
 
 }
-
-
 
 
 

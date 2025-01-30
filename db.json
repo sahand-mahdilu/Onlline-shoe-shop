@@ -1025,7 +1025,26 @@
       "id": 1
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "price": "298",
+      "count": "2",
+      "image": "http://localhost:5173/public/shoeimage/imges/neawba/5.jpg",
+      "size": 40,
+      "name": "kmg",
+      "color": "blue",
+      "id": 2
+    },
+    {
+      "price": "200",
+      "count": "1",
+      "image": "http://localhost:5173/public/shoeimage/imges/Asics/3.jpg",
+      "size": 40,
+      "name": "brandy",
+      "color": "blue",
+      "id": 3
+    }
+  ],
   "checkout": [
     {
       "items": [
