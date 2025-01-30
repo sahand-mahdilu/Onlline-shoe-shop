@@ -165,8 +165,8 @@ async function getCartData(container){
                 <div class="h-4 border w-0 border-gray-300"></div>
                 <span class="text-gray-500 text-[13px]">size = ${product.size}</span>
               </div>
-              <div class="flex items-center justify-between mt-4 px-2">
-                <span class="productPrice font-bold">
+              <div class="priceSection flex items-center justify-between mt-4 px-2">
+                <span class="productPrice font-bold data-base-price=${product.price}">
                   $${product.price}
                 </span>
                 <div class="bg-gray-200 w-16 rounded-md px-2 flex items-center justify-between ">
@@ -232,23 +232,68 @@ function PriceCalculater(plusbtns,minusbtns,quantities,prices){
 
     for(let plusButton of plusbtns){
 
+
+           
         plusButton.addEventListener("click",function(){
+            let parent= plusButton.closest(".priceSection")
+
+            let priceElem = parent.querySelector(".productPrice")
+    
+            let price =  Number(priceElem.textContent.trim().slice(1))
+            let quantity = Number(plusButton.previousElementSibling.textContent)
+            
+            let basePrice=price/quantity
+                
+         
+    
+    
+            let sum = price     
             plusButton.previousElementSibling.textContent++
+
+            sum+=basePrice
+            console.log(sum);
+            priceElem.textContent=`$${sum}` 
+
+
 
         
         })
-        for(let minusButton of minusbtns){
 
-            minusButton.addEventListener("click",function(){
 
-                let content= minusButton.nextElementSibling.textContent
-                if(content>1){
-                    minusButton.nextElementSibling.textContent--
-                }
+      
+    }
+    for(let minusButton of minusbtns){
+        
+       
 
-                console.log();
-            })
-        }
+        minusButton.addEventListener("click",function(){
+            let parent= minusButton.closest(".priceSection")
+
+            let priceElem = parent.querySelector(".productPrice")
+    
+            let price =  Number(priceElem.textContent.trim().slice(1))
+            let quantity = Number(minusButton.nextElementSibling.textContent)
+            
+            let basePrice=price/quantity
+    
+            console.log(price);
+                
+         
+    
+    
+            let sum = price  
+
+            let content= minusButton.nextElementSibling.textContent
+            console.log(content);
+            if(content>1){
+                minusButton.nextElementSibling.textContent--
+                sum-=basePrice
+                console.log(sum);
+                priceElem.textContent=`$${sum}` 
+            }
+
+            console.log();
+        })
     }
 
 
