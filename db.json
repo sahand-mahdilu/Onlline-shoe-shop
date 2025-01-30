@@ -1034,6 +1034,15 @@
       "name": "easy walk",
       "color": "blue",
       "id": 1
+    },
+    {
+      "price": "900",
+      "count": "3",
+      "image": "http://localhost:5173/public/shoeimage/imges/adidas/5.png",
+      "size": "42",
+      "name": "Adidas glory",
+      "color": "green",
+      "id": 2
     }
   ],
   "checkout": [
