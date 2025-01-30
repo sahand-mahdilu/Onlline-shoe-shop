@@ -120,6 +120,7 @@ async function getCartData(container){
             method:"GET"
         })
         let data= await res.json()//array
+        console.log("sahand");
         showProduct(data,container)
     }catch(err){
         console.log(err);
@@ -170,10 +171,10 @@ async function getCartData(container){
 
     const trashbtn= document.querySelectorAll(".trash")
     console.log(trashbtn);
-    removeProduct(trashbtn)
+    removeProduct(trashbtn,container)
 }
 
-  function removeProduct(deleteButtons){
+  function removeProduct(deleteButtons,container){
 
     for(let button of deleteButtons){
 
@@ -185,8 +186,15 @@ async function getCartData(container){
                 let res = await fetch(`${baseURL}/cart/${id}`,{
                     method:"DELETE"
                 })
-
+                
+                
                 console.log(res);
+                if(res.ok){
+                    console.log("ok");
+                     container.innerHTML = ''
+
+                    getCartData(container)
+                }
             }catch(err){
                 console.log(err);
             }
