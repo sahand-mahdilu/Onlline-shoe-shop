@@ -1025,53 +1025,7 @@
       "id": 1
     }
   ],
-  "cart": [
-    {
-      "price": "298",
-      "count": "2",
-      "image": "http://localhost:5173/public/shoeimage/imges/neawba/5.jpg",
-      "size": 40,
-      "name": "kmg",
-      "color": "blue",
-      "id": 2
-    },
-    {
-      "price": "600",
-      "count": "3",
-      "image": "http://localhost:5173/public/shoeimage/imges/reebok/6.jpg",
-      "size": 40,
-      "name": "colone ",
-      "color": "blue",
-      "id": 3
-    },
-    {
-      "price": "75",
-      "count": "1",
-      "image": "http://localhost:5173/public/shoeimage/imges/convers/c.png",
-      "size": 40,
-      "name": "Cozy",
-      "color": "blue",
-      "id": 4
-    },
-    {
-      "price": "600",
-      "count": "2",
-      "image": "http://localhost:5173/public/shoeimage/imges/adidas/5.png",
-      "size": 40,
-      "name": "Adidas glory",
-      "color": "blue",
-      "id": 5
-    },
-    {
-      "price": "200",
-      "count": "4",
-      "image": "http://localhost:5173/public/shoeimage/imges/convers/3.jpg",
-      "size": 40,
-      "name": "easy walk",
-      "color": "blue",
-      "id": 6
-    }
-  ],
+  "cart": [],
   "checkout": [
     {
       "items": [

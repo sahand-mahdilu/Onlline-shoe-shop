@@ -59,7 +59,7 @@ function cart(){
         <div class=" pb-2 px-2 z-50 bg-green-200 fixed bottom-12 left-0 right-0 w-full pt-1 border-t-2 border-black mt-3  flex items-center justify-between">
           <div >
             <p class="text-[12px] text-gray-500">Total price</p>
-            <span class="totalPrice font-Sahand text-[18px] ">$100</span>
+            <span class="totalProductPrice font-Sahand text-[18px] ">$0</span>
           </div>
           <div>
             <button class="addToCart flex items-center justify-center   bg-black text-white p-[6px] min-w-48 rounded-2xl text-[14px]">
@@ -123,6 +123,8 @@ async function getCartData(container){
         console.log("sahand");
 
         if(data.length===0){
+             let totalElem = document.querySelector(".totalProductPrice")
+        totalElem.innerHTML=`$0`
 
  container.insertAdjacentHTML("afterbegin",`
     <div class="mt-3 max-w-[350px] mx-auto h-[300px]">
@@ -229,6 +231,7 @@ async function getCartData(container){
 
 
 function PriceCalculater(plusbtns,minusbtns,quantities,prices){
+    console.log(prices);
 
     for(let plusButton of plusbtns){
 
@@ -256,6 +259,7 @@ function PriceCalculater(plusbtns,minusbtns,quantities,prices){
 
 
 
+            totalPriceHandler(prices)
         
         })
 
@@ -292,10 +296,44 @@ function PriceCalculater(plusbtns,minusbtns,quantities,prices){
                 priceElem.textContent=`$${sum}` 
             }
 
-            console.log();
+            totalPriceHandler(prices)
         })
     }
+    totalPriceHandler(prices)
 
+}
+
+function totalPriceHandler(prices){
+
+   console.log();
+    console.log(prices);
+
+   
+
+        let priceArray=[]
+        for(let price of prices){
+    
+            let productprice=Number(price.textContent.trim().slice(1))
+            priceArray.push(productprice)
+    
+            
+            
+        }
+    
+        let totalElem = document.querySelector(".totalProductPrice")
+        
+        
+        let totalPrice= priceArray.reduce((acc,current)=>{
+            return acc+current
+        },0)
+        
+        totalElem.innerHTML=`$${totalPrice}`
+        
+        console.log(totalPrice)
+   
+        
+    
+   
 
 }
 
