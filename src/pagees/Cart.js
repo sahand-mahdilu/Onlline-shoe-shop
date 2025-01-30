@@ -69,3 +69,7 @@ function cart(){
     
     `
 }
+
+
+
+export{cart}
