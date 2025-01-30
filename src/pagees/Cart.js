@@ -170,29 +170,44 @@ async function getCartData(container){
 
     const trashbtn= document.querySelectorAll(".trash")
     console.log(trashbtn);
-    deleteProduct(trashbtn)
+    removeProduct(trashbtn)
 }
 
- function deleteProduct(deleteButtons){
+  function removeProduct(deleteButtons){
 
     for(let button of deleteButtons){
 
-         button.addEventListener("click",function(e){
+         button.addEventListener("click",async function(e){
             let id=e.target.id
             console.log(id);
+                
+            try{
+                let res = await fetch(`${baseURL}/cart/${id}`,{
+                    method:"DELETE"
+                })
+
+                console.log(res);
+            }catch(err){
+                console.log(err);
+            }
             
         })
     }
 
    
 
-    // let res= await fetch(`${baseURL}/cart?id=${id}`,{
-    //     method:"DELETE"
-    // })
-    // let data= await res.json()
-    // console.log(data);
+    
 
 }
+
+
+async function deleteProduct(id){
+
+    
+
+}
+
+
 
 
 
