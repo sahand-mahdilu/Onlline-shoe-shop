@@ -1,4 +1,7 @@
 import { App } from "../main";
+import { navigationBar } from "../NavigationBar/NavigationBar";
+import { navBar } from "./Home";
+
 
 function cart(){
     App.innerHTML=`
@@ -66,8 +69,13 @@ function cart(){
         </div>
 
       </div>
-    
+
+
+    ${navigationBar()}
     `
+    const navButtons = document.querySelectorAll(".navigation");
+
+    navBar(navButtons)
 }
 
 

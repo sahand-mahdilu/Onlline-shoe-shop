@@ -303,8 +303,10 @@ function searchProduct(serchInput, searchBtn) {
     console.log(searchInputValue);
   });
 }
-
+// navbar buttons handling
 function navBar(buttons) {
+
+  
   let defaultSrc = [
     "./shoeimage/imges/white-home.png",
     "./shoeimage/imges/cart.png",
@@ -324,7 +326,9 @@ function navBar(buttons) {
     button.addEventListener("click", () => {
       buttons.forEach((btn, idx) => {
         const img = btn.querySelector("img");
+        console.log(img);
         img.src = defaultSrc[idx];
+       
       });
       const clickedImg = button.querySelector("img");
       clickedImg.src = activeSrc[index];
@@ -339,4 +343,4 @@ function goToSingleProduct(container) {
   });
 }
 
-export { home, showRandomProduct, scrollBarChangeColor, fetchData, goToSingleProduct };
+export { home, showRandomProduct, scrollBarChangeColor, fetchData, goToSingleProduct,navBar };
