@@ -121,7 +121,20 @@ async function getCartData(container){
         })
         let data= await res.json()//array
         console.log("sahand");
-        showProduct(data,container)
+
+        if(data.length===0){
+
+ container.insertAdjacentHTML("afterbegin",`
+    <div class="mt-3 max-w-[350px] mx-auto h-[300px]">
+      <img class="w-full h-full" src="./public/shoeimage/imges/notfound.png" alt="">
+    
+    </div>
+    <P class="mt-2 text-center text-xl font-Sahand">Cart is emptey ☹️</P>
+    `)
+        }else{
+
+            showProduct(data,container)
+        }
     }catch(err){
         console.log(err);
     }
