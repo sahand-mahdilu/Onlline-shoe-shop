@@ -240,9 +240,12 @@ function ProductInfo(
       return item.style.backgroundColor === "black";
     });
 
+    let PriceContent=priceElem.textContent
+    let totalPice=PriceContent.slice(1)
+
     if (sizeElem === undefined && colorElem === undefined) {
       let productInfo = {
-        price: priceElem.textContent,
+        price: totalPice,
         count: quantity.textContent,
         image: img.src,
         size: 40,
@@ -254,7 +257,7 @@ function ProductInfo(
       console.log(productInfo);
     } else if (sizeElem && colorElem === undefined) {
       let productInfo = {
-        price: priceElem.textContent,
+        price: totalPice,
         count: quantity.textContent,
         image: img.src,
         size: sizeElem.textContent,
@@ -266,7 +269,7 @@ function ProductInfo(
       console.log(productInfo);
     } else if (sizeElem === undefined && colorElem) {
       let productInfo = {
-        price: priceElem.textContent,
+        price: totalPice,
         count: quantity.textContent,
         image: img.src,
         size: 40,
@@ -278,7 +281,7 @@ function ProductInfo(
       console.log(productInfo);
     } else {
       let productInfo = {
-        price: priceElem.textContent,
+        price: totalPice,
         count: quantity.textContent,
         image: img.src,
         size: sizeElem.textContent,
