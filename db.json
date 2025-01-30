@@ -1026,7 +1026,15 @@
     }
   ],
   "cart": [
-    
+    {
+      "price": "$375",
+      "count": "1",
+      "image": "http://localhost:5173/public/shoeimage/imges/nike/nike-3.jpg",
+      "size": "41",
+      "name": "jordan",
+      "color": "red",
+      "id": 1
+    }
   ],
   "checkout": [
     {

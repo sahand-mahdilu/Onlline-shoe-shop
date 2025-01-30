@@ -106,7 +106,7 @@ async function singleProduct(match) {
 
       </div>
 
-        <div class=" opacity-0 invisible transition-all modal min-h-screen w-[100vw] fixed inset-0 bg-black/50 z-50 flex items-center justify-center  ">
+        <div class=" opacity-0 invisible transition-all modal min-h-screen w-[100vw] fixed inset-0 bg-black/70 z-50 flex items-center justify-center  ">
 
         <div class="rounded-2xl flex flex-col justify-center items-center text-[20px] font-bold text-center h-32 bg-white p-2 w-[80%]">
           <p>Dear user product added to you cart</p>
@@ -127,6 +127,7 @@ async function singleProduct(match) {
   const addToCartButton = document.querySelector(".addToCart");
   const productImg = document.querySelector(".product_img");
   const productName = document.querySelector(".product_name");
+  const modalElem = document.querySelector(".modal")
 
   goBack(backBtn);
   sizeButtonColor(sizeButtons);
@@ -139,7 +140,8 @@ async function singleProduct(match) {
     productImg,
     sizeButtons,
     productName,
-    colorButtons
+    colorButtons,
+    modalElem
   );
 }
 
@@ -220,7 +222,8 @@ function ProductInfo(
   img,
   sizebuttons,
   itemName,
-  colorbtns
+  colorbtns,
+  modalElem
 ) {
   postBtn.addEventListener("click", function () {
     let colorbtnArray = [...colorbtns];
@@ -246,7 +249,7 @@ function ProductInfo(
         name: itemName.textContent,
         color: "blue",
       };
-      postProduct(productInfo)
+      postProduct(productInfo,modalElem)
 
       console.log(productInfo);
     } else if (sizeElem && colorElem === undefined) {
@@ -258,7 +261,7 @@ function ProductInfo(
         name: itemName.textContent,
         color: "blue",
       };
-      postProduct(productInfo)
+      postProduct(productInfo,modalElem)
 
       console.log(productInfo);
     } else if (sizeElem === undefined && colorElem) {
@@ -270,7 +273,7 @@ function ProductInfo(
         name: itemName.textContent,
         color: colorElem.style.backgroundColor,
       };
-      postProduct(productInfo)
+      postProduct(productInfo,modalElem)
 
       console.log(productInfo);
     } else {
@@ -282,7 +285,7 @@ function ProductInfo(
         name: itemName.textContent,
         color: colorElem.style.backgroundColor,
       };
-      postProduct(productInfo)
+      postProduct(productInfo,modalElem)
 
       console.log(productInfo);
     }
@@ -290,7 +293,7 @@ function ProductInfo(
 }
 
 
-async function postProduct(product){
+async function postProduct(product,modalElem){
 
   try{
     let res = await fetch(`${baseURL}/cart`,{
@@ -301,6 +304,7 @@ async function postProduct(product){
       body:JSON.stringify(product)
     })
     console.log(res);
+    showModal(modalElem)
 
 
   }catch(err){
@@ -308,9 +312,24 @@ async function postProduct(product){
   }
   
 
-  
 
 
 }
+
+
+async function showModal(modalElem){
+
+  modalElem.classList.remove("opacity-0", "invisible")
+  modalElem.classList.add("opacity-1", "visible")
+  
+  
+  setTimeout( async function(){
+    
+    modalElem.classList.add("opacity-0", "invisible")
+    
+
+  },5000)
+}
+
 
 export { singleProduct };
