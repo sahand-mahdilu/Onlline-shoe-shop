@@ -1015,8 +1015,20 @@
       "id": 1
     }
   ],
-  "cart": [],
-  "checkout": [],
+  "cart": [
+    {
+      "price": "49",
+      "count": "1",
+      "image": "http://localhost:5173/public/shoeimage/imges/puma/1.webp",
+      "size": 40,
+      "name": "w 2000",
+      "color": "blue",
+      "id": 1
+    }
+  ],
+  "checkout": [
+
+  ],
   "active": [
     {
       "id": 1,

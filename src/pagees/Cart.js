@@ -1,5 +1,5 @@
 import { baseURL } from "../API/API";
-import { App } from "../main";
+import { App, router } from "../main";
 import { navigationBar } from "../NavigationBar/NavigationBar";
 import { navBar } from "./Home";
 
@@ -438,8 +438,11 @@ function postData(products){
           },
           body : JSON.stringify(product)
         })
-        let data= await res.json()
-        console.log(data);
+
+        if(res.ok){
+          router.navigate("/checkout")
+        }
+       
 
      }catch(err){
       console.log(err);
