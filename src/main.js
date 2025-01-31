@@ -10,6 +10,7 @@ import { brands } from "./pagees/Brands";
 import { search } from "./pagees/Search";
 import { singleProduct } from "./pagees/SingleProduct";
 import { cart } from "./pagees/Cart";
+import { checkOut } from "./pagees/Checkout";
 
 export const App = document.querySelector("#app");
 
@@ -26,4 +27,5 @@ router
   .on("/brands/:id", (math) => brands(math))
   .on("/search/:id", (math) => search(math))
   .on("/singleProduct/:id", (math) => singleProduct(math))
+  .on("/checkout", checkOut)
   .resolve();

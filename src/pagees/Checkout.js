@@ -5,3 +5,9 @@ function checkOut(){
 
     App.innerHTML=`<p>check out</p>`
 }
+
+
+
+
+
+export{checkOut}
