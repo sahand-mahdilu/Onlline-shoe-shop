@@ -56,7 +56,7 @@ function cart(){
         </div>
 
 
-        <div class=" pb-2 px-2 z-50 bg-green-200 fixed bottom-12 left-0 right-0 w-full pt-1 border-t-2 border-black mt-3  flex items-center justify-between">
+        <div class=" pb-2 px-2 z-40 bg-green-200 fixed bottom-12 left-0 right-0 w-full pt-1 border-t-2 border-black mt-3  flex items-center justify-between">
           <div >
             <p class="text-[12px] text-gray-500">Total price</p>
             <span class="totalProductPrice font-Sahand text-[18px] ">$0</span>
@@ -178,7 +178,68 @@ async function getCartData(container){
                 </div>
               </div>
             </div>
-          </div>`)
+          </div>
+          
+
+
+          
+           
+      <div class=" modal_container transition-all fixed inset-0 z-50 w-screen opacity-0 invisible h-screen bg-black/70">
+
+        <div class=" relative w-full h-full">
+          <div class=" modal transition-all duration-300 absolute bg-white left-0 right-0 bottom-[-100%]  rounded-t-3xl">
+            <p class="text-center   text-xl font-bold mt-4 mb-2" >Remove from cart?</p>
+            <div class="h-px  border-[1px] border-gray-300 mb-2"></div>
+            <div class="p-2">
+              <div class="product_cart flex items-center mt-5 rounded-3xl bg-green-100">
+                <div class="img_container w-[150px] rounded-3xl overflow-hidden">
+                  <img class="w-full h-full" src=${product.image} alt="">
+                </div>
+                <div class="w-full p-2">
+                  <div class="flex items-center justify-between px-2">
+                    <p class="text-lg font-bold">${product.name}</p>
+                    <img id=${product.id} class="trash size-10" src="./public/shoeimage/imges/recycle.webp">
+    
+                    
+                    
+    
+                  </div>
+    
+                  <div class="flex gap-2 mt-4">
+                    <div style= background-color:${product.color} ; class="color size-6  rounded-full"></div>
+                    <span class="color text-[13px] text-gray-500">${product.color}</span>
+                    <div class="h-4 border w-0 border-gray-300"></div>
+                    <span class="text-gray-500 text-[13px]">size = ${product.size}</span>
+                  </div>
+                  <div class="priceSection flex items-center justify-between mt-4 px-2">
+                    <span class="productPrice font-bold data-base-price=${product.price}">
+                      $${product.price}
+                    </span>
+                    <div class="bg-gray-200 w-16 rounded-md px-2 flex items-center justify-between ">
+                      <button class="minus" >-</button>
+                      <span class="Quantity">${product.count}</span>
+                      <button class="plus" >+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+              <div class="h-px  border-[1px] border-gray-300 mb-2 mt-4"></div>
+              <div class="flex justify-center gap-4 py-4">
+                <button class="p-[6px] w-28 rounded-2xl bg-gray-400">Cancel</button>
+                <button class="p-[6px] w-28 rounded-2xl bg-black text-white">Yes,Remove</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+       </div>
+
+          
+          `)
 
         
 
@@ -196,32 +257,50 @@ async function getCartData(container){
 }
 
   function removeProduct(deleteButtons,container){
+    let modalContainer= document.querySelector(".modal_container")
+    let modalElemr= document.querySelector(".modal")
 
-    for(let button of deleteButtons){
 
-         button.addEventListener("click",async function(e){
-            let id=e.target.id
-            console.log(id);
-                
-            try{
-                let res = await fetch(`${baseURL}/cart/${id}`,{
-                    method:"DELETE"
-                })
-                
-                
-                console.log(res);
-                if(res.ok){
-                    console.log("ok");
-                     container.innerHTML = ''
 
-                    getCartData(container)
-                }
-            }catch(err){
-                console.log(err);
-            }
-            
-        })
+
+    for(let delButton of deleteButtons){
+
+      delButton.addEventListener("click",function(){
+
+        modalContainer.classList.remove("opacity-0" ,"invisible")
+        modalContainer.classList.add("opacity-100","visible")
+        modalElemr.classList.remove("bottom-[-100%]")
+        modalElemr.classList.add("bottom-0")
+
+      })
     }
+
+
+    // for(let button of deleteButtons){
+
+    //      button.addEventListener("click",async function(e){
+    //         let id=e.target.id
+    //         console.log(id);
+                
+    //         try{
+    //             let res = await fetch(`${baseURL}/cart/${id}`,{
+    //                 method:"DELETE"
+    //             })
+                
+                
+    //             console.log(res);
+    //             if(res.ok){
+    //                 console.log("ok");
+    //                  container.innerHTML = ''
+
+    //                 getCartData(container)
+    //             }
+    //         }catch(err){
+    //             console.log(err);
+    //         }
+            
+    //     })
+    // }
 
    
 

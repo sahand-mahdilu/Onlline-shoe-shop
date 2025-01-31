@@ -2,18 +2,8 @@
   "users": [
     {
       "email": "sahand@gmail.com",
-      "password": "$2a$10$cCSZLVGoP.svwAI3gATVIOkjyMtlaV292COruEX1V0IoEev/yW2BK",
+      "password": "$2a$10$chJ2xD9RyLw1SW1t55hA8uUHc0TeeZspjYuj81LMLSegQH5YBIfn.",
       "id": 1
-    },
-    {
-      "email": "rezafa@gmail.com",
-      "password": "$2a$10$b5OMRTb4VI54MAl2jhtVfeT89EilLcUq9227xh4TaTRrWBS7vUpea",
-      "id": 2
-    },
-    {
-      "email": "ramin@gmail.com",
-      "password": "$2a$10$g2rIHr698hu1LQib.MzKmeMjwfTjNLlDv0eUQh5rMSXkMpS6nedv.",
-      "id": 3
     }
   ],
   "products": [
@@ -1025,55 +1015,18 @@
       "id": 1
     }
   ],
-  "cart": [],
-  "checkout": [
+  "cart": [
     {
-      "items": [
-        {
-          "id": 1,
-          "name": "Adidas Samba",
-          "brand": "Adidas",
-          "price": 100,
-          "color": "Red",
-          "colorCode": "#c72800",
-          "sizes": 42,
-          "quantity": 1,
-          "imgUrl": "./public/shoeimage/imges/shoe4.png"
-        },
-        {
-          "id": 5,
-          "name": "White Sport",
-          "brand": "KafshMeli",
-          "price": 500,
-          "color": "White",
-          "colorCode": "#ffffff",
-          "sizes": 41,
-          "quantity": 2,
-          "imgUrl": "./public/shoeimage/imges/shoe1.png"
-        },
-        {
-          "id": 8,
-          "name": "Training Shoe",
-          "brand": "Puma",
-          "price": 49,
-          "color": "Black",
-          "colorCode": "#ffffff",
-          "sizes": 40,
-          "quantity": 1,
-          "imgUrl": "./public/shoeimage/imges/shoe2.png"
-        }
-      ],
-      "ship": {
-        "name": "Regular",
-        "price": 15
-      },
-      "address": {
-        "name": "Home",
-        "address": "Lavasan-Paizan"
-      },
-      "total": 424
+      "price": "149",
+      "count": "1",
+      "image": "http://localhost:5173/public/shoeimage/imges/puma/2.webp",
+      "size": 40,
+      "name": "fazio",
+      "color": "blue",
+      "id": 1
     }
   ],
+  "checkout": [],
   "active": [
     {
       "id": 1,
