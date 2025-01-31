@@ -1015,35 +1015,7 @@
       "id": 1
     }
   ],
-  "cart": [
-    {
-      "price": "175",
-      "count": "1",
-      "image": "http://localhost:5174/public/shoeimage/imges/convers/5.jpg",
-      "size": 40,
-      "name": "roodstone",
-      "color": "blue",
-      "id": 1
-    },
-    {
-      "price": "49",
-      "count": "1",
-      "image": "http://localhost:5174/public/shoeimage/imges/puma/1.webp",
-      "size": 40,
-      "name": "w 2000",
-      "color": "blue",
-      "id": 2
-    },
-    {
-      "price": "500",
-      "count": "1",
-      "image": "http://localhost:5174/public/shoeimage/imges/convers/4.jpg",
-      "size": 40,
-      "name": "Air",
-      "color": "blue",
-      "id": 3
-    }
-  ],
+  "cart": [],
   "checkout": [],
   "active": [
     {

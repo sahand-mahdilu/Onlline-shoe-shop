@@ -34,7 +34,7 @@ function cart() {
             </svg>
           </div>
         </div>
-        <div class="product_container mb-24">
+        <div class="product_container mb-32">
 
           
 
