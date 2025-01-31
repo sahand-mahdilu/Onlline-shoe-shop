@@ -1,7 +1,7 @@
 export function navigationBar() {
    let content=  `
 
-    <div class="fixed bg-green-200 bottom-0 left-0 right-0  z-50 border-t-2 border-green-500 border-dotted">
+    <div class="fixed bg-green-200 bottom-0 left-0 right-0  z-40 border-t-2 border-green-500 border-dotted">
 
 
 
