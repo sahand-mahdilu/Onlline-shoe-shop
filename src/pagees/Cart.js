@@ -61,7 +61,7 @@ function cart() {
             <span class="totalProductPrice font-Sahand text-[18px] ">$0</span>
           </div>
           <div>
-            <button class="addToCart flex items-center justify-center   bg-black text-white p-[6px] min-w-48 rounded-2xl text-[14px]">
+            <button class="CheckOut flex items-center justify-center   bg-black text-white p-[6px] min-w-48 rounded-2xl text-[14px]">
              <div class="flex items-center gap-1 ml-2">
                Check Out
                <img  src="../public/shoeimage/imges/gocheckout.png" alt=""> <span>
@@ -99,6 +99,7 @@ function cart() {
   navBar(navButtons);
   activeButton(cartBtn, homeBtn);
   getCartData(productContainerElem);
+  addToCheckOut()
 }
 
 function activeButton(cartElem, homeElem) {
@@ -234,18 +235,15 @@ function showProduct(productArray, container) {
   const minusBtn = document.querySelectorAll(".minus");
   const productPrice = document.querySelectorAll(".productPrice");
   const quantityElemm = document.querySelectorAll(".Quantity");
-  
-  upDateCartData()
+
+  // upDateCartData();
   console.log("hi");
 
   PriceCalculater(plusBtn, minusBtn, quantityElemm, productPrice);
-  removeProduct(trashbtn, container, );
-
+  removeProduct(trashbtn, container);
 }
 
-function removeProduct(deleteButtons, container,) {
-
-
+function removeProduct(deleteButtons, container) {
   const modalContainer = document.querySelector(".modal_container");
   const modalElemr = document.querySelector(".modal");
   const cancelButton = document.querySelector(".cancel");
@@ -262,29 +260,19 @@ function removeProduct(deleteButtons, container,) {
 
   for (let delButton of deleteButtons) {
     delButton.addEventListener("click", function (e) {
+      id = e.target.id;
+      deleteProduct(id, removeButton, container);
 
-      id=e.target.id
-      deleteProduct(id,removeButton,container)
+      let productName = e.target.dataset.productName;
+      let productImage = e.target.dataset.productImage;
+      let productSize = e.target.dataset.productSize;
+      let productColor = e.target.dataset.productColor;
 
-      let productName=e.target.dataset.productName
-      let productImage=e.target.dataset.productImage
-      let productSize=e.target.dataset.productSize
-      let productColor=e.target.dataset.productColor
-   
-     
-
-    
-      document.querySelector(".p_img").src=productImage
-      document.querySelector(".p_name").textContent=productName
-      document.querySelector(".p_color").style.backgroundColor=productColor
-      document.querySelector(".c_text").innerHTML=productColor
-      document.querySelector(".p-size").innerHTML=`size=${productSize}`
-     
-
-   
-
-
-
+      document.querySelector(".p_img").src = productImage;
+      document.querySelector(".p_name").textContent = productName;
+      document.querySelector(".p_color").style.backgroundColor = productColor;
+      document.querySelector(".c_text").innerHTML = productColor;
+      document.querySelector(".p-size").innerHTML = `size=${productSize}`;
 
       modalContainer.classList.remove("opacity-0", "invisible");
       modalContainer.classList.add("opacity-100", "visible");
@@ -293,51 +281,32 @@ function removeProduct(deleteButtons, container,) {
     });
   }
 
+  /////////////////////////////////////////////////////////////////
+}
 
- 
+function deleteProduct(id, delButton, container) {
+  delButton.addEventListener("click", async function (e) {
+    try {
+      let res = await fetch(`${baseURL}/cart/${id}`, {
+        method: "DELETE",
+      });
 
- 
+      console.log(res);
+      if (res.ok) {
+        console.log("ok");
+        container.innerHTML = "";
 
-    /////////////////////////////////////////////////////////////////
-   
-
-      
-
-
-  }
-
-
-  function deleteProduct(id,delButton,container){
-
-    delButton.addEventListener("click",async function(e){
-     
-      
-
-      try{
-          let res = await fetch(`${baseURL}/cart/${id}`,{
-              method:"DELETE"
-          })
-
-          console.log(res);
-          if(res.ok){
-              console.log("ok");
-               container.innerHTML = ''
-
-              getCartData(container)
-              upDateCartData()
-          }
-      }catch(err){
-          console.log(err);
+        getCartData(container);
+        // upDateCartData();
       }
-
-  })
-
-
-  }
+    } catch (err) {
+      console.log(err);
+    }
+  });
+}
 
 function PriceCalculater(plusbtns, minusbtns, quantities, prices) {
-
-  const trash= document.querySelector(".trash")
+  const trash = document.querySelector(".trash");
 
   for (let plusButton of plusbtns) {
     plusButton.addEventListener("click", function () {
@@ -352,20 +321,14 @@ function PriceCalculater(plusbtns, minusbtns, quantities, prices) {
 
       let sum = price;
       plusButton.previousElementSibling.textContent++;
-    
-     
 
-
-      
       sum += basePrice;
       priceElem.textContent = `$${sum}`;
-
-   
 
       ///////////////////////////////////////////////////////////////////
 
       totalPriceHandler(prices);
-      upDateCartData()
+      // upDateCartData();
     });
   }
   for (let minusButton of minusbtns) {
@@ -387,15 +350,14 @@ function PriceCalculater(plusbtns, minusbtns, quantities, prices) {
       console.log(content);
       if (content > 1) {
         minusButton.nextElementSibling.textContent--;
-      
+
         sum -= basePrice;
         console.log(sum);
         priceElem.textContent = `$${sum}`;
-       
       }
 
       totalPriceHandler(prices);
-      upDateCartData()
+      // upDateCartData();
     });
   }
   totalPriceHandler(prices);
@@ -415,37 +377,74 @@ function totalPriceHandler(prices) {
   }, 0);
 
   totalElem.innerHTML = `$${totalPrice}`;
-
 }
 
-function upDateCartData(){
-  let products=[]
-  const cartElems = document.querySelectorAll(".cart")
+function upDateCartData() {
+  let products = [];
+  const cartElems = document.querySelectorAll(".cart");
 
-  for(let cart of cartElems){
-    let name= cart.querySelector(".name").textContent
-    let color= cart.querySelector(".color").style.backgroundColor
-    let size= cart.querySelector(".size").textContent.slice(7)
-    let price= cart.querySelector(".price").textContent.trim().slice(1)
-    let count= cart.querySelector(".count").textContent
-    let image= cart.querySelector(".image").src
+  for (let cart of cartElems) {
+    let name = cart.querySelector(".name").textContent;
+    let color = cart.querySelector(".color").style.backgroundColor;
+    let size = cart.querySelector(".size").textContent.slice(7);
+    let price = cart.querySelector(".price").textContent.trim().slice(1);
+    let count = cart.querySelector(".count").textContent;
+    let image = cart.querySelector(".image").src;
 
-    let product={
+    let product = {
       name,
       color,
       size,
       price,
       count,
-      image
-    }
+      image,
+    };
 
-    products.push(product)
+    products.push(product);
   }
 
   console.log(products);
+  postData(products)
+  
+}
+
+ function addToCheckOut(){
+
+    const CheckOutBtn= document.querySelector(".CheckOut")
+
+    CheckOutBtn.addEventListener("click", function(){
+
+
+      upDateCartData()
 
 
 
+
+    })
+  
+
+}
+
+function postData(products){
+
+  products. forEach(async product=>{
+    console.log(product);
+
+     try{
+        let res = await fetch(`${baseURL}/checkout`,{
+          method:"POST",
+          headers:{
+            "content-type":"application/json"
+          },
+          body : JSON.stringify(product)
+        })
+        let data= await res.json()
+        console.log(data);
+
+     }catch(err){
+      console.log(err);
+     }
+  })
 }
 
 export { cart };

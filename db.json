@@ -1015,35 +1015,7 @@
       "id": 1
     }
   ],
-  "cart": [
-    {
-      "price": "300",
-      "count": "3",
-      "image": "http://localhost:5173/public/shoeimage/imges/adidas/1.png",
-      "size": 40,
-      "name": "Adidas samba",
-      "color": "green",
-      "id": 1
-    },
-    {
-      "price": "960",
-      "count": "4",
-      "image": "http://localhost:5173/public/shoeimage/imges/reebok/5.jpg",
-      "size": 40,
-      "name": "Royal v20 ",
-      "color": "red",
-      "id": 2
-    },
-    {
-      "price": "200",
-      "count": "1",
-      "image": "http://localhost:5173/public/shoeimage/imges/neawba/3.jpg",
-      "size": 40,
-      "name": "c180",
-      "color": "black",
-      "id": 3
-    }
-  ],
+  "cart": [],
   "checkout": [],
   "active": [
     {
