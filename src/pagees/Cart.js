@@ -139,13 +139,13 @@ function showProduct(productArray, container) {
   productArray.forEach((product) => {
     container.insertAdjacentHTML(
       "afterbegin",
-      `<div class="product_cart  flex items-center mt-5 rounded-3xl bg-green-100">
+      `<div class="cart product_cart  flex items-center mt-5 rounded-3xl bg-green-100">
             <div class="img_container w-[150px] rounded-3xl overflow-hidden">
-              <img class="w-full h-full" src=${product.image} alt="">
+              <img class="image w-full h-full" src=${product.image} alt="">
             </div>
             <div class="w-full p-2">
               <div class="flex items-center justify-between px-2">
-                <p class="text-lg font-bold">${product.name}</p>
+                <p class="name text-lg font-bold">${product.name}</p>
                 <img id=${product.id}   data-product-name=${product.name} data-product-color=${product.color} data-product-size=${product.size} data-product-image=${product.image}   class="trash size-10" src="./public/shoeimage/imges/recycle.webp">
 
                 
@@ -157,15 +157,15 @@ function showProduct(productArray, container) {
                 <div style= background-color:${product.color} ; class="color size-6  rounded-full"></div>
                 <span class="color text-[13px] text-gray-500">${product.color}</span>
                 <div class="h-4 border w-0 border-gray-300"></div>
-                <span class="text-gray-500 text-[13px]">size = ${product.size}</span>
+                <span class="size text-gray-500 text-[13px]">size = ${product.size}</span>
               </div>
               <div class="priceSection flex items-center justify-between mt-4 px-2">
-                <span class="productPrice font-bold data-base-price=${product.price}">
+                <span class="price productPrice font-bold data-base-price=${product.price}">
                   $${product.price}
                 </span>
                 <div class="bg-gray-200 w-16 rounded-md px-2 flex items-center justify-between ">
                   <button class="minus" >-</button>
-                  <span class="Quantity">${product.count}</span>
+                  <span class="Quantity count">${product.count}</span>
                   <button class="plus" >+</button>
                 </div>
               </div>
@@ -234,9 +234,13 @@ function showProduct(productArray, container) {
   const minusBtn = document.querySelectorAll(".minus");
   const productPrice = document.querySelectorAll(".productPrice");
   const quantityElemm = document.querySelectorAll(".Quantity");
+  
+  upDateCartData()
+  console.log("hi");
 
   PriceCalculater(plusBtn, minusBtn, quantityElemm, productPrice);
   removeProduct(trashbtn, container, );
+
 }
 
 function removeProduct(deleteButtons, container,) {
@@ -320,6 +324,7 @@ function removeProduct(deleteButtons, container,) {
                container.innerHTML = ''
 
               getCartData(container)
+              upDateCartData()
           }
       }catch(err){
           console.log(err);
@@ -354,11 +359,13 @@ function PriceCalculater(plusbtns, minusbtns, quantities, prices) {
       
       sum += basePrice;
       priceElem.textContent = `$${sum}`;
+
    
 
       ///////////////////////////////////////////////////////////////////
 
       totalPriceHandler(prices);
+      upDateCartData()
     });
   }
   for (let minusButton of minusbtns) {
@@ -388,6 +395,7 @@ function PriceCalculater(plusbtns, minusbtns, quantities, prices) {
       }
 
       totalPriceHandler(prices);
+      upDateCartData()
     });
   }
   totalPriceHandler(prices);
@@ -407,6 +415,36 @@ function totalPriceHandler(prices) {
   }, 0);
 
   totalElem.innerHTML = `$${totalPrice}`;
+
+}
+
+function upDateCartData(){
+  let products=[]
+  const cartElems = document.querySelectorAll(".cart")
+
+  for(let cart of cartElems){
+    let name= cart.querySelector(".name").textContent
+    let color= cart.querySelector(".color").style.backgroundColor
+    let size= cart.querySelector(".size").textContent.slice(7)
+    let price= cart.querySelector(".price").textContent.trim().slice(1)
+    let count= cart.querySelector(".count").textContent
+    let image= cart.querySelector(".image").src
+
+    let product={
+      name,
+      color,
+      size,
+      price,
+      count,
+      image
+    }
+
+    products.push(product)
+  }
+
+  console.log(products);
+
+
 
 }
 
