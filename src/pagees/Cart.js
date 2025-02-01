@@ -99,7 +99,7 @@ function cart() {
   navBar(navButtons);
   activeButton(cartBtn, homeBtn);
   getCartData(productContainerElem);
-  addToCheckOut()
+  addToCheckOut();
 }
 
 function activeButton(cartElem, homeElem) {
@@ -404,50 +404,37 @@ function upDateCartData() {
   }
 
   console.log(products);
-  postData(products)
-  
+  postData(products);
 }
 
- function addToCheckOut(){
+function addToCheckOut() {
+  const CheckOutBtn = document.querySelector(".CheckOut");
 
-    const CheckOutBtn= document.querySelector(".CheckOut")
-
-    CheckOutBtn.addEventListener("click", function(){
-
-
-      upDateCartData()
-
-
-
-
-    })
-  
-
+  CheckOutBtn.addEventListener("click", function () {
+    upDateCartData();
+  });
 }
 
-function postData(products){
-
-  products. forEach(async product=>{
+function postData(products) {
+  products.forEach(async (product) => {
     console.log(product);
 
-     try{
-        let res = await fetch(`${baseURL}/checkout`,{
-          method:"POST",
-          headers:{
-            "content-type":"application/json"
-          },
-          body : JSON.stringify(product)
-        })
+    try {
+      let res = await fetch(`${baseURL}/checkout`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(product),
+      });
 
-        if(res.ok){
-          router.navigate("/checkout")
-        }
-       
-
-     }catch(err){
+      if (res.ok) {
+        router.navigate("/checkout");
+      }
+    } catch (err) {
       console.log(err);
-     }
-  })
+    }
+  });
 }
 
 export { cart };

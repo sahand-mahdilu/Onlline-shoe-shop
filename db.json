@@ -1017,17 +1017,35 @@
   ],
   "cart": [
     {
-      "price": "49",
-      "count": "1",
-      "image": "http://localhost:5173/public/shoeimage/imges/puma/1.webp",
-      "size": 40,
-      "name": "w 2000",
-      "color": "blue",
+      "price": "1000",
+      "count": "2",
+      "image": "http://localhost:5173/public/shoeimage/imges/neawba/4.jpg",
+      "size": "41",
+      "name": "LC",
+      "color": "red",
       "id": 1
+    },
+    {
+      "price": "1200",
+      "count": "2",
+      "image": "http://localhost:5173/public/shoeimage/imges/adidas/3.png",
+      "size": 40,
+      "name": "sport",
+      "color": "green",
+      "id": 2
+    },
+    {
+      "price": "1200",
+      "count": "2",
+      "image": "http://localhost:5173/public/shoeimage/imges/adidas/3.png",
+      "size": "41",
+      "name": "sport",
+      "color": "green",
+      "id": 3
     }
   ],
   "checkout": [
-
+   
   ],
   "active": [
     {
