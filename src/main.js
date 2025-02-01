@@ -12,6 +12,7 @@ import { singleProduct } from "./pagees/SingleProduct";
 import { cart } from "./pagees/Cart";
 import { checkOut } from "./pagees/Checkout";
 import { shippingAddress } from "./pagees/ShippingAddress";
+import { shipping } from "./pagees/Shipping";
 
 export const App = document.querySelector("#app");
 
@@ -30,4 +31,5 @@ router
   .on("/singleProduct/:id", (math) => singleProduct(math))
   .on("/checkout", checkOut)
   .on("/shippingaddress", shippingAddress)
+  .on("/shipping", shipping)
   .resolve();
