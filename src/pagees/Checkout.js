@@ -1,5 +1,5 @@
 import { baseURL } from "../API/API";
-import { App } from "../main";
+import { App, router } from "../main";
 
 function checkOut() {
   App.innerHTML = `  <div class="checkOut_container p-2 ">
@@ -221,7 +221,7 @@ function totalPrice(products){
 function editAddress(){
   const editAddress=document.querySelector(".editAddress")
   editAddress.addEventListener("click",function(){
-    console.log("hello");
+   router.navigate("/shippingaddress")
   })
 
 }
