@@ -1017,15 +1017,6 @@
   ],
   "cart": [
     {
-      "price": "1000",
-      "count": "2",
-      "image": "http://localhost:5173/public/shoeimage/imges/neawba/4.jpg",
-      "size": "41",
-      "name": "LC",
-      "color": "red",
-      "id": 1
-    },
-    {
       "price": "1200",
       "count": "2",
       "image": "http://localhost:5173/public/shoeimage/imges/adidas/3.png",
@@ -1045,33 +1036,7 @@
     }
   ],
   "checkout": [
-    {
-      "name": "sport",
-      "color": "green",
-      "size": "41",
-      "price": "1200",
-      "count": "2",
-      "image": "http://localhost:5173/public/shoeimage/imges/adidas/3.png",
-      "id": 1
-    },
-    {
-      "name": "sport",
-      "color": "green",
-      "size": "40",
-      "price": "1200",
-      "count": "2",
-      "image": "http://localhost:5173/public/shoeimage/imges/adidas/3.png",
-      "id": 2
-    },
-    {
-      "name": "LC",
-      "color": "red",
-      "size": "41",
-      "price": "1000",
-      "count": "2",
-      "image": "http://localhost:5173/public/shoeimage/imges/neawba/4.jpg",
-      "id": 3
-    }
+    
   ],
   "active": [
     {
