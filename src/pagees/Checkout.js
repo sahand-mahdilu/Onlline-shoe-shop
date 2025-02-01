@@ -231,6 +231,15 @@ function setAddress(){
   
 }
 
+function setShipping(){
+  const shippingBtn=document.querySelector(".shipping")
+  shippingBtn.addEventListener("click",function(){
 
+    router.navigate("/shipping")
+  })
+
+    
+
+}
 
 export { checkOut };
