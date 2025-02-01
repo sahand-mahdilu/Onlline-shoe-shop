@@ -1071,30 +1071,6 @@
       "count": "2",
       "image": "http://localhost:5173/public/shoeimage/imges/adidas/3.png",
       "id": 3
-    },
-    {
-      "name": "sport",
-      "color": "green",
-      "size": "41",
-      "price": "1200",
-      "image": "http://localhost:5173/public/shoeimage/imges/adidas/3.png",
-      "id": 4
-    },
-    {
-      "name": "Adidas samba",
-      "color": "green",
-      "size": 40,
-      "price": "200",
-      "image": "http://localhost:5173/public/shoeimage/imges/adidas/1.png",
-      "id": 5
-    },
-    {
-      "name": "nike c800",
-      "color": "black",
-      "size": 40,
-      "price": "700",
-      "image": "http://localhost:5173/public/shoeimage/imges/nike/nike-6.jpg",
-      "id": 6
     }
   ],
   "active": [

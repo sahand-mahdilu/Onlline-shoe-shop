@@ -27,8 +27,8 @@ function checkOut() {
               <img class=" w-full h-full" src="./public/shoeimage/imges/location.png" alt="location">
             </div>
             <div class="flex flex-col">
-              <span class="font-semibold">Home</span>
-              <span class="text-gray-500 text-[14px]">tehran tajrish razi str</span>
+              <span class="place font-semibold">Home</span>
+              <span class="address text-gray-500 text-[14px]">tehran tajrish razi str</span>
               
             </div>
           
@@ -128,6 +128,7 @@ function checkOut() {
   getData();
   goBack();
   editAddress();
+  setAddress()
 }
 
 async function getData() {
@@ -194,7 +195,7 @@ function showData(products) {
 function goBack() {
   const backButton = document.querySelector(".goBack");
   backButton.addEventListener("click", function () {
-    window.history.back();
+    router.navigate("/cart")
   });
 }
 
@@ -215,5 +216,19 @@ function editAddress() {
     router.navigate("/shippingaddress");
   });
 }
+
+function setAddress(){
+
+  const place =document.querySelector(".place")
+  const address =document.querySelector(".address")
+  console.log(place);
+  console.log(address);
+  let placeValue= localStorage.getItem("place")
+  let addressValue= localStorage.getItem("address")
+  place.textContent=placeValue
+  address.textContent=addressValue
+
+}
+
 
 export { checkOut };
