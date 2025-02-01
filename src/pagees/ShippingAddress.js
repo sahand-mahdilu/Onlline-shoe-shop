@@ -108,7 +108,7 @@ function shippingAddress() {
 
 
         <div class="flex justify-center mt-10">
-          <input class="bg-black text-white p-2 w-[90%]  rounded-3xl" type="submit" value="Apply">
+          <input class="apply bg-black text-white p-2 w-[90%]  rounded-3xl" type="submit" value="Apply">
 
         </div>
 
@@ -127,11 +127,11 @@ function shippingAddress() {
 
 
     
-      <div class="opacity-0 invisible  modal_parent fixed inset-0 bg-black/70">
+      <div class=" transition-all duration-300 opacity-0 invisible  modal_parent fixed inset-0 bg-black/70">
 
         <div class=" w-full h-full relative flex  items-center justify-center">
 
-            <div class=" transition-all absolute left-[-100%] font-semibold rounded-xl bg-white p-3 flex flex-col items-center justify-center ">
+            <div class=" modal transition-all duration-300 absolute left-[-100%] font-semibold rounded-xl bg-white p-3 flex flex-col items-center justify-center ">
               Dear user your Address Changed
               <span>😊</span>
             </div>
@@ -141,6 +141,7 @@ function shippingAddress() {
 
   goBack();
   setLocalStorage();
+  showModal()
 }
 
 function goBack() {
@@ -168,6 +169,57 @@ function setLocalStorage() {
       localStorage.setItem("address", address);
     }
   });
+}
+
+
+function showModal(){
+
+    const applyBtn =document.querySelector(".apply")
+    const modalParent =document.querySelector(".modal_parent")
+    const modal =document.querySelector(".modal")
+    
+        applyBtn.addEventListener("click",function(){
+
+            modalParent.classList.remove("opacity-0","invisible")
+            modalParent.classList.add("opacity-100","visible")
+
+
+      
+            
+            
+            modal.classList.add("left-[-100%]")
+            modal.classList.remove("left-[-100%]")
+            modal.classList.add("left-[5%]")
+            modal.classList.add("right-[5%]")
+            
+            setTimeout(async function(){
+                modal.classList.remove("left-[5%]")
+                modal.classList.remove("right-[5%]")
+                modal.classList.add("right-[-100%]")
+                modalParent.classList.remove("opacity-100","visible")
+                modalParent.classList.add("opacity-0","invisible")
+                
+                
+                
+                setTimeout(function(){
+                    
+                    modal.classList.remove("right-[-100%]")
+                    modal.classList.add("left-[-100%]")
+                    
+                },200)
+                
+            },2000)
+
+
+          
+                
+            
+     
+
+        })
+
+
+
 }
 
 export { shippingAddress };
