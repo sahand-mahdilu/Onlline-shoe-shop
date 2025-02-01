@@ -247,12 +247,20 @@ function setShippingPrice(){
 
   const shippingPriceElem= document.querySelector(".shipping_price")
   let shippingPrice= localStorage.getItem("shippingPrice")
-  shippingPriceElem.textContent=`$${shippingPrice}`
+  if(shippingPrice){
+    shippingPriceElem.textContent=`$${shippingPrice}`
+    
+  }else{
+    
+    shippingPriceElem.textContent=`-`
+  }
+
 }
 
 function calculateTotalPrice(){
 
   
+
 } 
 
 export { checkOut };
