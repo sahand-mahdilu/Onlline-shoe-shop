@@ -122,6 +122,20 @@ function shippingAddress() {
 
 
       </div>
+
+
+
+
+    
+      <div class="opacity-0 invisible  modal_parent fixed inset-0 bg-black/70">
+
+        <div class=" w-full h-full relative flex  items-center justify-center">
+
+            <div class=" transition-all absolute left-[-100%] font-semibold rounded-xl bg-white p-3 flex flex-col items-center justify-center ">
+              Dear user your Address Changed
+              <span>😊</span>
+            </div>
+
     
     `;
 
