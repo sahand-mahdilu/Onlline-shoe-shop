@@ -81,7 +81,7 @@ function checkOut() {
             </span>
           </div>
           <div class="img_container size-5">
-            <img class="w-full h-full" src="./public/shoeimage/imges/right-arrow.png" alt="arrow">
+            <img class="shipping w-full h-full" src="./public/shoeimage/imges/right-arrow.png" alt="arrow">
           </div>
 
          </div>
@@ -129,6 +129,7 @@ function checkOut() {
   goBack();
   editAddress();
   setAddress()
+  setShipping()
 }
 
 async function getData() {
@@ -148,46 +149,46 @@ async function getData() {
 function showData(products) {
   const cartContainer = document.querySelector(".cart_container");
   console.log(cartContainer);
-
+  
   products.forEach((product) => {
     cartContainer.insertAdjacentHTML(
       "afterbegin",
       ` <div class="cart product_cart  flex items-center mt-5 rounded-3xl bg-green-100">
-            <div class="img_container w-[150px] rounded-3xl overflow-hidden">
-              <img class="image w-full h-full" src=${product.image} alt="img">
-            </div>
-            <div class="w-full p-2">
-              <div class="flex items-center justify-between px-2">
-                <p class="name text-lg font-bold">${product.name}</p>
-               
-
-                
-                
-
-              </div>
-
-              <div class="flex gap-2 mt-4">
-                <div style= "background-color:${product.color} " class="color size-6  rounded-full"></div>
-                <span class="color text-[13px] text-gray-500">${product.color}</span>
-                <div class="h-4 border w-0 border-gray-300"></div>
-                <span class="size text-gray-500 text-[13px]">size=${product.size}</span>
-              </div>
-              <div class="priceSection flex items-center justify-between mt-4 px-2">
-                <span class="price productPrice font-bold ">
-                  $${product.price}
-                </span>
-                <div class="bg-gray-200 rounded-full size-8 font-semibold  px-2 flex items-center justify-center ">
-               ${product.count}
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-
-          
-
-`
+      <div class="img_container w-[150px] rounded-3xl overflow-hidden">
+      <img class="image w-full h-full" src=${product.image} alt="img">
+      </div>
+      <div class="w-full p-2">
+      <div class="flex items-center justify-between px-2">
+      <p class="name text-lg font-bold">${product.name}</p>
+      
+      
+      
+      
+      
+      </div>
+      
+      <div class="flex gap-2 mt-4">
+      <div style= "background-color:${product.color} " class="color size-6  rounded-full"></div>
+      <span class="color text-[13px] text-gray-500">${product.color}</span>
+      <div class="h-4 border w-0 border-gray-300"></div>
+      <span class="size text-gray-500 text-[13px]">size=${product.size}</span>
+      </div>
+      <div class="priceSection flex items-center justify-between mt-4 px-2">
+      <span class="price productPrice font-bold ">
+      $${product.price}
+      </span>
+      <div class="bg-gray-200 rounded-full size-8 font-semibold  px-2 flex items-center justify-center ">
+      ${product.count}
+      </div>
+      </div>
+      </div>
+      </div>
+      
+      
+      
+      
+      
+      `
     );
   });
 }
@@ -201,12 +202,12 @@ function goBack() {
 
 function totalPrice(products) {
   let totalPriceElem = document.querySelector(".amount");
-
+  
   let sum = 0;
   products.forEach((product) => {
     sum += +product.price;
   });
-
+  
   totalPriceElem.textContent = `$${sum}`;
 }
 
@@ -218,7 +219,7 @@ function editAddress() {
 }
 
 function setAddress(){
-
+  
   const place =document.querySelector(".place")
   const address =document.querySelector(".address")
   console.log(place);
@@ -227,8 +228,9 @@ function setAddress(){
   let addressValue= localStorage.getItem("address")
   place.textContent=placeValue
   address.textContent=addressValue
-
+  
 }
+
 
 
 export { checkOut };
