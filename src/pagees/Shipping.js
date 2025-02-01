@@ -1,4 +1,5 @@
 import { App } from "../main";
+import { goBack,  } from "./ShippingAddress";
 
 function shipping(){
     App.innerHTML=`
@@ -161,8 +162,34 @@ function shipping(){
               <span>😊</span>
             </div>
 
-`
+
+
+`   
+
+goBack()
+
+setLocalStorage()
 }
+
+function setLocalStorage() {
+    let formElem = document.querySelector("form");
+  
+    formElem.addEventListener("submit", function (e) {
+      e.preventDefault();
+      let selectedPrice = document.querySelector(".input:checked");
+  
+      if (selectedPrice) {
+         
+        let addresContainer = selectedPrice.closest(".shipping_container");
+  
+        let price = addresContainer.querySelector(".shipping_price").textContent.slice(1);
+        
+        console.log(price);
+  
+        localStorage.setItem("shippingPrice", price);
+      }
+    });
+  }
 
 
 export{shipping}
