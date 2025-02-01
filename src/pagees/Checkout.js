@@ -105,7 +105,7 @@ function checkOut() {
             </div>
             <div class="mt-2 text-lg font-semibold flex items-center justify-between px-5">
               <span>Shipping</span>
-              <span>-</span>
+              <span class="shipping_price">-</span>
             </div>
             <div class="h-px border-[1px] my-4 border-gray-500"></div>
             <div class="text-lg font-semibold flex items-center justify-between px-5">
@@ -129,7 +129,8 @@ function checkOut() {
   goBack();
   editAddress();
   setAddress()
-  setShipping()
+  goShipping()
+  setShippingPrice()
 }
 
 async function getData() {
@@ -231,7 +232,7 @@ function setAddress(){
   
 }
 
-function setShipping(){
+function goShipping(){
   const shippingBtn=document.querySelector(".shipping")
   shippingBtn.addEventListener("click",function(){
 
@@ -241,5 +242,17 @@ function setShipping(){
     
 
 }
+
+function setShippingPrice(){
+
+  const shippingPriceElem= document.querySelector(".shipping_price")
+  let shippingPrice= localStorage.getItem("shippingPrice")
+  shippingPriceElem.textContent=`$${shippingPrice}`
+}
+
+function calculateTotalPrice(){
+
+  
+} 
 
 export { checkOut };
