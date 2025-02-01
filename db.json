@@ -1033,9 +1033,27 @@
       "name": "Adidas samba",
       "color": "green",
       "id": 4
+    },
+    {
+      "price": "700",
+      "count": "4",
+      "image": "http://localhost:5173/public/shoeimage/imges/nike/nike-6.jpg",
+      "size": 40,
+      "name": "nike c800",
+      "color": "black",
+      "id": 5
     }
   ],
   "checkout": [
+    {
+      "name": "nike c800",
+      "color": "black",
+      "size": "40",
+      "price": "700",
+      "count": "4",
+      "image": "http://localhost:5173/public/shoeimage/imges/nike/nike-6.jpg",
+      "id": 1
+    },
     {
       "name": "Adidas samba",
       "color": "green",
@@ -1043,7 +1061,7 @@
       "price": "200",
       "count": "2",
       "image": "http://localhost:5173/public/shoeimage/imges/adidas/1.png",
-      "id": 1
+      "id": 2
     },
     {
       "name": "sport",
@@ -1052,7 +1070,7 @@
       "price": "1200",
       "count": "2",
       "image": "http://localhost:5173/public/shoeimage/imges/adidas/3.png",
-      "id": 2
+      "id": 3
     }
   ],
   "active": [

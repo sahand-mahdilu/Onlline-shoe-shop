@@ -24,7 +24,7 @@ function checkOut() {
 
           <div class="flex gap-4   items-center">
             <div class="image_container size-10 rounded-full overflow-hidden">
-              <img class="w-full h-full" src="./public/shoeimage/imges/location.png" alt="location">
+              <img class=" w-full h-full" src="./public/shoeimage/imges/location.png" alt="location">
             </div>
             <div class="flex flex-col">
               <span class="font-semibold">Home</span>
@@ -34,7 +34,7 @@ function checkOut() {
           
           </div>
           <div class="img_container size-9">
-            <img class="edit w-full h-full" src="./public/shoeimage/imges/edit-cryaon.png" alt="">
+            <img class="editAddress w-full h-full" src="./public/shoeimage/imges/edit-cryaon.png" alt="">
           </div>
         </div>
 
@@ -129,6 +129,7 @@ function checkOut() {
 
       getData()
       goBack()
+      editAddress()
 }
 
 
@@ -215,6 +216,14 @@ function totalPrice(products){
   })
 
   totalPriceElem.textContent=`$${sum}`
+}
+
+function editAddress(){
+  const editAddress=document.querySelector(".editAddress")
+  editAddress.addEventListener("click",function(){
+    console.log("hello");
+  })
+
 }
 
 export { checkOut };
