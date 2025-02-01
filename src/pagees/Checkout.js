@@ -101,7 +101,7 @@ function checkOut() {
          <div class="p-2 bg-green-300 my-5 rounded-lg">
             <div class="mt-3 text-lg font-semibold flex items-center justify-between px-5">
               <span>Amount</span>
-              <span>$500</span>
+              <span class="amount">$500</span>
             </div>
             <div class="mt-2 text-lg font-semibold flex items-center justify-between px-5">
               <span>Shipping</span>
@@ -142,6 +142,7 @@ async function getData(){
     let data = await res.json()//data array
     console.log(data);
     showData(data)
+    totalPrice(data)
   }catch(err){console.log(err);}
 }
 
@@ -202,6 +203,18 @@ function goBack(){
 
     window.history.back()
   })
+}
+
+
+function totalPrice(products){
+  let totalPriceElem =document.querySelector(".amount")
+
+  let sum=0
+  products.forEach(product=>{
+    sum+= +product.price
+  })
+
+  totalPriceElem.textContent=`$${sum}`
 }
 
 export { checkOut };

@@ -1020,23 +1020,40 @@
       "price": "1200",
       "count": "2",
       "image": "http://localhost:5173/public/shoeimage/imges/adidas/3.png",
-      "size": 40,
-      "name": "sport",
-      "color": "green",
-      "id": 2
-    },
-    {
-      "price": "1200",
-      "count": "2",
-      "image": "http://localhost:5173/public/shoeimage/imges/adidas/3.png",
       "size": "41",
       "name": "sport",
       "color": "green",
       "id": 3
+    },
+    {
+      "price": "200",
+      "count": "2",
+      "image": "http://localhost:5173/public/shoeimage/imges/adidas/1.png",
+      "size": 40,
+      "name": "Adidas samba",
+      "color": "green",
+      "id": 4
     }
   ],
   "checkout": [
-    
+    {
+      "name": "Adidas samba",
+      "color": "green",
+      "size": "40",
+      "price": "200",
+      "count": "2",
+      "image": "http://localhost:5173/public/shoeimage/imges/adidas/1.png",
+      "id": 1
+    },
+    {
+      "name": "sport",
+      "color": "green",
+      "size": "41",
+      "price": "1200",
+      "count": "2",
+      "image": "http://localhost:5173/public/shoeimage/imges/adidas/3.png",
+      "id": 2
+    }
   ],
   "active": [
     {
