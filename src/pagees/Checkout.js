@@ -1,3 +1,4 @@
+import { baseURL } from "../API/API";
 import { App } from "../main";
 
 function checkOut() {
@@ -46,37 +47,7 @@ function checkOut() {
 
 
 
-          <div class="cart product_cart  flex items-center mt-5 rounded-3xl bg-green-100">
-            <div class="img_container w-[150px] rounded-3xl overflow-hidden">
-              <img class="image w-full h-full" src="./public/shoeimage/imges/adidas/1.png" alt="img">
-            </div>
-            <div class="w-full p-2">
-              <div class="flex items-center justify-between px-2">
-                <p class="name text-lg font-bold">adidas samba</p>
-               
-
-                
-                
-
-              </div>
-
-              <div class="flex gap-2 mt-4">
-                <div style= "background-color:red " class="color size-6  rounded-full"></div>
-                <span class="color text-[13px] text-gray-500">red</span>
-                <div class="h-4 border w-0 border-gray-300"></div>
-                <span class="size text-gray-500 text-[13px]">size=41</span>
-              </div>
-              <div class="priceSection flex items-center justify-between mt-4 px-2">
-                <span class="price productPrice font-bold ">
-                  $500
-                </span>
-                <div class="bg-gray-200 rounded-full size-8 font-semibold  px-2 flex items-center justify-center ">
-               2
-                </div>
-              </div>
-            </div>
-          </div>
-
+         
 
 
           
@@ -153,6 +124,74 @@ function checkOut() {
 
          
       </div>`;
+
+
+
+      getData()
+}
+
+
+
+async function getData(){
+
+  try{
+    let res= await fetch(`${baseURL}/checkout`,{
+      method:"GET"
+    })
+    let data = await res.json()//data array
+    console.log(data);
+    showData(data)
+  }catch(err){console.log(err);}
+}
+
+
+function showData(products){
+
+  const cartContainer= document.querySelector(".cart_container")
+  console.log(cartContainer);
+
+  products.forEach(product=>{
+
+    cartContainer.insertAdjacentHTML("afterbegin",` <div class="cart product_cart  flex items-center mt-5 rounded-3xl bg-green-100">
+            <div class="img_container w-[150px] rounded-3xl overflow-hidden">
+              <img class="image w-full h-full" src=${product.image} alt="img">
+            </div>
+            <div class="w-full p-2">
+              <div class="flex items-center justify-between px-2">
+                <p class="name text-lg font-bold">${product.name}</p>
+               
+
+                
+                
+
+              </div>
+
+              <div class="flex gap-2 mt-4">
+                <div style= "background-color:${product.color} " class="color size-6  rounded-full"></div>
+                <span class="color text-[13px] text-gray-500">${product.color}</span>
+                <div class="h-4 border w-0 border-gray-300"></div>
+                <span class="size text-gray-500 text-[13px]">size=${product.size}</span>
+              </div>
+              <div class="priceSection flex items-center justify-between mt-4 px-2">
+                <span class="price productPrice font-bold ">
+                  $${product.price}
+                </span>
+                <div class="bg-gray-200 rounded-full size-8 font-semibold  px-2 flex items-center justify-center ">
+               ${product.count}
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          
+
+`)
+   
+
+  })
+
 }
 
 export { checkOut };
