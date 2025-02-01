@@ -89,8 +89,16 @@ function checkOut() {
          <div class="h-px border-[1px] my-5 border-gray-300"></div>
 
          <h2 class="text-lg font-bold">Promo code</h2>
-         <div class="flex gap-6 justify-center mt-3">
-          <input class="w-[70%] code p-2 bg-gray-200 rounded-lg" placeholder="Enter promo code" type="text">
+         <div class="flex gap-6 justify-center items-center mt-3">
+
+         <input class=" promo_code w-[70%] code p-2 bg-gray-200 rounded-lg" placeholder="Enter promo code" type="text">
+         
+         <div class= "discount hidden text-[14px] text-center font-bold bg-blue-400 p-2  rounded-2xl ">Discount 20% Off</div>
+
+         <div class= "Wrong hidden text-[14px] text-center font-bold bg-red-400 p-2  rounded-2xl ">Wrong code!!</div>
+         
+
+         
 
           <div class="promoBtn cursor-pointer rounded-full flex justify-center items-center size-12 text-white bg-black text-xl">+</div>
 
@@ -107,6 +115,12 @@ function checkOut() {
               <span>Shipping</span>
               <span class="shipping_price">-</span>
             </div>
+
+              <div class="promo_container hidden mt-2 text-lg font-semibold items-center justify-between px-5">
+              <span>promo</span>
+              <span class="promo_amount text-red-400">-</span>
+            </div>
+
             <div class="h-px border-[1px] my-4 border-gray-500"></div>
             <div class="text-lg font-semibold flex items-center justify-between px-5">
               <span>Total</span>
@@ -131,6 +145,7 @@ function checkOut() {
   setAddress()
   goShipping()
   setShippingPrice()
+  calculateDiscount()
 }
 
 async function getData() {
@@ -266,8 +281,11 @@ function calculateTotalPrice(price){
  
 
   if(shippingPrice){
+    let total= price+shippingPrice
+    totalPrice.textContent=`$${total}`
 
-    totalPrice.textContent=`$${price+shippingPrice}`
+    calculateDiscount(total)
+
 
   }else{
     totalPrice.textContent=`-`
@@ -276,5 +294,56 @@ function calculateTotalPrice(price){
   
 
 } 
+
+function calculateDiscount(amount){
+  const promoInput= document.querySelector(".promo_code")
+  const promoButton= document.querySelector(".promoBtn")
+  const discountElem = document.querySelector(".discount")
+  const wrongElem = document.querySelector(".Wrong")
+  const totalPriceElem=document.querySelector(".totalPrice")
+  const promo_container=document.querySelector(".promo_container")
+  const promo_amount=document.querySelector(".promo_amount")
+  let shippingPrice= +localStorage.getItem("shippingPrice")
+
+    promoButton.addEventListener("click",function(){
+
+      let value = promoInput.value
+
+      if(shippingPrice)
+
+        if(value==="sahand"){
+          
+          discountElem.classList.remove("hidden")
+         
+          promoInput.classList.add("hidden")
+
+          let discount = amount*20/100
+
+          let totalPrice= amount-discount
+          totalPriceElem.textContent=`$${totalPrice}`
+          
+          promo_container.classList.remove("hidden")
+          promo_container.classList.add("flex")
+          promo_amount.textContent=`-$${discount}`
+
+          
+          
+          
+        }else{
+          wrongElem.classList.remove("hidden")
+          promoInput.classList.add("hidden")
+        }
+
+    })
+
+    wrongElem.addEventListener("click",function(){
+
+      wrongElem.classList.add("hidden")
+      promoInput.classList.remove("hidden")
+      promoInput.value=""
+    })
+
+
+}
 
 export { checkOut };
