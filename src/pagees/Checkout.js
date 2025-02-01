@@ -101,7 +101,7 @@ function checkOut() {
          <div class="p-2 bg-green-300 my-5 rounded-lg">
             <div class="mt-3 text-lg font-semibold flex items-center justify-between px-5">
               <span>Amount</span>
-              <span class="amount">$500</span>
+              <span class="amount"></span>
             </div>
             <div class="mt-2 text-lg font-semibold flex items-center justify-between px-5">
               <span>Shipping</span>
@@ -110,7 +110,7 @@ function checkOut() {
             <div class="h-px border-[1px] my-4 border-gray-500"></div>
             <div class="text-lg font-semibold flex items-center justify-between px-5">
               <span>Total</span>
-              <span>-</span>
+              <span class="totalPrice" >-</span>
             </div>
          </div>
 
@@ -139,7 +139,7 @@ async function getData() {
       method: "GET",
     });
     let data = await res.json(); //data array
-    console.log(data);
+   
     showData(data);
     totalPrice(data);
   } catch (err) {
@@ -210,6 +210,8 @@ function totalPrice(products) {
   });
   
   totalPriceElem.textContent = `$${sum}`;
+  calculateTotalPrice(sum)
+
 }
 
 function editAddress() {
@@ -223,8 +225,7 @@ function setAddress(){
   
   const place =document.querySelector(".place")
   const address =document.querySelector(".address")
-  console.log(place);
-  console.log(address);
+  
   let placeValue= localStorage.getItem("place")
   let addressValue= localStorage.getItem("address")
   place.textContent=placeValue
@@ -257,8 +258,21 @@ function setShippingPrice(){
 
 }
 
-function calculateTotalPrice(){
+function calculateTotalPrice(price){
 
+  const totalPrice=document.querySelector(".totalPrice")
+  
+  let shippingPrice= +localStorage.getItem("shippingPrice")
+ 
+
+  if(shippingPrice){
+
+    totalPrice.textContent=`$${price+shippingPrice}`
+
+  }else{
+    totalPrice.textContent=`-`
+  }
+  
   
 
 } 
