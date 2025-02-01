@@ -158,7 +158,7 @@ function shipping(){
         <div class=" w-full h-full relative flex  items-center justify-center">
 
             <div class=" modal transition-all duration-300 absolute left-[-100%] font-semibold rounded-xl bg-white p-3 flex flex-col items-center justify-center ">
-              Dear user your Address Changed
+              Shipping is set 
               <span>😊</span>
             </div>
 
