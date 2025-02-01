@@ -11,21 +11,23 @@ import { search } from "./pagees/Search";
 import { singleProduct } from "./pagees/SingleProduct";
 import { cart } from "./pagees/Cart";
 import { checkOut } from "./pagees/Checkout";
+import { shippingAddress } from "./pagees/ShippingAddress";
 
 export const App = document.querySelector("#app");
 
 export const router = new Navigo("/");
 
-// router
-//   .on("/", loader)
-//   .on("/onboarding", onBoarding)
-//   .on("/register", register)
-//   .on("/login", login)
-//   .on("/home", home)
-//   .on("/allProducts", allProducts)
-//   .on("/cart", cart)
-//   .on("/brands/:id", (math) => brands(math))
-//   .on("/search/:id", (math) => search(math))
-//   .on("/singleProduct/:id", (math) => singleProduct(math))
-//   .on("/checkout", checkOut)
-//   .resolve();
+router
+  .on("/", loader)
+  .on("/onboarding", onBoarding)
+  .on("/register", register)
+  .on("/login", login)
+  .on("/home", home)
+  .on("/allProducts", allProducts)
+  .on("/cart", cart)
+  .on("/brands/:id", (math) => brands(math))
+  .on("/search/:id", (math) => search(math))
+  .on("/singleProduct/:id", (math) => singleProduct(math))
+  .on("/checkout", checkOut)
+  .on("/shippingaddress", shippingAddress)
+  .resolve();
