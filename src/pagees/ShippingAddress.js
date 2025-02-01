@@ -26,16 +26,16 @@ function shippingAddress() {
             </div>
             <div class="flex flex-col">
               <div>
-                <span class="font-semibold">Home</span> 
+                <span class="place font-semibold">Home</span> 
                 <span class="text-[10px] bg-gray-300 p-1 rounded-lg px-1">Default</span>
               </div>
-              <span class="text-gray-500 text-[14px]">tehran tajrish razi str</span>
+              <span class="address text-gray-500 text-[14px]">tehran tajrish razi str</span>
               
             </div>
           
           </div>
           <div class="">
-            <input class="size-4" name="address"  type="radio">
+            <input checked class="input size-4" name="address"  type="radio">
           </div>
         </div>
 
@@ -49,37 +49,14 @@ function shippingAddress() {
               <img class=" w-full h-full" src="./public/shoeimage/imges/location.png" alt="location">
             </div>
             <div class="flex flex-col">
-              <span class="font-semibold">Office</span>
-              <span class="text-gray-500 text-[14px]">Tehran velenjak esteghlal str</span>
+              <span class="place font-semibold">Office</span>
+              <span class="address text-gray-500 text-[14px]">Tehran velenjak esteghlal str</span>
               
             </div>
           
           </div>
           <div class="">
-            <input class="size-4" name="address"  type="radio">
-          </div>
-        </div>
-
-
-
-
-
-
-        <div class="address_container my-4 bg-blue-200 p-3 rounded-xl flex items-center justify-between">
-
-          <div class="flex gap-4   items-center">
-            <div class="image_container size-10 rounded-full overflow-hidden">
-              <img class=" w-full h-full" src="./public/shoeimage/imges/location.png" alt="location">
-            </div>
-            <div class="flex flex-col">
-              <span class="font-semibold">Apartment</span>
-              <span class="text-gray-500 text-[14px]">tehran shahriar zeitun str</span>
-              
-            </div>
-          
-          </div>
-          <div class="">
-            <input class="size-4" name="address"  type="radio">
+            <input class="size-4 input" name="address"  type="radio">
           </div>
         </div>
 
@@ -95,14 +72,37 @@ function shippingAddress() {
               <img class=" w-full h-full" src="./public/shoeimage/imges/location.png" alt="location">
             </div>
             <div class="flex flex-col">
-              <span class="font-semibold">Parent House</span>
-              <span class="text-gray-500 text-[14px]">tehran shahriar kaj str</span>
+              <span class="place font-semibold">Apartment</span>
+              <span class="address text-gray-500 text-[14px]">tehran shahriar zeitun str</span>
               
             </div>
           
           </div>
           <div class="">
-            <input class="size-4" name="address" type="radio">
+            <input class="size-4 input" name="address"  type="radio">
+          </div>
+        </div>
+
+
+
+
+
+
+        <div class="address_container my-4 bg-blue-200 p-3 rounded-xl flex items-center justify-between">
+
+          <div class="flex gap-4   items-center">
+            <div class="image_container size-10 rounded-full overflow-hidden">
+              <img class=" w-full h-full" src="./public/shoeimage/imges/location.png" alt="location">
+            </div>
+            <div class="flex flex-col">
+              <span class="place font-semibold">Parent House</span>
+              <span class="address text-gray-500 text-[14px]">tehran shahriar kaj str</span>
+              
+            </div>
+          
+          </div>
+          <div class="">
+            <input class="size-4 input" name="address" type="radio">
           </div>
         </div>
 
@@ -123,20 +123,37 @@ function shippingAddress() {
 
       </div>
     
-    `
-    
-    goBack()
+    `;
+
+  goBack();
+  setLocalStorage();
 }
 
+function goBack() {
+  const goBackButton = document.querySelector(".goBack");
 
-function goBack(){
-    const goBackButton= document.querySelector(".goBack")
+  goBackButton.addEventListener("click", function () {
+    router.navigate("/checkout");
+  });
+}
 
-    goBackButton.addEventListener("click",function(){
+function setLocalStorage() {
+  let formElem = document.querySelector("form");
 
-        router.navigate("/checkout")
-    })
+  formElem.addEventListener("submit", function (e) {
+    e.preventDefault();
+    let selectedAddress = document.querySelector(".input:checked");
 
+    if (selectedAddress) {
+      let addresContainer = selectedAddress.closest(".address_container");
+
+      let place = addresContainer.querySelector(".place").textContent;
+      let address = addresContainer.querySelector(".address").textContent;
+
+      localStorage.setItem("place", place);
+      localStorage.setItem("address", address);
+    }
+  });
 }
 
 export { shippingAddress };

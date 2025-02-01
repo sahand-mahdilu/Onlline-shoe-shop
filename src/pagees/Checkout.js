@@ -125,37 +125,33 @@ function checkOut() {
          
       </div>`;
 
-
-
-      getData()
-      goBack()
-      editAddress()
+  getData();
+  goBack();
+  editAddress();
 }
 
-
-
-async function getData(){
-
-  try{
-    let res= await fetch(`${baseURL}/checkout`,{
-      method:"GET"
-    })
-    let data = await res.json()//data array
+async function getData() {
+  try {
+    let res = await fetch(`${baseURL}/checkout`, {
+      method: "GET",
+    });
+    let data = await res.json(); //data array
     console.log(data);
-    showData(data)
-    totalPrice(data)
-  }catch(err){console.log(err);}
+    showData(data);
+    totalPrice(data);
+  } catch (err) {
+    console.log(err);
+  }
 }
 
-
-function showData(products){
-
-  const cartContainer= document.querySelector(".cart_container")
+function showData(products) {
+  const cartContainer = document.querySelector(".cart_container");
   console.log(cartContainer);
 
-  products.forEach(product=>{
-
-    cartContainer.insertAdjacentHTML("afterbegin",` <div class="cart product_cart  flex items-center mt-5 rounded-3xl bg-green-100">
+  products.forEach((product) => {
+    cartContainer.insertAdjacentHTML(
+      "afterbegin",
+      ` <div class="cart product_cart  flex items-center mt-5 rounded-3xl bg-green-100">
             <div class="img_container w-[150px] rounded-3xl overflow-hidden">
               <img class="image w-full h-full" src=${product.image} alt="img">
             </div>
@@ -190,40 +186,34 @@ function showData(products){
 
           
 
-`)
-   
-
-  })
-
+`
+    );
+  });
 }
 
-
-function goBack(){
-  const backButton= document.querySelector(".goBack")
-  backButton.addEventListener("click",function(){
-
-    window.history.back()
-  })
+function goBack() {
+  const backButton = document.querySelector(".goBack");
+  backButton.addEventListener("click", function () {
+    window.history.back();
+  });
 }
 
+function totalPrice(products) {
+  let totalPriceElem = document.querySelector(".amount");
 
-function totalPrice(products){
-  let totalPriceElem =document.querySelector(".amount")
+  let sum = 0;
+  products.forEach((product) => {
+    sum += +product.price;
+  });
 
-  let sum=0
-  products.forEach(product=>{
-    sum+= +product.price
-  })
-
-  totalPriceElem.textContent=`$${sum}`
+  totalPriceElem.textContent = `$${sum}`;
 }
 
-function editAddress(){
-  const editAddress=document.querySelector(".editAddress")
-  editAddress.addEventListener("click",function(){
-   router.navigate("/shippingaddress")
-  })
-
+function editAddress() {
+  const editAddress = document.querySelector(".editAddress");
+  editAddress.addEventListener("click", function () {
+    router.navigate("/shippingaddress");
+  });
 }
 
 export { checkOut };
