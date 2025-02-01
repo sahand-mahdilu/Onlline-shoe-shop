@@ -222,4 +222,4 @@ function showModal(){
 
 }
 
-export { shippingAddress,goBack,showModal };
+export { shippingAddress,goBack };

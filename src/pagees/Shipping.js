@@ -187,9 +187,51 @@ function setLocalStorage() {
         console.log(price);
   
         localStorage.setItem("shippingPrice", price);
+        showModal()
       }
     });
   }
 
+
+    function showModal(){
+
+        const modalParent =document.querySelector(".modal_parent")
+    const modal =document.querySelector(".modal")
+
+
+    modalParent.classList.remove("opacity-0","invisible")
+    modalParent.classList.add("opacity-100","visible")
+
+
+
+    
+    
+    modal.classList.add("left-[-100%]")
+    modal.classList.remove("left-[-100%]")
+    modal.classList.add("left-[5%]")
+    modal.classList.add("right-[5%]")
+    
+    setTimeout(async function(){
+        modal.classList.remove("left-[5%]")
+        modal.classList.remove("right-[5%]")
+        modal.classList.add("right-[-100%]")
+        modalParent.classList.remove("opacity-100","visible")
+        modalParent.classList.add("opacity-0","invisible")
+        
+        
+        
+        setTimeout(function(){
+            
+            modal.classList.remove("right-[-100%]")
+            modal.classList.add("left-[-100%]")
+            
+        },200)
+        
+    },2000)
+
+
+
+
+    }
 
 export{shipping}
