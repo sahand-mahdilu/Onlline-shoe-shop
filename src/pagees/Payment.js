@@ -173,7 +173,7 @@ function confirmOrder(){
   const confirmBtn= document.querySelector(".confirm")
   const modalContainer= document.querySelector(".modal_parent")
   const modal= document.querySelector(".modal")
-  console.log(modal);
+  const viewOrderBtn= document.querySelector(".view_order")
 
   confirmBtn.addEventListener("click",function(){
 
@@ -184,6 +184,12 @@ function confirmOrder(){
     modal.classList.add("button-[20%]")
 
     
+
+  })
+
+  viewOrderBtn.addEventListener("click",function(){
+
+    router.navigate("/order")
 
   })
 
