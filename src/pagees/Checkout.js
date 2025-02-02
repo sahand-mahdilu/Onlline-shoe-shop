@@ -350,6 +350,7 @@ function goPayment(){
 
      if(shipping){
       console.log("hello");
+      router.navigate("/payment")
      }else{
       modal.classList.remove("opacity-0","invisible")
       modal.classList.add("opacity-100","visible")
