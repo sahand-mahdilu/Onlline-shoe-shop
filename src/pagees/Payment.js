@@ -186,6 +186,9 @@ function confirmOrder(){
     modal.classList.add("top-[10%]")
     modal.classList.add("button-[20%]")
 
+    emptyCart()
+    emptyCheckOut()
+
 
 
     
@@ -323,6 +326,65 @@ async function getData(){
 
     })
   }
+
+
+
+  async function emptyCart(){
+
+    try{
+
+        let res = await fetch(`${baseURL}/cart`)
+        let products = await res.json()//array
+        
+
+        products.forEach(async product=>{
+
+            try{
+                let res =await fetch(`${baseURL}/cart/${product.id}`,{
+                    method:"DELETE"
+                })
+                console.log(res);
+            }catch(err){
+                console.log(err);
+            }
+        })
+
+
+
+    }catch(err){
+        console.log(err);
+    }
+}
+
+
+
+
+async function emptyCheckOut(){
+
+    try{
+
+        let res = await fetch(`${baseURL}/checkout`)
+        let products = await res.json()//array
+        
+
+        products.forEach(async product=>{
+
+            try{
+                let res =await fetch(`${baseURL}/checkout/${product.id}`,{
+                    method:"DELETE"
+                })
+                console.log(res);
+            }catch(err){
+                console.log(err);
+            }
+        })
+
+
+
+    }catch(err){
+        console.log(err);
+    }
+}
 
 
 export{Payment}
