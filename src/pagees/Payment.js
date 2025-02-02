@@ -275,7 +275,23 @@ async function getData(){
     })
 
     console.log(productsArray);
+    postDataTobackend(productsArray)
 
+  }
+
+  function postDataTobackend(products){
+
+    products.forEach(product=>{
+
+      if(product.status){
+        
+        
+
+      }else{
+        console.log("false");
+      }
+
+    })
   }
 
 
