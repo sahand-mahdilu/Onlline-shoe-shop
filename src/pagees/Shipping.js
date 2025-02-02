@@ -1,8 +1,8 @@
 import { App } from "../main";
-import { goBack,  } from "./ShippingAddress";
+import { goBack } from "./ShippingAddress";
 
-function shipping(){
-    App.innerHTML=`
+function shipping() {
+  App.innerHTML = `
     
       <div class="choose_shipping_container p-2">
 
@@ -164,74 +164,59 @@ function shipping(){
 
 
 
-`   
+`;
 
-goBack()
+  goBack();
 
-setLocalStorage()
+  setLocalStorage();
 }
 
 function setLocalStorage() {
-    let formElem = document.querySelector("form");
-  
-    formElem.addEventListener("submit", function (e) {
-      e.preventDefault();
-      let selectedPrice = document.querySelector(".input:checked");
-  
-      if (selectedPrice) {
-         
-        let addresContainer = selectedPrice.closest(".shipping_container");
-  
-        let price = addresContainer.querySelector(".shipping_price").textContent.slice(1);
-        
-        console.log(price);
-  
-        localStorage.setItem("shippingPrice", price);
-        showModal()
-      }
-    });
-  }
+  let formElem = document.querySelector("form");
 
+  formElem.addEventListener("submit", function (e) {
+    e.preventDefault();
+    let selectedPrice = document.querySelector(".input:checked");
 
-    function showModal(){
+    if (selectedPrice) {
+      let addresContainer = selectedPrice.closest(".shipping_container");
 
-        const modalParent =document.querySelector(".modal_parent")
-    const modal =document.querySelector(".modal")
+      let price = addresContainer
+        .querySelector(".shipping_price")
+        .textContent.slice(1);
 
+      console.log(price);
 
-    modalParent.classList.remove("opacity-0","invisible")
-    modalParent.classList.add("opacity-100","visible")
-
-
-
-    
-    
-    modal.classList.add("left-[-100%]")
-    modal.classList.remove("left-[-100%]")
-    modal.classList.add("left-[5%]")
-    modal.classList.add("right-[5%]")
-    
-    setTimeout(async function(){
-        modal.classList.remove("left-[5%]")
-        modal.classList.remove("right-[5%]")
-        modal.classList.add("right-[-100%]")
-        modalParent.classList.remove("opacity-100","visible")
-        modalParent.classList.add("opacity-0","invisible")
-        
-        
-        
-        setTimeout(function(){
-            
-            modal.classList.remove("right-[-100%]")
-            modal.classList.add("left-[-100%]")
-            
-        },200)
-        
-    },2000)
-
-
-
-
+      localStorage.setItem("shippingPrice", price);
+      showModal();
     }
+  });
+}
 
-export{shipping}
+function showModal() {
+  const modalParent = document.querySelector(".modal_parent");
+  const modal = document.querySelector(".modal");
+
+  modalParent.classList.remove("opacity-0", "invisible");
+  modalParent.classList.add("opacity-100", "visible");
+
+  modal.classList.add("left-[-100%]");
+  modal.classList.remove("left-[-100%]");
+  modal.classList.add("left-[5%]");
+  modal.classList.add("right-[5%]");
+
+  setTimeout(async function () {
+    modal.classList.remove("left-[5%]");
+    modal.classList.remove("right-[5%]");
+    modal.classList.add("right-[-100%]");
+    modalParent.classList.remove("opacity-100", "visible");
+    modalParent.classList.add("opacity-0", "invisible");
+
+    setTimeout(function () {
+      modal.classList.remove("right-[-100%]");
+      modal.classList.add("left-[-100%]");
+    }, 200);
+  }, 2000);
+}
+
+export { shipping };

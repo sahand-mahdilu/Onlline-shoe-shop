@@ -122,6 +122,33 @@ App.innerHTML=`
         </div>
 
 
+
+           <div class="modal_parent opacity-0 invisible fixed inset-0 bg-black/70">
+
+        <div class="relative w-full h-full flex justify-center items-center">
+
+          <div class="absolute modal p-5 bg-white rounded-[30px] ">
+            <div class="img_container">
+              <img src="./public/shoeimage/imges/ordersuccess.png" alt="order">
+            </div>
+  
+            <h2 class="text-center mt-5 text-xl font-Sahand">Order successful!</h2>
+            <p class="text-center ">You have successfuly made order</p>
+  
+            <div class=" flex justify-center mt-6">
+              <button class="rounded-3xl w-[75%] bg-black text-white p-2 ">View order</button>
+  
+            </div>
+  
+          </div>
+
+        </div>
+    
+
+
+      </div>
+
+
 `
 
 

@@ -1033,6 +1033,15 @@
       "name": "Initiator",
       "color": "green",
       "id": 6
+    },
+    {
+      "image": "http://localhost:5174/singleProduct/",
+      "name": "Royal walk ",
+      "size": "42",
+      "price": "$ 343",
+      "quantity": "1",
+      "color": "blue",
+      "id": 7
     }
   ],
   "checkout": [
@@ -1053,6 +1062,15 @@
       "count": "2",
       "image": "http://localhost:5173/public/shoeimage/imges/adidas/1.png",
       "id": 2
+    },
+    {
+      "name": "Royal walk ",
+      "color": "blue",
+      "size": "42",
+      "price": "$ 343",
+      "count": "undefined",
+      "image": "http://localhost:5174/singleProduct/",
+      "id": 3
     }
   ],
   "active": [
