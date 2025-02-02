@@ -2,7 +2,7 @@
   "users": [
     {
       "email": "sahand@gmail.com",
-      "password": "$2a$10$chJ2xD9RyLw1SW1t55hA8uUHc0TeeZspjYuj81LMLSegQH5YBIfn.",
+      "password": "$2a$10$eQxWGTCjJoS8w89LZ8obTeZlGUTOJI5jPiLtfSLX0GXs6SaZFsEhS",
       "id": 1
     }
   ],
@@ -1017,15 +1017,6 @@
   ],
   "cart": [
     {
-      "price": "1200",
-      "count": "2",
-      "image": "http://localhost:5173/public/shoeimage/imges/adidas/3.png",
-      "size": "41",
-      "name": "sport",
-      "color": "green",
-      "id": 3
-    },
-    {
       "price": "200",
       "count": "2",
       "image": "http://localhost:5173/public/shoeimage/imges/adidas/1.png",
@@ -1035,23 +1026,23 @@
       "id": 4
     },
     {
-      "price": "700",
-      "count": "4",
-      "image": "http://localhost:5173/public/shoeimage/imges/nike/nike-6.jpg",
+      "price": "75",
+      "count": "1",
+      "image": "http://localhost:5173/public/shoeimage/imges/nike/nike-1.jpg",
       "size": 40,
-      "name": "nike c800",
-      "color": "black",
-      "id": 5
+      "name": "Initiator",
+      "color": "green",
+      "id": 6
     }
   ],
   "checkout": [
     {
-      "name": "nike c800",
-      "color": "black",
+      "name": "Initiator",
+      "color": "green",
       "size": "40",
-      "price": "700",
-      "count": "4",
-      "image": "http://localhost:5173/public/shoeimage/imges/nike/nike-6.jpg",
+      "price": "75",
+      "count": "1",
+      "image": "http://localhost:5173/public/shoeimage/imges/nike/nike-1.jpg",
       "id": 1
     },
     {
@@ -1062,15 +1053,6 @@
       "count": "2",
       "image": "http://localhost:5173/public/shoeimage/imges/adidas/1.png",
       "id": 2
-    },
-    {
-      "name": "sport",
-      "color": "green",
-      "size": "41",
-      "price": "1200",
-      "count": "2",
-      "image": "http://localhost:5173/public/shoeimage/imges/adidas/3.png",
-      "id": 3
     }
   ],
   "active": [

@@ -137,15 +137,36 @@ function checkOut() {
          </button>
 
          
-      </div>`;
+      </div>
+      
+      
+      
+
+
+      
+      <div class="flex modal_parent opacity-0 invisible fixed inset-0 items-center justify-center bg-black/70">
+
+
+        <div class="text-xl font-semibold rounded-lg flex flex-col items-center justify-center bg-white p-3">
+          Please choose shipping first
+        <span>🙄</span>
+        </div>
+
+      </div>
+        
+
+      
+      
+      
+      `;
 
   getData();
   goBack();
   editAddress();
-  setAddress()
-  goShipping()
-  setShippingPrice()
-  calculateDiscount()
+  setAddress();
+  goShipping();
+  setShippingPrice();
+  calculateDiscount();
 }
 
 async function getData() {
@@ -154,7 +175,7 @@ async function getData() {
       method: "GET",
     });
     let data = await res.json(); //data array
-   
+
     showData(data);
     totalPrice(data);
   } catch (err) {
@@ -165,7 +186,7 @@ async function getData() {
 function showData(products) {
   const cartContainer = document.querySelector(".cart_container");
   console.log(cartContainer);
-  
+
   products.forEach((product) => {
     cartContainer.insertAdjacentHTML(
       "afterbegin",
@@ -212,21 +233,20 @@ function showData(products) {
 function goBack() {
   const backButton = document.querySelector(".goBack");
   backButton.addEventListener("click", function () {
-    router.navigate("/cart")
+    router.navigate("/cart");
   });
 }
 
 function totalPrice(products) {
   let totalPriceElem = document.querySelector(".amount");
-  
+
   let sum = 0;
   products.forEach((product) => {
     sum += +product.price;
   });
-  
-  totalPriceElem.textContent = `$${sum}`;
-  calculateTotalPrice(sum)
 
+  totalPriceElem.textContent = `$${sum}`;
+  calculateTotalPrice(sum);
 }
 
 function editAddress() {
@@ -236,114 +256,86 @@ function editAddress() {
   });
 }
 
-function setAddress(){
-  
-  const place =document.querySelector(".place")
-  const address =document.querySelector(".address")
-  
-  let placeValue= localStorage.getItem("place")
-  let addressValue= localStorage.getItem("address")
-  place.textContent=placeValue
-  address.textContent=addressValue
-  
+function setAddress() {
+  const place = document.querySelector(".place");
+  const address = document.querySelector(".address");
+
+  let placeValue = localStorage.getItem("place");
+  let addressValue = localStorage.getItem("address");
+  place.textContent = placeValue;
+  address.textContent = addressValue;
 }
 
-function goShipping(){
-  const shippingBtn=document.querySelector(".shipping")
-  shippingBtn.addEventListener("click",function(){
-
-    router.navigate("/shipping")
-  })
-
-    
-
+function goShipping() {
+  const shippingBtn = document.querySelector(".shipping");
+  shippingBtn.addEventListener("click", function () {
+    router.navigate("/shipping");
+  });
 }
 
-function setShippingPrice(){
-
-  const shippingPriceElem= document.querySelector(".shipping_price")
-  let shippingPrice= localStorage.getItem("shippingPrice")
-  if(shippingPrice){
-    shippingPriceElem.textContent=`$${shippingPrice}`
-    
-  }else{
-    
-    shippingPriceElem.textContent=`-`
+function setShippingPrice() {
+  const shippingPriceElem = document.querySelector(".shipping_price");
+  let shippingPrice = localStorage.getItem("shippingPrice");
+  if (shippingPrice) {
+    shippingPriceElem.textContent = `$${shippingPrice}`;
+  } else {
+    shippingPriceElem.textContent = `-`;
   }
-
 }
 
-function calculateTotalPrice(price){
+function calculateTotalPrice(price) {
+  const totalPrice = document.querySelector(".totalPrice");
 
-  const totalPrice=document.querySelector(".totalPrice")
-  
-  let shippingPrice= +localStorage.getItem("shippingPrice")
- 
+  let shippingPrice = +localStorage.getItem("shippingPrice");
 
-  if(shippingPrice){
-    let total= price+shippingPrice
-    totalPrice.textContent=`$${total}`
+  if (shippingPrice) {
+    let total = price + shippingPrice;
+    totalPrice.textContent = `$${total}`;
 
-    calculateDiscount(total)
-
-
-  }else{
-    totalPrice.textContent=`-`
+    calculateDiscount(total);
+  } else {
+    totalPrice.textContent = `-`;
   }
-  
-  
+}
 
-} 
+function calculateDiscount(amount) {
+  const promoInput = document.querySelector(".promo_code");
+  const promoButton = document.querySelector(".promoBtn");
+  const discountElem = document.querySelector(".discount");
+  const wrongElem = document.querySelector(".Wrong");
+  const totalPriceElem = document.querySelector(".totalPrice");
+  const promo_container = document.querySelector(".promo_container");
+  const promo_amount = document.querySelector(".promo_amount");
+  let shippingPrice = +localStorage.getItem("shippingPrice");
 
-function calculateDiscount(amount){
-  const promoInput= document.querySelector(".promo_code")
-  const promoButton= document.querySelector(".promoBtn")
-  const discountElem = document.querySelector(".discount")
-  const wrongElem = document.querySelector(".Wrong")
-  const totalPriceElem=document.querySelector(".totalPrice")
-  const promo_container=document.querySelector(".promo_container")
-  const promo_amount=document.querySelector(".promo_amount")
-  let shippingPrice= +localStorage.getItem("shippingPrice")
+  promoButton.addEventListener("click", function () {
+    let value = promoInput.value;
 
-    promoButton.addEventListener("click",function(){
+    if (shippingPrice)
+      if (value === "sahand") {
+        discountElem.classList.remove("hidden");
 
-      let value = promoInput.value
+        promoInput.classList.add("hidden");
 
-      if(shippingPrice)
+        let discount = (amount * 20) / 100;
 
-        if(value==="sahand"){
-          
-          discountElem.classList.remove("hidden")
-         
-          promoInput.classList.add("hidden")
+        let totalPrice = amount - discount;
+        totalPriceElem.textContent = `$${totalPrice}`;
 
-          let discount = amount*20/100
+        promo_container.classList.remove("hidden");
+        promo_container.classList.add("flex");
+        promo_amount.textContent = `-$${discount}`;
+      } else {
+        wrongElem.classList.remove("hidden");
+        promoInput.classList.add("hidden");
+      }
+  });
 
-          let totalPrice= amount-discount
-          totalPriceElem.textContent=`$${totalPrice}`
-          
-          promo_container.classList.remove("hidden")
-          promo_container.classList.add("flex")
-          promo_amount.textContent=`-$${discount}`
-
-          
-          
-          
-        }else{
-          wrongElem.classList.remove("hidden")
-          promoInput.classList.add("hidden")
-        }
-
-    })
-
-    wrongElem.addEventListener("click",function(){
-
-      wrongElem.classList.add("hidden")
-      promoInput.classList.remove("hidden")
-      promoInput.value=""
-    })
-
-
+  wrongElem.addEventListener("click", function () {
+    wrongElem.classList.add("hidden");
+    promoInput.classList.remove("hidden");
+    promoInput.value = "";
+  });
 }
 
 export { checkOut };

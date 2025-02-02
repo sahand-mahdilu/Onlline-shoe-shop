@@ -141,7 +141,7 @@ function shippingAddress() {
 
   goBack();
   setLocalStorage();
-  showModal()
+  showModal();
 }
 
 function goBack() {
@@ -171,55 +171,33 @@ function setLocalStorage() {
   });
 }
 
+function showModal() {
+  const applyBtn = document.querySelector(".apply");
+  const modalParent = document.querySelector(".modal_parent");
+  const modal = document.querySelector(".modal");
 
-function showModal(){
+  applyBtn.addEventListener("click", function () {
+    modalParent.classList.remove("opacity-0", "invisible");
+    modalParent.classList.add("opacity-100", "visible");
 
-    const applyBtn =document.querySelector(".apply")
-    const modalParent =document.querySelector(".modal_parent")
-    const modal =document.querySelector(".modal")
-    
-        applyBtn.addEventListener("click",function(){
+    modal.classList.add("left-[-100%]");
+    modal.classList.remove("left-[-100%]");
+    modal.classList.add("left-[5%]");
+    modal.classList.add("right-[5%]");
 
-            modalParent.classList.remove("opacity-0","invisible")
-            modalParent.classList.add("opacity-100","visible")
+    setTimeout(async function () {
+      modal.classList.remove("left-[5%]");
+      modal.classList.remove("right-[5%]");
+      modal.classList.add("right-[-100%]");
+      modalParent.classList.remove("opacity-100", "visible");
+      modalParent.classList.add("opacity-0", "invisible");
 
-
-      
-            
-            
-            modal.classList.add("left-[-100%]")
-            modal.classList.remove("left-[-100%]")
-            modal.classList.add("left-[5%]")
-            modal.classList.add("right-[5%]")
-            
-            setTimeout(async function(){
-                modal.classList.remove("left-[5%]")
-                modal.classList.remove("right-[5%]")
-                modal.classList.add("right-[-100%]")
-                modalParent.classList.remove("opacity-100","visible")
-                modalParent.classList.add("opacity-0","invisible")
-                
-                
-                
-                setTimeout(function(){
-                    
-                    modal.classList.remove("right-[-100%]")
-                    modal.classList.add("left-[-100%]")
-                    
-                },200)
-                
-            },2000)
-
-
-          
-                
-            
-     
-
-        })
-
-
-
+      setTimeout(function () {
+        modal.classList.remove("right-[-100%]");
+        modal.classList.add("left-[-100%]");
+      }, 200);
+    }, 2000);
+  });
 }
 
-export { shippingAddress,goBack };
+export { shippingAddress, goBack };
