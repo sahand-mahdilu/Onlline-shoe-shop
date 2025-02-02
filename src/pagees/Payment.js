@@ -136,7 +136,7 @@ App.innerHTML=`
             <p class="text-center ">You have successfuly made order</p>
   
             <div class=" flex justify-center mt-6">
-              <button class="rounded-3xl w-[75%] bg-black text-white p-2 ">View order</button>
+              <button class="view_order rounded-3xl w-[75%] bg-black text-white p-2 ">View order</button>
   
             </div>
   
