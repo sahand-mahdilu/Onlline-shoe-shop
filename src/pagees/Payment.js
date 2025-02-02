@@ -155,7 +155,7 @@ App.innerHTML=`
 
     goBack()
     confirmOrder()
-    getData()
+   
 }
 
 function goBack(){
@@ -178,12 +178,15 @@ function confirmOrder(){
   const viewOrderBtn= document.querySelector(".view_order")
 
   confirmBtn.addEventListener("click",function(){
+    getData()
 
     modalContainer.classList.remove("opacity-0","invisible")
     modalContainer.classList.add("opacity-100","visible")
     modal.classList.remove("top-[-100%]")
     modal.classList.add("top-[10%]")
     modal.classList.add("button-[20%]")
+
+
 
     
 
