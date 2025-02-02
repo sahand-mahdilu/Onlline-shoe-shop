@@ -115,7 +115,7 @@ App.innerHTML=`
 
 
                 <div class=" flex justify-center m-9">
-                <button class="bg-black w-full   text-white p-2 rounded-3xl">Confirm Payment</button>
+                <button class="confirm bg-black w-full   text-white p-2 rounded-3xl">Confirm Payment</button>
 
                 </div>
 
@@ -123,11 +123,11 @@ App.innerHTML=`
 
 
 
-           <div class="modal_parent opacity-0 invisible fixed inset-0 bg-black/70">
+           <div class="transition-all duration-200 modal_parent opacity-0 invisible fixed inset-0 bg-black/70">
 
         <div class="relative w-full h-full flex justify-center items-center">
 
-          <div class="absolute modal p-5 bg-white rounded-[30px] ">
+          <div class="absolute transition-all duration-200  modal top-[-100%] p-5 bg-white rounded-[30px] ">
             <div class="img_container">
               <img src="./public/shoeimage/imges/ordersuccess.png" alt="order">
             </div>
@@ -153,6 +153,7 @@ App.innerHTML=`
 
 
     goBack()
+    confirmOrder()
 }
 
 function goBack(){
@@ -163,6 +164,28 @@ function goBack(){
 
         router.navigate("/checkout")
     })
+
+}
+
+
+function confirmOrder(){
+
+  const confirmBtn= document.querySelector(".confirm")
+  const modalContainer= document.querySelector(".modal_parent")
+  const modal= document.querySelector(".modal")
+  console.log(modal);
+
+  confirmBtn.addEventListener("click",function(){
+
+    modalContainer.classList.remove("opacity-0","invisible")
+    modalContainer.classList.add("opacity-100","visible")
+    modal.classList.remove("top-[-100%]")
+    modal.classList.add("top-[10%]")
+    modal.classList.add("button-[20%]")
+
+    
+
+  })
 
 }
 
