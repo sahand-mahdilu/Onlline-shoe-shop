@@ -331,7 +331,7 @@ async function showModal(modalElem){
     modalElem.classList.add("opacity-0", "invisible")
     
 
-  },4000)
+  },2000)
 }
 
 
