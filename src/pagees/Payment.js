@@ -204,12 +204,79 @@ async function getData(){
       method:"GET"
     })
     let data =await res.json()
-    console.log(data);
+    console.log(data);//array
+    createOrderData(data)
   }catch(err){
     console.log(err);
   }
 }
 
+
+  function createOrderData(products){
+
+    let productsArray=[] 
+
+    products.forEach((product,index)=>{
+
+      console.log(index);
+
+
+      if(index.length===1){
+
+        let productInfo={
+          name:product.name,
+          color:product.color,
+          size:product.size,
+          price:product.price,
+          count:product.count,
+          image:product.image,
+          status: false
+        }
+        productsArray.push(productInfo)
+
+      }else{
+
+
+        if(index%2===0){
+
+          let productInfo={
+            name:product.name,
+            color:product.color,
+            size:product.size,
+            price:product.price,
+            count:product.count,
+            image:product.image,
+            status: false
+          }
+          productsArray.push(productInfo)
+  
+        }else{
+  
+  
+          let productInfo={
+            name:product.name,
+            color:product.color,
+            size:product.size,
+            price:product.price,
+            count:product.count,
+            image:product.image,
+            status: true
+          }
+          productsArray.push(productInfo)
+        }
+
+      }
+
+      
+
+      
+
+      
+    })
+
+    console.log(productsArray);
+
+  }
 
 
 export{Payment}

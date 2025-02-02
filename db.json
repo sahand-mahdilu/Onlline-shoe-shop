@@ -1017,73 +1017,60 @@
   ],
   "cart": [
     {
-      "price": "200",
-      "count": "2",
-      "image": "http://localhost:5173/public/shoeimage/imges/adidas/1.png",
+      "price": "225",
+      "count": "3",
+      "image": "http://localhost:5173/public/shoeimage/imges/nike/nike-5.jpg",
       "size": 40,
-      "name": "Adidas samba",
-      "color": "green",
-      "id": 4
-    },
-    {
-      "price": "75",
-      "count": "1",
-      "image": "http://localhost:5173/public/shoeimage/imges/nike/nike-1.jpg",
-      "size": 40,
-      "name": "Initiator",
-      "color": "green",
-      "id": 6
-    },
-    {
-      "image": "http://localhost:5174/singleProduct/",
-      "name": "Royal walk ",
-      "size": "42",
-      "price": "$ 343",
-      "quantity": "1",
+      "name": "J500",
       "color": "blue",
-      "id": 7
+      "id": 1
+    },
+    {
+      "price": "175",
+      "count": "1",
+      "image": "http://localhost:5173/public/shoeimage/imges/convers/5.jpg",
+      "size": 40,
+      "name": "roodstone",
+      "color": "blue",
+      "id": 2
+    },
+    {
+      "price": "129",
+      "count": "3",
+      "image": "http://localhost:5173/public/shoeimage/imges/reebok/3.jpg",
+      "size": 40,
+      "name": "Royal air ",
+      "color": "red",
+      "id": 3
     }
   ],
   "checkout": [
     {
-      "name": "Initiator",
-      "color": "green",
+      "name": "Royal air ",
+      "color": "red",
       "size": "40",
-      "price": "75",
-      "count": "1",
-      "image": "http://localhost:5173/public/shoeimage/imges/nike/nike-1.jpg",
+      "price": "129",
+      "count": "3",
+      "image": "http://localhost:5173/public/shoeimage/imges/reebok/3.jpg",
       "id": 1
     },
     {
-      "name": "Adidas samba",
-      "color": "green",
+      "name": "roodstone",
+      "color": "blue",
       "size": "40",
-      "price": "200",
-      "count": "2",
-      "image": "http://localhost:5173/public/shoeimage/imges/adidas/1.png",
+      "price": "175",
+      "count": "1",
+      "image": "http://localhost:5173/public/shoeimage/imges/convers/5.jpg",
       "id": 2
     },
     {
-      "name": "Royal walk ",
+      "name": "J500",
       "color": "blue",
-      "size": "42",
-      "price": "$ 343",
-      "count": "undefined",
-      "image": "http://localhost:5174/singleProduct/",
+      "size": "40",
+      "price": "225",
+      "count": "3",
+      "image": "http://localhost:5173/public/shoeimage/imges/nike/nike-5.jpg",
       "id": 3
-    }
-  ],
-  "active": [
-    {
-      "id": 1,
-      "name": "Adidas Samba",
-      "brand": "Adidas",
-      "price": 100,
-      "color": "Red",
-      "colorCode": "#c72800",
-      "sizes": 42,
-      "quantity": 1,
-      "imgUrl": "./public/shoeimage/imges/shoe4.png"
     }
   ],
   "completed": [
