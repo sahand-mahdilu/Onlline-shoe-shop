@@ -1,4 +1,4 @@
-import { App } from "../main";
+import { App, router } from "../main";
 
 function Payment(){
 App.innerHTML=`
@@ -114,8 +114,8 @@ App.innerHTML=`
         
 
 
-                <div class=" flex justify-center m-10">
-                <button class="bg-black w-full mx-auto  text-white p-2 rounded-3xl">Continue Payment</button>
+                <div class=" flex justify-center m-9">
+                <button class="bg-black w-full   text-white p-2 rounded-3xl">Continue Payment</button>
 
                 </div>
 
@@ -124,7 +124,21 @@ App.innerHTML=`
 
 `
 
+
+    goBack()
 }
+
+function goBack(){
+    const backBtn= document.querySelector(".goBack")
+
+    backBtn.addEventListener("click",function(){
+
+
+        router.navigate("/checkout")
+    })
+
+}
+
 
 
 export{Payment}
