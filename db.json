@@ -1074,29 +1074,10 @@
     }
   ],
   "completed": [
-    {
-      "id": 5,
-      "name": "White Sport",
-      "brand": "KafshMeli",
-      "price": 500,
-      "color": "White",
-      "colorCode": "#ffffff",
-      "sizes": 41,
-      "quantity": 2,
-      "imgUrl": "./public/shoeimage/imges/shoe1.png"
-    },
-    {
-      "id": 8,
-      "name": "Training Shoe",
-      "brand": "Puma",
-      "price": 49,
-      "color": "Black",
-      "colorCode": "#ffffff",
-      "sizes": 40,
-      "quantity": 1,
-      "imgUrl": "./public/shoeimage/imges/shoe2.png"
-    }
+    
   ],
+
+  "uncompleted":[],
   "addresses": [
     {
       "name": "Home",
