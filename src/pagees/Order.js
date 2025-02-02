@@ -146,11 +146,11 @@ function activeButton(orderElem, homeElem) {
 
     if(products.length===0){
 
-        productContainer.innerHTML=`<div class="mt-5">
-
-            <img src="./public/shoeimage/imges/notfound.png" alt="notfound">
-        
-        </div>`
+        productContainer.innerHTML=`  <div class="mt-3 max-w-[350px] mx-auto h-[300px]">
+      <img class="w-full h-full" src="./public/shoeimage/imges/notfound.png" alt="">
+    
+    </div>
+    <P class="mt-2 text-center text-xl font-Sahand">You dont have an order yet ☹️</P> `
 
     }else{
 
