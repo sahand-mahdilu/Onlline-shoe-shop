@@ -13,6 +13,7 @@ import { cart } from "./pagees/Cart";
 import { checkOut } from "./pagees/Checkout";
 import { shippingAddress } from "./pagees/ShippingAddress";
 import { shipping } from "./pagees/Shipping";
+import { Payment } from "./pagees/Payment";
 
 export const App = document.querySelector("#app");
 
@@ -32,4 +33,5 @@ router
   .on("/checkout", checkOut)
   .on("/shippingaddress", shippingAddress)
   .on("/shipping", shipping)
+  .on("/payment", Payment)
   .resolve();
