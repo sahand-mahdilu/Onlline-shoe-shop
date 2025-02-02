@@ -115,7 +115,7 @@ App.innerHTML=`
 
 
                 <div class=" flex justify-center m-9">
-                <button class="bg-black w-full   text-white p-2 rounded-3xl">Continue Payment</button>
+                <button class="bg-black w-full   text-white p-2 rounded-3xl">Confirm Payment</button>
 
                 </div>
 
