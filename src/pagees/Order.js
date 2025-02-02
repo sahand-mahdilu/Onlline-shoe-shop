@@ -143,56 +143,71 @@ function activeButton(orderElem, homeElem) {
     const productContainer= document.querySelector(".product_container")
     console.log(productContainer);
 
-    products.forEach(product=>{
 
-        productContainer.insertAdjacentHTML("afterbegin",`<div class="cart product_cart  flex items-center mt-5 rounded-3xl bg-green-100">
-      <div class="img_container w-[150px] rounded-3xl overflow-hidden">
-      <img class="image w-full h-full" src=${product.image} alt="img">
-      </div>
-      <div class="w-full p-2">
-      <div class="flex items-center justify-between px-2">
-      <p class="name text-lg font-bold">${product.name}</p>
-      
-      
-      
-      
-      
-      </div>
-      
-      <div class="flex gap-2 mt-4">
-      <div style= "background-color:${product.color} " class="color size-6  rounded-full"></div>
-      <span class="color text-[13px] text-gray-500">${product.color}</span>
-      <div class="h-4 border w-0 border-gray-300"></div>
-      <span class="size text-gray-500 text-[13px]">size=${product.size}</span>
-      <span class="status text-[13px] bg-black text-white  rounded-xl px-2 ">active</span>
-      </div>
-      <div class="priceSection flex items-center justify-between mt-4 px-2">
-      <span class="price productPrice font-bold ">
-      $${product.price}
-      </span>
-      <div class="bg-gray-200 rounded-full size-8 font-semibold  px-2 flex items-center justify-center ">
-      ${product.count}
-      </div>
-      </div>
-      </div>
-      </div>
-      `)
+    if(products.length===0){
 
+        productContainer.innerHTML=`<div class="mt-5">
 
-      
-      
-      const status= document.querySelector(".status")
-      if(!product.status){
+            <img src="./public/shoeimage/imges/notfound.png" alt="notfound">
+        
+        </div>`
 
-        status.textContent="active"
     }else{
-        
-        status.textContent="completed"
-        
-      }
-      
-    })
+
+        products.forEach(product=>{
+
+            productContainer.insertAdjacentHTML("afterbegin",`<div class="cart product_cart  flex items-center mt-5 rounded-3xl bg-green-100">
+          <div class="img_container w-[150px] rounded-3xl overflow-hidden">
+          <img class="image w-full h-full" src=${product.image} alt="img">
+          </div>
+          <div class="w-full p-2">
+          <div class="flex items-center justify-between px-2">
+          <p class="name text-lg font-bold">${product.name}</p>
+          
+          
+          
+          
+          
+          </div>
+          
+          <div class="flex gap-2 mt-4">
+          <div style= "background-color:${product.color} " class="color size-6  rounded-full"></div>
+          <span class="color text-[13px] text-gray-500">${product.color}</span>
+          <div class="h-4 border w-0 border-gray-300"></div>
+          <span class="size text-gray-500 text-[13px]">size=${product.size}</span>
+          <span class="status text-[13px] bg-black text-white  rounded-xl px-2 ">active</span>
+          </div>
+          <div class="priceSection flex items-center justify-between mt-4 px-2">
+          <span class="price productPrice font-bold ">
+          $${product.price}
+          </span>
+          <div class="bg-gray-200 rounded-full size-8 font-semibold  px-2 flex items-center justify-center ">
+          ${product.count}
+          </div>
+          </div>
+          </div>
+          </div>
+          `)
     
+    
+          
+          
+          const status= document.querySelector(".status")
+          if(!product.status){
+    
+            status.textContent="active"
+        }else{
+            
+            status.textContent="completed"
+            
+          }
+          
+        })
+        
+
+    }
+
+   
 
 
   }
