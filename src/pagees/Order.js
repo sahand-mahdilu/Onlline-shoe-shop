@@ -1,4 +1,6 @@
 import { App } from "../main";
+import { navigationBar } from "../NavigationBar/NavigationBar";
+import { navBar } from "./Home";
 
 
 function order(){
@@ -66,10 +68,16 @@ function order(){
 
 
       </div>
+
+
+
        
-    
+        ${navigationBar()}
     
     `
+
+    const navButtons = document.querySelectorAll(".navigation");
+    navBar(navButtons);
 }
 
 
