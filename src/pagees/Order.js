@@ -41,19 +41,19 @@ function order(){
         <div class="flex items-center justify-center gap-2 mt-3">
           <div class="w-[50%]">
           <div class="active  flex flex-col items-center justify-center">
-            <span>Active</span>
-            <div class="h-[3px] w-full bg-black"></div>
+            <span class="activeBtn cursor-pointer">Active</span>
+            <div class="active_bar h-[3px] w-full  bg-black"></div>
           </div>
-          <div class="completed"></div>
+         
         </div>
 
 
         <div class="w-[50%]" >
-          <div class="active  flex flex-col items-center justify-center">
-            <span>Completed</span>
-            <div class="h-[3px] w-full bg-gray-300"></div>
+          <div class="completed  flex flex-col items-center justify-center">
+            <span class="completeBtn">Completed</span>
+            <div class="completed_bar h-[3px] w-full bg-gray-300"></div>
           </div>
-          <div class="completed"></div>
+          
         </div>
         </div>
 
@@ -83,6 +83,7 @@ function order(){
     console.log(orderBtn);
     navBar(navButtons);
     activeButton(orderBtn,homeBtn)
+    activeOrcomplete()
 
 }
 
@@ -90,6 +91,36 @@ function activeButton(orderElem, homeElem) {
     orderElem.src = "./shoeimage/imges/shoppi1.png";
     homeElem.src = "./shoeimage/imges/white-home.png";
   }
+
+
+  function activeOrcomplete(){
+    const activeBtn =document.querySelector('.activeBtn')
+    const completeBtn =document.querySelector('.completeBtn')
+    const activeBar=document.querySelector(".active_bar")
+    const completeBar=document.querySelector(".completed_bar")
+
+
+    activeBtn.addEventListener("click",function(){
+
+        activeBar.classList.add("bg-black")
+        activeBar.classList.remove("bg-gray-300")
+        completeBar.classList.remove("bg-black")
+        completeBar.classList.add("bg-gray-300")
+
+    })
+
+    completeBtn.addEventListener("click",function(){
+
+        activeBar.classList.remove("bg-black")
+        activeBar.classList.add("bg-gray-300")
+        completeBar.classList.add("bg-black")
+        completeBar.classList.remove("bg-gray-300")
+    })
+
+   
+  }
+
+
 
 
 
