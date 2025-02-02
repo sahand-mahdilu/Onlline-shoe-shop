@@ -1,3 +1,4 @@
+import { baseURL } from "../API/API";
 import { App, router } from "../main";
 
 function Payment(){
@@ -154,6 +155,7 @@ App.innerHTML=`
 
     goBack()
     confirmOrder()
+    getData()
 }
 
 function goBack(){
@@ -193,6 +195,19 @@ function confirmOrder(){
 
   })
 
+}
+
+async function getData(){
+
+  try{
+    let res = await fetch(`${baseURL}/checkout`,{
+      method:"GET"
+    })
+    let data =await res.json()
+    console.log(data);
+  }catch(err){
+    console.log(err);
+  }
 }
 
 
