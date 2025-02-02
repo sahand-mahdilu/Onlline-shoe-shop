@@ -1,3 +1,4 @@
+import { baseURL } from "../API/API";
 import { App } from "../main";
 import { navigationBar } from "../NavigationBar/NavigationBar";
 import { navBar } from "./Home";
@@ -84,6 +85,7 @@ function order(){
     navBar(navButtons);
     activeButton(orderBtn,homeBtn)
     activeOrcomplete()
+    getActiveData()
 
 }
 
@@ -91,6 +93,32 @@ function activeButton(orderElem, homeElem) {
     orderElem.src = "./shoeimage/imges/shoppi1.png";
     homeElem.src = "./shoeimage/imges/white-home.png";
   }
+
+
+  async function getActiveData(){
+
+    try{
+
+        let res = await fetch(`${baseURL}/uncompleted`,{
+            method:"GET"
+        })
+
+        let data = await res.json()//array
+        console.log(data);
+
+    }catch(err){
+        console.log(err);
+    }
+
+
+
+  }
+
+
+  
+
+
+
 
 
   function activeOrcomplete(){
