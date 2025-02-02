@@ -281,14 +281,41 @@ async function getData(){
 
   function postDataTobackend(products){
 
-    products.forEach(product=>{
+    products.forEach(async product=>{
 
       if(product.status){
         
-        
+       try{
+        let res = await fetch(`${baseURL}/completed`,{
+          method:"POST",
+          headers:{
+            "content-type":"application/json"
+          },
+          body:JSON.stringify(product)
+          
+          
+
+        })
+        console.log(res);
+       }catch(err){
+        console.log(err);
+       }
 
       }else{
-        console.log("false");
+
+        try{
+          let res = await fetch(`${baseURL}/uncompleted`,{
+            method:"POST",
+            headers:{
+              "content-type":"application/json"
+            },
+            body:JSON.stringify(product)
+          })
+          console.log(res);
+        }catch(err){
+          console.log(err);
+        }
+        
       }
 
     })
