@@ -77,8 +77,21 @@ function order(){
     `
 
     const navButtons = document.querySelectorAll(".navigation");
+    const homeBtn = document.querySelector("#home");
+    const orderBtn = document.querySelector("#order");
+
+    console.log(orderBtn);
     navBar(navButtons);
+    activeButton(orderBtn,homeBtn)
+
 }
+
+function activeButton(orderElem, homeElem) {
+    orderElem.src = "./shoeimage/imges/shoppi1.png";
+    homeElem.src = "./shoeimage/imges/white-home.png";
+  }
+
+
 
 
 export{order}

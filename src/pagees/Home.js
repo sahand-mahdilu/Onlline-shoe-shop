@@ -335,6 +335,8 @@ function navBar(buttons) {
         router.navigate("/home")
        }else if(index===1){
         router.navigate("/cart")
+       }else if(index===2){
+        router.navigate("/order")
        }
     });
   });

@@ -24,7 +24,7 @@ export function navigationBar() {
 
           <div class="navigation flex flex-col items-center justify-center">
             <div class="img_container size-6">
-              <img class="w-full h-full object-cover" src="./shoeimage/imges/shoppi.png" alt="orders">
+              <img id="order" class="w-full h-full object-cover" src="./shoeimage/imges/shoppi.png" alt="orders">
             </div>
             <span class="text-center text-[12px] ml-1 font-bold">Orders</span>
           </div>
