@@ -129,7 +129,7 @@ function checkOut() {
          </div>
 
 
-         <button class="mx-auto mb-2 bg-black text-white p-2 w-[90%] flex items-center justify-center rounded-3xl">
+         <button class="continuePayment mx-auto mb-2 bg-black text-white p-2 w-[90%] flex items-center justify-center rounded-3xl">
           <div class="flex items-center gap-1">
             <span>Continue to Payment</span>
             <img src="./public/shoeimage/imges/gocheckout.png" alt="check">
@@ -144,7 +144,7 @@ function checkOut() {
 
 
       
-      <div class="flex modal_parent opacity-0 invisible fixed inset-0 items-center justify-center bg-black/70">
+      <div class="transition-all duration-200 flex modal_parent opacity-0 invisible fixed inset-0 items-center justify-center bg-black/70">
 
 
         <div class="text-xl font-semibold rounded-lg flex flex-col items-center justify-center bg-white p-3">
@@ -167,6 +167,7 @@ function checkOut() {
   goShipping();
   setShippingPrice();
   calculateDiscount();
+   goPayment()
 }
 
 async function getData() {
@@ -336,6 +337,34 @@ function calculateDiscount(amount) {
     promoInput.classList.remove("hidden");
     promoInput.value = "";
   });
+}
+
+
+function goPayment(){
+
+    const continuePaymentBTn = document.querySelector(".continuePayment")
+    const modal = document.querySelector(".modal_parent")
+    continuePaymentBTn.addEventListener("click",function(){
+
+      let shipping = localStorage.getItem("shippingPrice")
+
+     if(shipping){
+      console.log("hello");
+     }else{
+      modal.classList.remove("opacity-0","invisible")
+      modal.classList.add("opacity-100","visible")
+      setTimeout(function(){
+
+        modal.classList.remove("opacity-100","visible")
+        modal.classList.add("opacity-0","invisible")
+          
+
+      },2000)
+     }
+
+    })
+
+
 }
 
 export { checkOut };
