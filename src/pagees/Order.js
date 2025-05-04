@@ -3,9 +3,8 @@ import { App } from "../main";
 import { navigationBar } from "../NavigationBar/NavigationBar";
 import { navBar } from "./Home";
 
-
-function order(){
-    App.innerHTML=`
+function order() {
+  App.innerHTML = `
     
     
       <div class="order_container p-2">
@@ -75,88 +74,67 @@ function order(){
        
         ${navigationBar()}
     
-    `
+    `;
 
-    const navButtons = document.querySelectorAll(".navigation");
-    const homeBtn = document.querySelector("#home");
-    const orderBtn = document.querySelector("#order");
+  const navButtons = document.querySelectorAll(".navigation");
+  const homeBtn = document.querySelector("#home");
+  const orderBtn = document.querySelector("#order");
 
-    console.log(orderBtn);
-    navBar(navButtons);
-    activeButton(orderBtn,homeBtn)
-    activeOrcomplete()
-    getActiveData()
- 
+  console.log(orderBtn);
+  navBar(navButtons);
+  activeButton(orderBtn, homeBtn);
+  activeOrcomplete();
+  getActiveData();
 }
 
 function activeButton(orderElem, homeElem) {
-    orderElem.src = "./shoeimage/imges/shoppi1.png";
-    homeElem.src = "./shoeimage/imges/white-home.png";
+  orderElem.src = "./shoeimage/imges/shoppi1.png";
+  homeElem.src = "./shoeimage/imges/white-home.png";
+}
+
+async function getActiveData() {
+  try {
+    let res = await fetch(`${baseURL}/uncompleted`, {
+      method: "GET",
+    });
+
+    let data = await res.json(); //array
+    console.log(data);
+    showData(data);
+  } catch (err) {
+    console.log(err);
   }
+}
 
+async function getCompleteData() {
+  try {
+    let res = await fetch(`${baseURL}/completed`, {
+      method: "GET",
+    });
 
-  async function getActiveData(){
-
-    try{
-
-        let res = await fetch(`${baseURL}/uncompleted`,{
-            method:"GET"
-        })
-
-        let data = await res.json()//array
-        console.log(data);
-        showData(data)
-
-    }catch(err){
-        console.log(err);
-    }
-
-
-
+    let data = await res.json(); //array
+    console.log(data);
+    showData(data);
+  } catch (err) {
+    console.log(err);
   }
+}
 
+function showData(products) {
+  const productContainer = document.querySelector(".product_container");
+  console.log(productContainer);
 
-  
-  async function getCompleteData(){
-
-    try{
-
-        let res = await fetch(`${baseURL}/completed`,{
-            method:"GET"
-        })
-
-        let data = await res.json()//array
-        console.log(data);
-        showData(data)
-
-    }catch(err){
-        console.log(err);
-    }
-
-
-
-  }
-
-
-  function showData(products){
-
-    const productContainer= document.querySelector(".product_container")
-    console.log(productContainer);
-
-
-    if(products.length===0){
-
-        productContainer.innerHTML=`  <div class="mt-3 max-w-[350px] mx-auto h-[300px]">
+  if (products.length === 0) {
+    productContainer.innerHTML = `  <div class="mt-3 max-w-[350px] mx-auto h-[300px]">
       <img class="w-full h-full" src="./public/shoeimage/imges/notfound.png" alt="">
     
     </div>
-    <P class="mt-2 text-center text-xl font-Sahand">You dont have an order yet ☹️</P> `
-
-    }else{
-
-        products.forEach(product=>{
-
-            productContainer.insertAdjacentHTML("afterbegin",`<div class="cart product_cart  flex items-center mt-5 rounded-3xl bg-green-100">
+    <P class="mt-2 text-center text-xl font-Sahand">You dont have an order yet ☹️</P> `;
+  } else {
+    products.forEach((product) => {
+      productContainer.insertAdjacentHTML(
+        "afterbegin",
+        `<div class="cart product_cart  flex items-center mt-5 rounded-3xl bg-green-100">
           <div class="img_container w-[150px] rounded-3xl overflow-hidden">
           <img class="image w-full h-full" src=${product.image} alt="img">
           </div>
@@ -187,80 +165,45 @@ function activeButton(orderElem, homeElem) {
           </div>
           </div>
           </div>
-          `)
-    
-    
-          
-          
-          const status= document.querySelector(".status")
-          if(!product.status){
-    
-            status.textContent="active"
-        }else{
-            
-            status.textContent="completed"
-            
-          }
-          
-        })
-        
+          `
+      );
 
-    }
-
-   
-
-  
-
-
+      const status = document.querySelector(".status");
+      if (!product.status) {
+        status.textContent = "active";
+      } else {
+        status.textContent = "completed";
+      }
+    });
   }
+}
 
-  
+function activeOrcomplete() {
+  const activeBtn = document.querySelector(".activeBtn");
+  const completeBtn = document.querySelector(".completeBtn");
+  const activeBar = document.querySelector(".active_bar");
+  const completeBar = document.querySelector(".completed_bar");
+  const productContainer = document.querySelector(".product_container");
 
+  activeBtn.addEventListener("click", function () {
+    activeBar.classList.add("bg-black");
+    activeBar.classList.remove("bg-gray-300");
+    completeBar.classList.remove("bg-black");
+    completeBar.classList.add("bg-gray-300");
+    productContainer.innerHTML = "";
 
-  
+    getActiveData();
+  });
 
+  completeBtn.addEventListener("click", function () {
+    activeBar.classList.remove("bg-black");
+    activeBar.classList.add("bg-gray-300");
+    completeBar.classList.add("bg-black");
+    completeBar.classList.remove("bg-gray-300");
+    productContainer.innerHTML = "";
 
+    getCompleteData();
+  });
+}
 
-
-
-  function activeOrcomplete(){
-    const activeBtn =document.querySelector('.activeBtn')
-    const completeBtn =document.querySelector('.completeBtn')
-    const activeBar=document.querySelector(".active_bar")
-    const completeBar=document.querySelector(".completed_bar")
-    const productContainer= document.querySelector(".product_container")
-
-
-    activeBtn.addEventListener("click",function(){
-
-        activeBar.classList.add("bg-black")
-        activeBar.classList.remove("bg-gray-300")
-        completeBar.classList.remove("bg-black")
-        completeBar.classList.add("bg-gray-300")
-        productContainer.innerHTML=""
-
-
-        getActiveData()
-
-    })
-
-    completeBtn.addEventListener("click",function(){
-
-        activeBar.classList.remove("bg-black")
-        activeBar.classList.add("bg-gray-300")
-        completeBar.classList.add("bg-black")
-        completeBar.classList.remove("bg-gray-300")
-        productContainer.innerHTML=""
-
-
-        getCompleteData()
-    })
-
-   
-  }
-
-
-
- 
-
-export{order}
+export { order };

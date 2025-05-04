@@ -127,7 +127,7 @@ async function singleProduct(match) {
   const addToCartButton = document.querySelector(".addToCart");
   const productImg = document.querySelector(".product_img");
   const productName = document.querySelector(".product_name");
-  const modalElem = document.querySelector(".modal")
+  const modalElem = document.querySelector(".modal");
 
   goBack(backBtn);
   sizeButtonColor(sizeButtons);
@@ -214,7 +214,7 @@ function quantityHandler(plusBtn, minusBtn, quantity, totalPice) {
     }
   });
 }
-  // gets product info
+// gets product info
 function ProductInfo(
   postBtn,
   priceElem,
@@ -240,8 +240,8 @@ function ProductInfo(
       return item.style.backgroundColor === "black";
     });
 
-    let PriceContent=priceElem.textContent
-    let totalPice=PriceContent.slice(1)
+    let PriceContent = priceElem.textContent;
+    let totalPice = PriceContent.slice(1);
 
     if (sizeElem === undefined && colorElem === undefined) {
       let productInfo = {
@@ -252,7 +252,7 @@ function ProductInfo(
         name: itemName.textContent,
         color: "blue",
       };
-      postProduct(productInfo,modalElem)
+      postProduct(productInfo, modalElem);
 
       console.log(productInfo);
     } else if (sizeElem && colorElem === undefined) {
@@ -264,7 +264,7 @@ function ProductInfo(
         name: itemName.textContent,
         color: "blue",
       };
-      postProduct(productInfo,modalElem)
+      postProduct(productInfo, modalElem);
 
       console.log(productInfo);
     } else if (sizeElem === undefined && colorElem) {
@@ -276,7 +276,7 @@ function ProductInfo(
         name: itemName.textContent,
         color: colorElem.style.backgroundColor,
       };
-      postProduct(productInfo,modalElem)
+      postProduct(productInfo, modalElem);
 
       console.log(productInfo);
     } else {
@@ -288,51 +288,36 @@ function ProductInfo(
         name: itemName.textContent,
         color: colorElem.style.backgroundColor,
       };
-      postProduct(productInfo,modalElem)
+      postProduct(productInfo, modalElem);
 
       console.log(productInfo);
     }
   });
 }
 
-
-async function postProduct(product,modalElem){
-
-  try{
-    let res = await fetch(`${baseURL}/cart`,{
+async function postProduct(product, modalElem) {
+  try {
+    let res = await fetch(`${baseURL}/cart`, {
       method: "POST",
-      headers:{
-        "content-type":"application/json"
+      headers: {
+        "content-type": "application/json",
       },
-      body:JSON.stringify(product)
-    })
+      body: JSON.stringify(product),
+    });
     console.log(res);
-    showModal(modalElem)
-
-
-  }catch(err){
+    showModal(modalElem);
+  } catch (err) {
     console.log(err);
   }
-  
-
-
-
 }
 
+async function showModal(modalElem) {
+  modalElem.classList.remove("opacity-0", "invisible");
+  modalElem.classList.add("opacity-1", "visible");
 
-async function showModal(modalElem){
-
-  modalElem.classList.remove("opacity-0", "invisible")
-  modalElem.classList.add("opacity-1", "visible")
-  
-  
-  setTimeout( async function(){
-    
-    modalElem.classList.add("opacity-0", "invisible")
-    
-
-  },2000)
+  setTimeout(async function () {
+    modalElem.classList.add("opacity-0", "invisible");
+  }, 2000);
 }
 
-
-export { singleProduct ,quantityHandler};
+export { singleProduct, quantityHandler };
